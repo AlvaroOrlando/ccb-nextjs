@@ -1,0 +1,176 @@
+:root{
+    --primary-gray: #e4e4e4;
+    --secondary-gray:#f7f7f7;
+    --primary-blue:#5281b1;
+    --secondary-blue:#02599a;
+    --primary-green:#11411a99;
+    --primary-red:#cd1012;
+    --primary-yellow:#f5f563;
+
+
+    --oswald: 'Oswald', sans-serif;
+    --open-sans:'Open Sans', sans-serif; 
+    --popppins:'Poppins', sans-serif;
+    --lucida: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #5281b1;
+    --bs-btn-border-color: #5281b1;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #0b5ed7;
+    --bs-btn-hover-border-color: #0a58ca;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #5281b1;
+    --bs-btn-disabled-border-color: #5281b1;
+}
+a{
+    text-decoration: none;
+}
+/* Utilização */
+    
+/* Ex: color: var( --primary-gray: #e4e4e4; ) */
+
+/* ------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+body{
+    background-color: var(--primary-gray);
+}
+
+p{
+margin-bottom: 0;
+}
+.participe-festival{
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    padding: 10px;
+}
+
+.painel-festival{
+    width: 100%;
+    font-size: 2rem;
+    background-color: var(--primary-gray);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.painel{
+    width: 100%;
+    font-size: 2rem;
+    background-color: var(--primary-yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+}
+
+
+.mainContainerGlobal{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 15px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.mainContainerGlobalStudio2{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+
+.titulosGlobal{
+    color: #cd1012;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    /* font-family: var(--oswald); */
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.titulosGlobal a{
+    color: #cd1012;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.subContainerGlobal{
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-gray);
+    /* font-family: var(--open-sans); */
+    font-size:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.subContainerGlobal{
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-gray);
+    font-family: var(--open-sans);
+    font-size:1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.subContainerGlobalAcompanhamento{
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-gray);
+    /* font-family: var(--open-sans); */
+    padding: 10px;
+}
+
+.linhaGlobal {
+    width: 100%; 
+    height: 1px; 
+    border-top: 1px solid #e6e6e6; 
+    margin-bottom:10px;
+    margin-top: 0px;
+}
+
+.subtitulosGlobal{
+    text-align:center;
+    color:var(--secondary-blue);
+    font-weight: bold;
+}
+
+
+.shadowBox{
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.4);
+    border-radius: 8px;
+}
