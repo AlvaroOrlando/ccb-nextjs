@@ -1,6 +1,9 @@
+import { MainContainer } from "@/styles/styles";
 
 export default function Home() {
+  
   return (
-    <h1 className="text-center">Home</h1>
+      <MainContainer>
+      </MainContainer>
   )
 }

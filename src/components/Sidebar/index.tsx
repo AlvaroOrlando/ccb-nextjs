@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import {  Accordion, Button, Form, Offcanvas } from "react-bootstrap";
 
-import styles from '../Header/header.module.css'
+import styles from '../Header/header.module.scss'
 
 import BuscaArtista from '../BuscaArtista';
 import Link from 'next/link';
@@ -20,7 +20,7 @@ export default function Sidebar({log}:SidebarProps){
     return (
       <>
         <a title="MENU">
-          <span onClick={handleShow} className={styles.menuMobile}>MENU</span>
+          <span onClick={handleShow} className={`${styles.menuMobile} ${styles.addBorder}`}>MENU</span>
         </a>
         
         <Offcanvas show={show} onHide={handleClose}>
@@ -45,7 +45,7 @@ export default function Sidebar({log}:SidebarProps){
                   </Link>
                 </Accordion.Item>
 
-                {/* festival */}
+                {/* Festival */}
                 <Accordion.Item eventKey='1' className="mt-3">
                   <Accordion.Header>
                     <div className='text-primary'>
@@ -56,12 +56,13 @@ export default function Sidebar({log}:SidebarProps){
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/festival">
                           <div>
                             Inscrições encerradas
                           </div>
                         </Link>
                       </li>
+                      
                       <li>
                         <Link onClick={handleClose} className={styles.dropItem} href="/festival/resultadoMusica">
                           <div>
@@ -137,7 +138,7 @@ export default function Sidebar({log}:SidebarProps){
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <div>
                             Registrar Música
                           </div>
@@ -145,7 +146,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <div>
                             Registrar Poesia
                           </div>
@@ -153,7 +154,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <div>
                             Registrar Livro
                           </div>
@@ -161,7 +162,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <div>
                             Registrar Roteiro
                           </div>
@@ -169,7 +170,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <div>
                             Registrar Trabalho
                           </div>
@@ -181,7 +182,7 @@ export default function Sidebar({log}:SidebarProps){
 
                 {/* ISRC */}
                 <Accordion.Item eventKey='4' className="mt-3">
-                  <Link onClick={handleClose} href="/isrc">
+                  <Link onClick={handleClose} href="/servicos/isrc">
                     <Accordion.Header>
                       <div className='text-primary'>ISRC</div>
                     </Accordion.Header>
@@ -199,7 +200,7 @@ export default function Sidebar({log}:SidebarProps){
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
                       <li>
-                        <Link onClick={handleClose}className={styles.dropItem} href="/estudio/gravar">
+                        <Link onClick={handleClose}className={styles.dropItem} href="/servicos/gravar">
                           <div>
                             Gravar no CCB
                           </div>
@@ -207,7 +208,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/estudio/melodia">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/melodia">
                           <div>
                             Confecção de melodia
                           </div>
@@ -242,7 +243,7 @@ export default function Sidebar({log}:SidebarProps){
 
                       {/* Pagamentos  */}
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/pagamentos">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/pagamentos">
                           <i className="fa-brands fa-amazon-pay"></i>
                           <div>
                             Pagamentos
@@ -252,7 +253,7 @@ export default function Sidebar({log}:SidebarProps){
 
                       {/* ISRC  */}
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/isrc">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/isrc">
                             <i className="fa-regular fa-copyright"></i>
                             <div>
                               Obter ISRC/ECAD
@@ -262,7 +263,7 @@ export default function Sidebar({log}:SidebarProps){
 
                       {/* Registro Obras  */}
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="registrar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
                           <i className="fa-solid fa-compact-disc"></i>
                           <div>
                               Registro de obras
@@ -272,7 +273,7 @@ export default function Sidebar({log}:SidebarProps){
 
                       {/* Estúdio  */}
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="estudio/gravar">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/gravar">
                           <i className="fa-solid fa-microphone-lines"></i>
                           <div className='text-primary'>
                             Gravar no Estúdio CCB
@@ -282,7 +283,7 @@ export default function Sidebar({log}:SidebarProps){
 
                       {/* Melodia  */}
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/estudio/melodia">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/melodia">
                           <i className="fa-solid fa-music"></i>
                           <div className='text-primary'>
                             Confecção de melodia
@@ -294,7 +295,7 @@ export default function Sidebar({log}:SidebarProps){
                       {
                         log &&
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/fotoPerfil">
+                        <Link onClick={handleClose} className={styles.dropItem} href="/salaVip/fotoPerfil">
                           <i className="fa-regular fa-images"></i>
                           <div>
                             Enviar Foto Perfil
@@ -307,7 +308,7 @@ export default function Sidebar({log}:SidebarProps){
                       {
                         log === false &&
                         <li>
-                          <Link onClick={handleClose} className={styles.dropItem} href="/reativar">
+                          <Link onClick={handleClose} className={styles.dropItem} href="/servicos/reativar">
                             <i className="fa-solid fa-toggle-on"></i>
                             <div>
                               Reativar Conta
@@ -366,7 +367,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className="drop-item" href="/radioOnline">
+                        <Link onClick={handleClose} className="drop-item" href="/radio/radioOnline">
                           <i className="fa-solid fa-radio"></i>
                           <div>
                               Rádio Online
@@ -375,7 +376,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className="drop-item" href="/radioGospel">
+                        <Link onClick={handleClose} className="drop-item" href="/radio/radioGospel">
                           <i className="fa-solid fa-radio"></i>
                           <div>
                               Rádio Gospel
@@ -422,7 +423,7 @@ export default function Sidebar({log}:SidebarProps){
                       </li>
 
                       <li>
-                        <Link onClick={handleClose} className="drop-item" href="ajuda/comporUmaMusica">
+                        <Link onClick={handleClose} className="drop-item" href="/ajuda/comporUmaMusica">
                           <div>
                               Compor Uma Música
                           </div>
@@ -459,7 +460,7 @@ export default function Sidebar({log}:SidebarProps){
 
                 {/* Pagamentos */}
                 <Accordion.Item eventKey='10' className="mt-3">
-                  <Link onClick={handleClose} href="/pagamentos">
+                  <Link onClick={handleClose} href="/servicos/pagamentos">
                     <Accordion.Header>
                       <div className='text-primary'>
                         Pagamentos

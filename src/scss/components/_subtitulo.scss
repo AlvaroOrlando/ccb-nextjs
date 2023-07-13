@@ -1,0 +1,7 @@
+@use '../abstracts/' as *;
+
+.subtitulo{
+    text-align:center;
+    color:$secondary-blue;
+    font-weight: bold;
+}

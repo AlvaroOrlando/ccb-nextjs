@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: $primary-gray;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+h1{
+    margin-bottom: 0px;
+}

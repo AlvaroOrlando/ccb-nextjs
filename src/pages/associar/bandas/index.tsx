@@ -1,5 +1,16 @@
+
+import Crumb from "@/components/Crumb";
+import { MainContainer } from "@/styles/styles";
+
+
 export default function AssociarBandas(){
     return (
-        <h1>Associar Bandas</h1>
+        <>
+        <Crumb />
+        <MainContainer>
+          <h1>Associar Bandas</h1>
+        </MainContainer>
+      </>
     )
 }
+

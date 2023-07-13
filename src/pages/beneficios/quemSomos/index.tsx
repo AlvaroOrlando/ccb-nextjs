@@ -1,5 +1,13 @@
+import Crumb from "@/components/Crumb";
+import { MainContainer } from "@/styles/styles";
+
 export default function QuemSomos(){
     return (
-        <h1>Quem Somos</h1>
+        <>
+            <Crumb />
+            <MainContainer>
+                <h1>Página Quem Somos</h1>
+            </MainContainer>
+        </>
     )
 }

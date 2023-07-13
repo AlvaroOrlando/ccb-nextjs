@@ -1,5 +1,13 @@
+import Crumb from "@/components/Crumb";
+import { MainContainer } from "@/styles/styles";
+
 export default function CarteiraCompositor(){
     return (
-        <h1>Carteira de Compositor</h1>
+        <>
+            <Crumb />
+            <MainContainer>
+                <h1>Página Carteira Compositor</h1>
+            </MainContainer>
+        </>
     )
 }

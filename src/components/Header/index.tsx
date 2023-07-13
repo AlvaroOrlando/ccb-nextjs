@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from '../Header/header.module.css'
+import styles from '../Header/header.module.scss'
 
 import logo from '../../assets/images/logo_res_mod.png'
 import salaVipBarra from '../../assets/images/salavipnabarra.png'
@@ -13,11 +13,11 @@ import { useRouter } from 'next/router'
 
 import { useState } from 'react'
 
-import { Nav } from 'react-bootstrap'
+import { Dropdown, Nav, NavItem } from 'react-bootstrap'
 
 
 export default function Header(){
-  const usuario = `Percy`
+  const usuario = `Alvaro Orlando`
 
   const { push, pathname } = useRouter();
 
@@ -34,253 +34,268 @@ export default function Header(){
   
 
     return (
-        <header className={styles.navbarContainer}>
+        <header className={styles.header}>
 
             {/* Top Navbar  */}
-            <Nav className={styles.topNav}>
+            <Nav as='nav' className={styles.topNav}>
 
               {/* Logo */}
-              <Nav.Item className={styles.logo}>
+              <Nav.Item as='section'>
                 <Link href="/">
                   <img src={logo.src} alt="logo" />
                 </Link>
               </Nav.Item>
               
               {/* Busca Artista */}
-              <Nav.Item>
+              <Nav.Item as='section'> 
                 <BuscaArtista 
-                  inputSearch={styles.inputSearch}
                   searchBox={styles.searchBox}
                 />
               </Nav.Item>
 
-              {/* Whatsapp/ */}
-              <Nav.Item>
+              {/* Whatsapp/Vip-Desktop */}
+              <Nav.Item data-title='whatsappContainer' as='section'>
                 {
                   log === false ?
-                  <Link className={styles.whatsappLink} href="https://contate.me/clubedoscompositores">
-                    <div className={styles.whatsappHeader}>
+                  <Link data-title='whatsapp' href="https://contate.me/clubedoscompositores">
+                    <section>
                       <p><span>(013) 99748-7065</span></p>
                       <p>WhatsApp do CCB</p>
-                    </div>
+                    </section>
                   </Link> :
 
-                  // Logado Outras Páginas 
-                  <div className={styles.vipDesktop}>
-                    <div className={styles.vipText}>
-                      <p>Olá, <span>{`${usuario}`},</span><br /> você está logado(a) no CCB!</p>
-                    </div>
+                  // Logado 
+                  <div data-title='vip-desktop'>
+                    <section>
+                      <p>Olá, <span>{`${usuario}`},</span></p>
+                      <p>você está logado(a) no CCB!</p>
+                    </section>
                   </div>
               }
               </Nav.Item>
 
               {/* Login / MENU */}
-              <Nav.Item className={styles.rightTopNavItemContainer}>
+              <Nav.Item data-title='loginMenu' as='section'>
                 
                 <LoginModal
                   handleLogin={handleLogin}
                   handleLogoff={handleLogoff}
                   log={log}
-                  />
+                />
 
                 {/* Menu  */}
-                <div className={`${styles.menu} ${styles.flexCenter} ${styles.addBorder}`}>
+                <div className={styles.menu}>
                   <Sidebar log={log}/>
                 </div>
               </Nav.Item>
             </Nav>
 
             {/* Bottom Navbar  */}
-            <Nav className={styles.bottomNav}>
+            <Nav as='nav' className={styles.bottomNav}>
 
-                {/* ASSOCIAR  */}
-              <Nav.Item>
               {
                 log === false ?
-                <div className={styles.ddItems}>
-                  <a 
-                    className={`dropdown-toggle ${styles.ddLinks}`}
-                    title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Associar
-                  </a>
 
-                  <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="registrar">
-                    <Link href="/associar/compositores" className="dropdown-item" type="button">Compositores</Link>
-                    <Link href="/associar/bandas" className="dropdown-item" type="button">Bandas</Link>
-                    <Link href="/associar/cantores" className="dropdown-item" type="button">Cantores e Duplas</Link>
-                  </div>
-                </div>
+                // Associar
+                <Nav.Item as='section'>
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      as="a"
+                      title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
+                    >
+                    Associar
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu className={styles.dropdownMenu}>
+                      <Dropdown.Item as={Link} href="/associar/compositores">Compositores</Dropdown.Item>
+                      <Dropdown.Item as={Link} href="/associar/bandas">Bandas</Dropdown.Item>
+                      <Dropdown.Item as={Link} href="/associar/cantores">Cantores e Duplas</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Nav.Item>
 
                 // Home
               : pathname === '/salaVip' ?
               
-                <div className={styles.ddItems}>
+                <NavItem as='section'>
                   <Link href="/">Home</Link>
-                </div>
+                </NavItem>
 
               :
-
-                // Gif SalaVip
+              // Sala Vip
+              <Nav.Item as='section'>
                 <Link className={styles.gifSalaVip} href="/salaVip">
                   <img src={salaVipBarra.src} alt="sala vip" />
                 </Link>
-              }
               </Nav.Item>
+              }
 
                 {/* REGISTRAR  */}
-              <Nav.Item  id={styles.registrar} className={styles.ddItems}>
-                <a className={`dropdown-toggle ${styles.ddLinks}`}
-                  title="Clique aqui para Registrar e Editar músicas, Letras e Poesias. CCB - Mais de 280 mil músicas registradas em 22 anos! Proteja seus Direitos Autorais"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Registrar Música
-                </a>
-                <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="registrar">
-                  <Link href="/registrar" className="dropdown-item" type="button">Registrar Música</Link>
-                  <Link href="/registrar" className="dropdown-item" type="button">Registrar Poesia</Link>
-                  <Link href="/registrar" className="dropdown-item" type="button">Registrar Livro</Link>
-                  <Link href="/registrar" className="dropdown-item" type="button">Registrar Roteiro</Link>
-                  <Link href="/registrar" className="dropdown-item" type="button">Registrar Trabalho</Link>
-                </div>
+              <Nav.Item as='section' id={styles.registrar}>
+                <Dropdown>
+                  <Dropdown.Toggle as="a"
+                    title="Clique aqui para Registrar e Editar músicas, Letras e Poesias. CCB - Mais de 280 mil músicas registradas em 22 anos! Proteja seus Direitos Autorais"
+                  >
+                    Registrar Música
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Música</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Poesia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Livro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Roteiro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Trabalho</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav.Item>   
 
                 {/* ISRC/ECAD  */}
-              <Nav.Item id={styles.ecad} className={styles.ddItems}>
+              <Nav.Item as='section' id={styles.ecad}>
                 <Link 
-                
-                  href="/isrc" 
+                  href="/servicos/isrc" 
                   title="Clique aqui para Gerar o Código ISRC junto ao ECAD. O ECAD irá controlar a execução e o pagamento dos Direitos Autorais de suas músicas"
                   >ISRC/ECAD
                 </Link>
               </Nav.Item>
 
                 {/* Estúdio  */}
-              <Nav.Item  id={styles.studio} className={styles.ddItems}>
-                <a 
-                  className={`dropdown-toggle ${styles.ddLinks}`}
-                  title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Estúdio
-                </a>
-                <div className={`${styles.dropdownMenu} dropdown-menu`} aria-labelledby="studio">
-                  <Link href="/estudio/gravar" className="dropdown-item" type="button">Gravar no Estúdio CCB</Link>
-                  <Link href="/estudio/melodia" className="dropdown-item" type="button">Confecção de Melodia</Link>
-                </div>
+              <Nav.Item as='section'  id={styles.studio}>
+                <Dropdown>
+                  <Dropdown.Toggle 
+                    as="a"
+                    title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
+                  >
+                    Estúdio
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href="/servicos/gravar">Gravar no Estúdio CCB</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/melodia">Confecção de Melodia</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav.Item>
 
                 {/* SERVIÇOS  */}
-              <Nav.Item id={styles.services} className={styles.ddItems}>
-                <a 
-                  className={`dropdown-toggle ${styles.ddLinks}`}
-                  title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Serviços
-                </a>
+              <Nav.Item as='section' id={styles.services}>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    as="a"
+                    title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
+                  >
+                    Serviços
+                  </Dropdown.Toggle>
 
-                <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="services">
+                  <Dropdown.Menu className={styles.dropdownMenu}>
 
-                  {
-                    log &&
-                    <Link href="/salaVip" className="dropdown-item" type="button">Acessar Área VIP</Link>
-                  }
+                    {
+                      log &&
+                      <Dropdown.Item as={Link} href="/salaVip">Acessar Área VIP</Dropdown.Item>
+                    }
 
-                  
-                  <Link href="/isrc" className="dropdown-item" type="button">ISRC/ECAD</Link>
-                  <Link href="/estudio/gravar" className="dropdown-item" type="button">Gravar Estúdio CCB</Link>
-                  <Link href="/estudio/melodia" className="dropdown-item" type="button">Confecção de Melodia</Link>
-                  <Link href="/pagamentos" className="dropdown-item" type="button">Pagamentos</Link>
+                    <Dropdown.Item as={Link} href="/servicos/isrc">ISRC/ECAD</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/gravar">Gravar Estúdio CCB</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/melodia">Confecção de Melodia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/pagamentos">Pagamentos</Dropdown.Item>
 
-                  {
-                    log &&
-                    <Link  href="/fotoPerfil" className="dropdown-item" type="button">Enviar Foto Perfil</Link>
-                  }
+                    {
+                      log ?
+                      <Dropdown.Item as={Link}  href="/salaVip/fotoPerfil">Enviar Foto Perfil</Dropdown.Item>
+                      :
+                      <Dropdown.Item as={Link}  href="/servicos/reativar">Reativar Conta</Dropdown.Item>
+                    }
 
-                </div>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav.Item>
 
                 {/* BENEFÍCIOS  */}
-              <Nav.Item id={styles.beneficios} className={styles.ddItems} >
-                <a 
-                  className={`dropdown-toggle ${styles.ddLinks}`} 
-                  data-bs-toggle="dropdown" 
-                  aria-haspopup="true" 
-                  aria-expanded="false">
-                  Benefícios
-                </a>
-                <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="beneficios">
-                  <Link href="/beneficios/quemSomos" className="dropdown-item" type="button">Quem Somos</Link>
-                  <Link href="/beneficios/carteiraCompositor" className="dropdown-item" type="button">Carteira de Compositor</Link>
-                  <Link href="/beneficios/divulgacao" className="dropdown-item" type="button">Divulgação</Link>
-                  <Link href="/beneficios/ccbMusicPlataforma" className="dropdown-item" type="button">CCB Music Plataforma</Link>
-                  <Link href="/radioOnline" className="dropdown-item" type="button">Rádio Online</Link>
-                  <Link href="/radioGospel" className="dropdown-item" type="button">Rádio Gospel</Link>
-                  <Link href="/programaRecompensas" className="dropdown-item" type="button">Programa de Recompensas</Link>
-                </div>
+              <Nav.Item as='section' id={styles.beneficios} >
+                <Dropdown>
+                  <Dropdown.Toggle 
+                    as="a"
+                    title='Conheça os benefícios de ser um associado CCB'
+                  >
+                    Benefícios
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href="/beneficios/quemSomos">Quem Somos</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/beneficios/carteiraCompositor">Carteira de Compositor</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/beneficios/divulgacao">Divulgação</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/beneficios/ccbMusicPlataforma">CCB Music Plataforma</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/radio/radioOnline">Rádio Online</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/radio/radioGospel">Rádio Gospel</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/beneficios/programaRecompensas">Programa de Recompensas</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav.Item>
 
                 {/* COLETÂNEA  */}
-              <div id={styles.colet} className={styles.ddItems}>
-                <Link
-                  href="/coletanea"
-                
-                >
-                Coletânea
-                </Link>
-                  <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="services">
-                  <Link href="#" className="dropdown-item" type="button">Como Participar</Link>
-                </div> 
-              </div>
+              <Nav.Item as='section' id={styles.colet}>
+                <Dropdown>
+                  <Dropdown.Toggle as="a">
+                    Coletânea
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href="/coletanea">Como Participar</Dropdown.Item>
+                  </Dropdown.Menu> 
+                </Dropdown>
+              </Nav.Item>
             
                 {/* PAGAMENTOS  */}
-              <Nav.Item id={styles.pay} className={styles.ddItems}>
-                <Link href="/pagamentos"
-                 
-                >Pagamentos
+              <Nav.Item as='section' id={styles.pay}>
+                <Link href="/servicos/pagamentos">
+                  Pagamentos
                 </Link>
               </Nav.Item>
                 
                 {/* Festivais  */}
-              <Nav.Item id={styles.festivals} className={styles.ddItems}>
-                <a 
-                  className={`dropdown-toggle ${styles.ddLinks}`}
-                  title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Festivais
-                </a>
-                <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="festivals">
-                  <Link href="" className="dropdown-item" type="button">Inscrições encerradas!</Link>
-                  <Link href="/festival/resultadoMusica" className="dropdown-item" type="button">Resultado Música 2023</Link>
-                  <Link href="/festival/resultadoPoesia" className="dropdown-item" type="button">Resultado Poesia 2023</Link>
-                  <Link href="/festival/resultadosAnteriores" className="dropdown-item" type="button">Resultados Anteriores</Link>
-                </div>
-              </Nav.Item>
+              <Nav.Item as='section' id={styles.festivals}>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    as="a" 
+                    title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
+                  >
+                    Festivais
+                  </Dropdown.Toggle>
 
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href=''>Inscrições encerradas!</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/festival/resultadoMusica">Resultado Música 2023</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/festival/resultadoPoesia">Resultado Poesia 2023</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/festival/resultadosAnteriores">Resultados Anteriores</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Nav.Item>
               
                 {/* ATENDIMENTO  */}
-              <Nav.Item id={styles.whatsapp} className={styles.ddItems}>
+              <Nav.Item as='section' id={styles.whatsapp}>
                 <Link 
-                href="https://contate.me/clubedoscompositores" 
-              
-                title="Contate-nos pelo WhatsApp!"
-                >Atendimento
+                  href="https://contate.me/clubedoscompositores" 
+                  title="Contate-nos pelo WhatsApp!"
+                >
+                  Atendimento
                 </Link>
               </Nav.Item>
 
                 {/* AJUDA  */}
-              <Nav.Item  id={styles.help} className={styles.ddItems}>
-                <a 
-                  className={`dropdown-toggle ${styles.ddLinks}`}
-                  title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
-                  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Ajuda
-                </a>
-                <div className={`${styles.dropdownMenu} dropdown-menu`}  aria-labelledby="help">
-                  <Link href="/ajuda/ajudaGeral" className="dropdown-item" type="button">Ajuda Geral</Link>
-                  <Link href="/ajuda/tocarNaRadio" className="dropdown-item" type="button">Tocar na Rádio</Link>
-                  <Link href="/ajuda/comporUmaMusica" className="dropdown-item" type="button">Compor Uma Música</Link>
-                  <Link href="/ajuda/gravadoras" className="dropdown-item" type="button">Gravadoras</Link>
-                  <Link href="/ajuda/direitosAutorais" className="dropdown-item" type="button">Direitos Autorais</Link>
-                </div>
+              <Nav.Item as='section' id={styles.help}>
+                <Dropdown>
+                  <Dropdown.Toggle 
+                    as="a"
+                    title="Clique aqui para se Associar ao CCB e começar um trabalho de divulgação na mídia"
+                  >
+                    Ajuda
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu className={styles.dropdownMenu}>
+                    <Dropdown.Item as={Link} href="/ajuda/ajudaGeral">Ajuda Geral</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/ajuda/tocarNaRadio">Tocar na Rádio</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/ajuda/comporUmaMusica">Compor Uma Música</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/ajuda/gravadoras">Gravadoras</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/ajuda/direitosAutorais">Direitos Autorais</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav.Item>  
                       
             </Nav>

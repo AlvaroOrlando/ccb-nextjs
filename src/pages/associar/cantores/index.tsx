@@ -1,5 +1,13 @@
+import Crumb from "@/components/Crumb";
+import { MainContainer } from "@/styles/styles";
+
 export default function AssociarCantores(){
     return (
-        <h1>Associar Duplas e Cantores</h1>
+        <>
+            <Crumb />
+            <MainContainer>
+                <h1>Associar Cantores</h1>
+            </MainContainer>
+        </>
     )
 }

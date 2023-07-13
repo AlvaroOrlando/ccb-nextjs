@@ -1,0 +1,33 @@
+@use '../abstracts' as *;
+ 
+
+.accordion {
+    ol {
+        padding: 20px;
+        margin: 0px;
+
+        li {
+            padding: 5px 0;
+        }
+    }
+
+    h2, h4 {
+        color: $secondary-blue;
+    }
+
+}
+
+#matriculaAjuda{
+    margin-bottom: 0px;
+}
+
+// lowerLatin
+.olAbc{
+  list-style-type: lower-latin;
+}
+
+// upperRoman
+.olRoman{
+  list-style-type: upper-roman;
+}
+

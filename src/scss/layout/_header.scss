@@ -1,0 +1,268 @@
+@use '../abstracts/' as *;
+ .header {
+    border: 8px solid $white;
+    border-top: 0px;
+    border-bottom: 0px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+ }
+
+//TOP NAV
+
+.topNav {
+
+    @include flex-between-row;
+
+    padding: .6rem;
+    padding-right: 0px;
+
+    background-color: $white;
+
+
+    .searchBox {
+        display:none;
+    }
+
+    & [data-title='loginMenu']{
+        @include flex-center-row;
+        height: 40px;
+
+        .menu {
+            margin-right: 10px;
+            border-top:.5px solid $dark-gray;
+            border-bottom: .5px solid $dark-gray;
+
+            a :hover {
+                cursor: pointer;
+            }
+
+            span {
+                font-size: 1.2rem;
+            }
+        }
+
+        .login{
+            display:none;
+        }
+    }
+
+    & [data-title='whatsappContainer']{
+        display: none;
+    }
+
+}
+
+
+//Sidebar
+.sidebarItem {
+    padding: 0;
+
+    @include flex-start-column;
+
+    gap: 0rem;
+
+    margin-bottom: 0px;
+
+    li {
+        list-style-type: none;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+    
+        &:hover{
+            background-color: $primary-gray;
+        }
+    }
+}
+
+
+// BOTTON NAV 
+.bottomNav {
+    background-color:$primary-blue; 
+    width: 100%;
+    max-width:1200px;
+
+    @include flex-around-row;
+
+    font-family: $oswald;
+    font-weight: 300;
+
+    margin: 0 auto;
+
+    a {
+        color: $white;
+        cursor: pointer;
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    // Nav Items
+    section {
+        padding: 10px 0px;
+        font-size: 0.8rem;
+    }
+
+    // Gif Sala Vip
+    img {
+        width: 46px;
+    }
+}
+
+// Gif Sala Vip Logado 
+.dropdownMenu {
+    background-color:$secondary-blue;
+    color: $white;
+    line-height: 25px; 
+    padding: 0px;
+
+    & a{
+        padding-left: 15px;
+        padding-right: 15px;
+        font-weight: 300;
+    }
+
+    & a:hover{
+      background-color:$hover-green;
+      color: $white;
+      transition: all ease-in-out .2s;
+    }
+}
+
+#help, #services, #beneficios, #colet, #pay, #festivals, #whatsapp {
+    display:none;
+}
+
+// Media Queries
+@media(min-width:414px){
+    .topNav{
+        & [data-title='loginMenu']{
+            .login {
+                display: flex;
+        
+                font-size: 1.6rem;
+                border-right: 1px solid $primary-gray;
+                margin-right: 15px;
+        
+                img {
+                    width: 46px;
+                }
+        
+                button { 
+                    @include flex-center-row;
+        
+                    background-color: transparent;
+                    border:none;  
+        
+                    span{
+                    font-size: 1rem;
+                    color:$dark-gray;
+                    }
+                }
+            }
+        }
+    }
+    
+    .bottomNav {
+        section {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media(min-width:540px){
+    
+    #ecad, #studio{
+        display:block;
+    }
+   
+}
+
+@media(min-width:691px){
+   #services, #pay{
+        display:block;
+    }
+    
+    .topNav{
+
+        .searchBox{
+            display: flex;
+            
+            position: relative;
+            width:fit-content;
+            height:fit-content ;
+        
+            letter-spacing: 2px;
+            width:35vw;
+            max-width:375px;
+        }
+    }
+    
+}
+
+@media(min-width:992px){
+
+    .topNav{
+
+        & [data-title='whatsappContainer']{
+            display: flex;
+
+            & [data-title='whatsapp']{
+
+                section {
+                    @include flex-center-column;
+                }
+
+                p {
+                    color:$dark-gray;
+                    font-size: .8rem;
+                    margin:0;
+    
+                    span {
+                        font-size: 1rem;
+                        color: $primary-blue;
+    
+                        &:hover {
+                            opacity:  0.8;
+                        }
+                    }
+                }
+            }
+
+            & [data-title='vip-desktop'] {
+                height: calc(80% - 2px);
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+                padding: 2px;
+                
+                section {
+                    @include flex-center-column;
+                    height: 100%;
+
+                    margin: 0px;
+                    padding: 0px 5px;
+                    line-height: 18px;
+                    
+                    p {
+                        font-size: .8rem;
+                        height: 100%;
+                    }
+
+                    span {
+                        font-size: .9rem;
+                        font-weight: bold;
+                        color:$primary-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(min-width:1200px){
+    #ecad, #studio,#services,#beneficios, #colet, #pay, #festivals, #help{
+        display:block;
+    }
+}

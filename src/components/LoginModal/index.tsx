@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Button, Form, Modal, ModalTitle } from "react-bootstrap";
+import { Button, Form, Modal } from "react-bootstrap";
 import loginImg from '../../assets/images/login.png'
 import React, { useEffect, useState } from "react";
-import styles from '../Header/header.module.css'
+import styles from '../Header/header.module.scss'
 import Link from "next/link";
-import { redirect } from 'next/navigation';
 import { useRouter } from "next/router";
 
 // interface LoginModalProps {
@@ -62,7 +61,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
           title="Login" 
           onClick={handleShow}
          >
-          <span>ENTRAR</span>
+          <span>LOGIN</span>
           <img src={loginImg.src} alt="" />
         </button>
         :
@@ -108,14 +107,14 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
               {/* Forgot Password */}
               <div className="row mb-4">
                 <div className="col d-flex justify-content-center">
-                  <Link onClick={handleClose} href="/senha/esqueci">Esqueci a senha.</Link>
+                  <Link onClick={handleClose} href="/salaVip/recuperacaoSenha">Esqueci a senha.</Link>
                 </div>
               </div>
         
               {/* Submit button  */}
               <div className="col d-flex justify-content-center">
-                <Button id="sub-btn" type="submit" variant="primary" className="btn-block mb-4 btn-md w-50">
-                  Entrar
+                <Button id="sub-btn" type="submit" variant="primary" className="btn-block mb-4 btn-md w-50 text-white">
+                  Login
                 </Button>
               </div>
             </Form>
