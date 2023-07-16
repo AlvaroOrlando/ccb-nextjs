@@ -47,14 +47,6 @@
     justify-content: flex-start;
 }
 
-
-@mixin footer {
-    @include flex-center-column;
-		gap:.5rem;
-		padding: 5px;
-		width: 100%;
-}
-
 @mixin minHeight {
     @include flex-center-column;
     min-height: calc(100vh - 330px);

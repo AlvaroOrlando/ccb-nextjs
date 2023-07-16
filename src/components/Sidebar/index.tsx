@@ -19,8 +19,8 @@ export default function Sidebar({log}:SidebarProps){
 
     return (
       <>
-        <a title="MENU">
-          <span onClick={handleShow} className={`${styles.menuMobile} ${styles.addBorder}`}>MENU</span>
+        <a title="MENU" onClick={handleShow} >
+          MENU
         </a>
         
         <Offcanvas show={show} onHide={handleClose}>

@@ -1,18 +1,24 @@
-// import styles from './painel.module.scss'
-import { PainelContainer, PainelVariant } from './styles'
+import { PainelContainer } from './styles'
+import { PainelVariant } from './styles'
 
-interface PainelProps {
+import { Bebas_Neue } from 'next/font/google'
+
+interface PainelProps  {
     content:string
     variant:PainelVariant
 }
 
-export default function Painel({content,variant}:PainelProps){
+
+const bebas = Bebas_Neue({ 
+    subsets: ['latin'],
+    weight:'400' 
+  })
+
+export default function Painel({content, variant}:PainelProps){
     return (
-        <>
-            <PainelContainer variant={variant}>
+            <PainelContainer variant={variant} className={`${bebas.className} painelContainer`}>
                 <h1 className="text-center">{content}</h1>
             </PainelContainer>
-        </>
     )
 }
 

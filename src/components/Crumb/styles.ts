@@ -5,7 +5,6 @@ export const CrumbContainer = styled.form`
     max-width:1200px;
     margin: 0 auto;
     padding: 1rem;
-    paddin-bottom:0px;
     background-color: ${props => props.theme['secondaryGray']};
     font-size:1.6rem;
     border: 8px solid ${props => props.theme['white']};
@@ -23,3 +22,4 @@ export const CrumbContainer = styled.form`
     }
 
 `
+

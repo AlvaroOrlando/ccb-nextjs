@@ -11,6 +11,5 @@ export const TextoIsrc = styled.div`
 
     & h2 {
          color: ${props => props.theme['secondaryBlue']};
-        // text-align: center;  
     }
 `

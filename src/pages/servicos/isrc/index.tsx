@@ -3,16 +3,17 @@ import Painel from "@/components/Painel";
 import { MainContainer, PainelSection, PainelSectionContainer, VideoContainer } from "@/styles/styles";
 import { TextoIsrc } from './styles'
 import Crumb from '@/components/Crumb';
-import { useRouter } from 'next/router';
+ 
+
 
 export default function Isrc(){
     return (
         <>
-            <Crumb  />
+            <Crumb />
 
-            <MainContainer>
+            <MainContainer >
                 <PainelSectionContainer>
-                  <Painel variant="yellow" content="PAINEL DO ISRC"/>
+                  <Painel variant='yellow' content="PAINEL DO ISRC" />
                   <PainelSection>
 
                     <IsrcForm />

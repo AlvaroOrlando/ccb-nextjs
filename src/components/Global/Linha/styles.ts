@@ -5,6 +5,6 @@ export const HrContainer = styled.div`
     color:${props => props.theme['darkgray']};
 
     hr {
-        margin:0.4rem 0px;
+        margin:0.2rem 0px;
     }
 `

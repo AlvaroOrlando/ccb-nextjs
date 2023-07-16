@@ -1,32 +1,36 @@
-import { flexCenterColumn, flexCenterRow } from "@/styles/mixins";
-import { styled } from "styled-components";
 
-export const IsrcFormContainer = styled.form`
+import { styled } from "styled-components";
+import { FlexCenterRow, flexCenterColumn } from "@/styles/mixins";
+
+
+export const IsrcButtonContainer = styled(FlexCenterRow)`
+    width:100%;
+    gap: 10px;
+
+    button {
+        width: 50%;
+    }
+`
+
+export const IsrcFormContainer = styled(flexCenterColumn)`
     width: 100%;
     padding-bottom:1rem;
 
-    ${flexCenterColumn}
-
     section {
-        ${flexCenterColumn}
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         max-width: 600px;
-
-        section {
-            display: flex;
-            flex-direction: row;
-            width:100%;
-            gap: 10px;
-
-            button {
-                width: 50%;
-            }
-        }
     }
 `
+
 export const Taxas = styled.div`
-    ${flexCenterRow}
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 
     width:100%;
     font-size: clamp(.8rem, 3.5vw, 1.4rem);
