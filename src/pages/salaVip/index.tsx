@@ -1,13 +1,24 @@
 import Crumb from "@/components/Crumb";
-import { MainContainer } from "@/styles/styles";
+import { useEffect } from "react";
+
+import { useRouter } from "next/navigation";
+import { useGlobalContext } from "@/Context/GlobalContextProvider";
 
 export default function SalaVip(){
+
+    const { log } = useGlobalContext()
+    const { push } = useRouter()
+    
+    useEffect(()=>{
+        !log && push('/')
+    },[log, push])
+
     return (
         <>
-            <Crumb href="salaVip" pag1="Sala Vip"  />
-            <MainContainer>
+            <Crumb />
+            <section className="MainContainer">
                 <h1>Sala VIP </h1>
-            </MainContainer>
+            </section>
         </>
     )
 }

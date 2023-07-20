@@ -1,0 +1,15 @@
+@use "../../abstracts/" as *;
+
+.TextoIsrc {
+    padding: 15px;
+    width: 100%;
+
+    & p {
+        width: 100%;
+        text-align:justify;
+    }
+
+    & h2 {
+         color: $secondary-blue;
+    }
+}

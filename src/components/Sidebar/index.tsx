@@ -7,6 +7,8 @@ import styles from '../Header/header.module.scss'
 import BuscaArtista from '../BuscaArtista';
 import Link from 'next/link';
 
+import { useGlobalContext } from '@/Context/GlobalContextProvider'
+
 interface SidebarProps {
   log:boolean
 }
@@ -16,6 +18,7 @@ export default function Sidebar({log}:SidebarProps){
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
     return (
       <>

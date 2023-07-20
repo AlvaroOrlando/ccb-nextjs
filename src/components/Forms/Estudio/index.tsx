@@ -1,11 +1,11 @@
 import Input from "@/components/Global/Input";
 import Button from "@/components/Global/Button";
 
-import { EstudioFormContainer } from "./styles";
+import styles from "./estudioForm.module.scss"
 
   export default function EstudioForm(){
     return (
-        <EstudioFormContainer>
+        <form className={styles.EstudioFormContainer}>
             <section className="w-100 mt-4">
                 <Input placeholder="Digite seu CPF" />
                 <section className="mt-3">
@@ -13,7 +13,7 @@ import { EstudioFormContainer } from "./styles";
                     <Button type="button" variant="primary" value="Acompanhar" />
                 </section>
             </section>
-        </EstudioFormContainer>
+        </form>
     )
   }       
          

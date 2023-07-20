@@ -1,0 +1,77 @@
+@use '../../abstracts/' as *;
+
+.EstudioContainer {
+    width:100%;
+    @include flex-center-column;
+
+     figure {
+        margin-top: 1rem;
+
+        img {
+           width:100%;
+        }
+
+        figcaption {
+            font-weight:300;
+        }
+    }
+}
+
+.TabelaContainer{
+    width:100%;
+    @include flex-center-column;
+
+    a {
+        text-decoration: underline;
+    }
+
+    table {
+        max-width: 800px;
+        margin-top: 1rem;
+
+        tr, td, th {
+            vertical-align: middle;
+        }
+    }
+}
+
+.Container800 {
+    width:100%;
+    max-width:800px;
+    margin-top:1rem;
+}
+
+.StudioService {
+
+
+    h1 {
+        font-weight: bold;
+        font-size: 1.3rem;
+        border: 1px solid $primary-gray;
+        padding:1rem;
+    }
+
+    section {
+        border: 1px solid $primary-gray;
+        border-top: none;
+        padding: 1rem;
+
+
+        ul {
+            margin-left: 0px;
+            padding-left: 0px;
+
+            li {
+                list-style-type: none;
+            }
+        }
+    }
+}
+
+.StudioImgContainer {
+    h1 {
+        text-align:center;
+        color: $secondary-blue;
+        font-size:1.6rem;
+    }
+}

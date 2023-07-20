@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+
+.crumbContainer {
+    width:100%;
+    max-width:1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: $secondary-gray;
+    font-size:1.6rem;
+    border: 8px solid $white;
+    border-top:none;
+    border-bottom:none;
+
+
+    a {
+        color: $primary-red;
+        text-decoration: underline; 
+    }
+
+    ol {
+        margin:0px;
+    }
+}
+

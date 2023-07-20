@@ -12,7 +12,7 @@ export default function Input({rows, cols, maxLength, ...props}:InputProps){
            {...props} 
            rows={rows} 
            cols={cols} 
-           maxlength={maxLength}
+           maxLength={maxLength}
         />
     )
 }

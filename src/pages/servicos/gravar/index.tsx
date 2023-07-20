@@ -5,14 +5,12 @@ import Link from "next/link";
 import EstudioForm from "@/components/Forms/Estudio";
 import Painel from "@/components/Painel";
 
-
-import { Container800, EstudioContainer, StudioImgContainer, StudioService, TabelaContainer } from "./styles";
-
 import capaEstudio from '../../../assets/images/capa_estudio.jpg';
 import { Table } from "react-bootstrap";
 import ReactAudioPlayer from 'react-audio-player';
-import { MainContainer, PainelSection, PainelSectionContainer } from "@/styles/styles";
 import Crumb from "@/components/Crumb";
+
+import styles from "./gravar.module.scss"
 
 export default function EstudioGravar(){
 
@@ -20,9 +18,9 @@ export default function EstudioGravar(){
     return (
         <>
           <Crumb  />
-          <MainContainer>
-            <EstudioContainer>
-              <StudioImgContainer>
+          <section className="MainContainer">
+            <div className={styles.EstudioContainer}>
+              <div className={styles.StudioImgContainer}>
                 <h1>Arranjos e Gravações - Grave a sua música com profissionais!</h1>
                 <figure>
                   <img src={capaEstudio.src} alt="" />
@@ -31,9 +29,9 @@ export default function EstudioGravar(){
                     preços mais baixos, mas com instrumentos MIDI, simulados por teclado, e com qualidade muito inferior.
                   </figcaption>
                 </figure>
-              </StudioImgContainer>
+              </div>
 
-              <TabelaContainer className="tabela-studio mt-3">
+              <div className={`${styles.TabelaContainer}tabela-studio mt-3`}>
                 <Link href="https://www.clubedoscompositores.com.br/estudio/estudioprecos.htm">
                   Tabela de preços
                 </Link>
@@ -146,24 +144,24 @@ export default function EstudioGravar(){
                   autoPlay
                   controls
                 />
-              </TabelaContainer>
+              </div>
 
-              <PainelSectionContainer>
+              <div className="PainelSectionContainer">
                 <Painel variant="yellow" content="Contrate ou acompanhe agora mesmo!"/>
 
-                <PainelSection>
+                <div className="PainelSection">
                   <p>
                     Para contratar gravações, entre com CPF e clique em GRAVAR. Se já contratou e quer enviar a amostra da sua música ou acompanhar o andamento dos serviços, entre com CPF e clique em ACOMPANHAR.
                   </p>
                   
                   <EstudioForm />
 
-                </PainelSection>
+                </div>
 
-              </PainelSectionContainer>
+              </div>
 
-              <Container800>
-                <StudioService>
+              <div className={styles.Container800}>
+                <div className={styles.StudioService}>
                   <h1>O serviço inclui</h1>
 
                   <section>
@@ -183,10 +181,10 @@ export default function EstudioGravar(){
                     <p className="mt-3">Obs: Somente aceitaremos mídias em arquivos mp3, via online. Não envie por correio.</p>
                     <p className="mt-3">Nossas gravações tem qualidade de CD (24 bits, 44mhz - 160kbps), podendo ser executadas em Rádios, TVs, aparelhos de CD, mp3 e rádios da internet.</p>
                   </section>
-               </StudioService> 
-             </Container800>
-            </EstudioContainer>
-          </MainContainer>
+                </div> 
+             </div>
+            </div>
+          </section>
         </>
     )
 }

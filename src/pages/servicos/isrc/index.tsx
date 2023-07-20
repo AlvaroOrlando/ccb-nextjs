@@ -1,9 +1,9 @@
 import IsrcForm  from '../../../components/Forms/ISRC'
 import Painel from "@/components/Painel";
-import { MainContainer, PainelSection, PainelSectionContainer, VideoContainer } from "@/styles/styles";
-import { TextoIsrc } from './styles'
 import Crumb from '@/components/Crumb';
- 
+
+import styles from "./isrc.module.scss"
+import Video from '@/components/Videos/ISRC';
 
 
 export default function Isrc(){
@@ -11,28 +11,26 @@ export default function Isrc(){
         <>
             <Crumb />
 
-            <MainContainer >
-                <PainelSectionContainer>
-                  <Painel variant='yellow' content="PAINEL DO ISRC" />
-                  <PainelSection>
+            <section className='MainContainer'>
+                <div className='PainelSectionContainer'>
+                  <Painel content="PAINEL DO ISRC" />
+                  <div className='PainelSection'>
 
                     <IsrcForm />
                     
-                  </PainelSection>
-                </PainelSectionContainer>
+                  </div>
+                </div> 
 
-                <VideoContainer>
+                <div className='VideoContainer'>
                   <section className="mt-3" >
-                    <iframe
-                      src="https://www.youtube.com/embed/kUuz90_SG0g" 
-                      title="YouTube video player"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen>
-                    </iframe>
+                    <Video
+                      url="https://www.youtube.com/embed/kUuz90_SG0g"
+                      title="ISRC" 
+                    />
                   </section>
-                </VideoContainer>
+                </div>
 
-                <TextoIsrc>
+                <section className={styles.TextoIsrc}>
                   <h2 className="mb-3 mt-3">O que é ISRC?</h2>
                   <p>
                       Imagine a placa do seu carro. É uma numeração única que permite ao Detran localizar seu carro onde estiver.
@@ -50,8 +48,8 @@ export default function Isrc(){
                   </p>
                   <h2 className="mb-3 mt-5">ISRC - Tradução</h2>
                   <p>ISRC nada mais é do que uma sigla em inglês para &quot;International Standard Recording Code&quot;, ou Código de Gravação Padrão Internacional. Definido pela ISO 3901, é um padrão internacional de código para identificar de forma única as gravações. Seria como um código de barras ou QRCode de um produto e somente produtores afiliados ao ECAD podem gerar ISRC. O CCB é um produtor fonográfico autorizado pelo ECAD. As audições e o rateio são feitos por amostragem. Músicas com poucas audições não entram no rateio.</p>
-                </TextoIsrc>
-            </MainContainer>
+                </section>
+            </section>
         </>
     )
 }

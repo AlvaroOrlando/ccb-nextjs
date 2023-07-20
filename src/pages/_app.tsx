@@ -6,10 +6,9 @@ import '../styles/global.scss'
 import { useEffect } from "react";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { ThemeProvider } from 'styled-components';
-import { defaultTheme } from '@/styles/themes/default';
 
 import { Open_Sans } from 'next/font/google'
+import { GlobalContextProvider } from '@/Context/GlobalContextProvider';
 const openSans = Open_Sans({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -20,13 +19,13 @@ useEffect(() => {
 }, []);
   return (
     <>
-      <ThemeProvider theme={defaultTheme}> 
-        <Header />
-        <main className={openSans.className}>
-          <Component {...pageProps} />
-        <Footer />
-        </main>
-      </ThemeProvider> 
+        <GlobalContextProvider> 
+          <Header />
+          <main className={openSans.className}>
+            <Component {...pageProps} />
+          <Footer />
+          </main>
+        </GlobalContextProvider>
     </>
   )
 }

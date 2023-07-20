@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button, Form, Modal } from "react-bootstrap";
-import loginImg from '../../assets/images/login.png'
 import React, { useEffect, useState } from "react";
 import styles from '../Header/header.module.scss'
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-// interface LoginModalProps {
-//   log:boolean
-// }
+import loginImg from '../../assets/images/login.png'
+import profileImg from '../../assets/images/profile.jpg'
 
 interface LoginModalProps {
   handleLogin: () => void
@@ -71,7 +69,9 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
           onClick={handleLogoff}
          >
           <span>SAIR</span>
-          <img src={loginImg.src} alt="" />
+          <span data-title='profile'>
+            <img src={profileImg.src} alt="" />
+          </span>
         </button>
         }
 

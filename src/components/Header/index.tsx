@@ -11,26 +11,20 @@ import LoginModal from '../LoginModal'
 import Link from 'next/link' 
 import { useRouter } from 'next/router'
 
-import { useState } from 'react'
-
 import { Dropdown, Nav, NavItem } from 'react-bootstrap'
+import { useGlobalContext } from '@/Context/GlobalContextProvider'
+
+import { usePathname } from 'next/navigation';
+
 
 
 export default function Header(){
   const usuario = `Alvaro Orlando`
 
-  const { push, pathname } = useRouter();
+  const path = usePathname()
+  
 
-  const [log, setLog] = useState(false)
-
-   const handleLogin = function(){
-    setLog(true)
-   }
-
-   const handleLogoff = function(){
-    setLog(false)
-    push('/')
-   }
+   const {handleLogin, handleLogoff, log} = useGlobalContext()
   
 
     return (
@@ -115,7 +109,7 @@ export default function Header(){
                 </Nav.Item>
 
                 // Home
-              : pathname === '/salaVip' ?
+              : path === '/salaVip' ?
               
                 <NavItem as='section'>
                   <Link href="/">Home</Link>
@@ -195,7 +189,7 @@ export default function Header(){
                     <Dropdown.Item as={Link} href="/servicos/isrc">ISRC/ECAD</Dropdown.Item>
                     <Dropdown.Item as={Link} href="/servicos/gravar">Gravar Estúdio CCB</Dropdown.Item>
                     <Dropdown.Item as={Link} href="/servicos/melodia">Confecção de Melodia</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/pagamentos">Pagamentos</Dropdown.Item>
+                    <Dropdown.Item as={Link} href="/servicos/pagamentos">Pagamentos</Dropdown.Item>
 
                     {
                       log ?

@@ -1,13 +1,12 @@
 import Crumb from "@/components/Crumb";
-import { MainContainer } from "@/styles/styles";
 
 export default function Registrar(){
     return (
         <>
           <Crumb  />
-          <MainContainer>
+          <section className="MainContainer">
             <h1>Registrar</h1>
-          </MainContainer>
+          </section>
         </>
     )
 }

@@ -1,0 +1,27 @@
+
+@use "../../abstracts/" as *;
+
+.EstudioFormContainer {
+    width: 100%;
+    padding-bottom:0px;
+
+    @include flex-center-column;
+
+    section {
+        @include flex-center-column;
+
+        width: 100%;
+        max-width: 600px;
+
+        section {
+            display: flex;
+            flex-direction: row;
+            width:100%;
+            gap: 10px;
+
+            button {
+                width: 50%;
+            }
+        }
+    }
+}

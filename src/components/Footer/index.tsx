@@ -1,22 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import logoBranco from '../../assets/images/logonew_branco.png'
-import { CenterContainer, FooterContainer, LeftContainer, RightContainer } from './styles'
+import styles from "./footer.module.scss"
 
 export default function Footer(){
 
     const year = new Date().getFullYear()
 
     return (
-            <FooterContainer>
-              <LeftContainer>
+            <section className={styles.FooterContainer}>
+              <div className={styles.LeftContainer}>
                 <Link href="/">
                   <img src={logoBranco.src} alt="logo" />
                 </Link>
-              </LeftContainer>
+              </div>
               
-        
-              <CenterContainer>
+              <div className={styles.CenterContainer}>
                 <h4>Atendimento</h4>
 
                 <Link href="https://contate.me/clubedoscompositores">
@@ -26,9 +25,9 @@ export default function Footer(){
                <section>
                  <p>contato@clubedoscompositores.com</p>
                </section>
-              </CenterContainer>
+              </div>
 
-              <RightContainer>
+              <div className={styles.RightContainer}>
                 <section>
                   <Link href="/">Home</Link>
                   <Link href="beneficios/quemSomos">Sobre Nós</Link>
@@ -38,8 +37,7 @@ export default function Footer(){
                 <p>
                   CLUBE DOS COMPOSITORES &copy; 1998/{year}
                 </p>
-            
-              </RightContainer>
-            </FooterContainer>
+              </div>
+            </section>
     )
 }

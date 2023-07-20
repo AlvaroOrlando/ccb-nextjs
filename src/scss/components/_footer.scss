@@ -1,0 +1,96 @@
+.FooterContainer{
+    @include flex-center-column;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top:1rem;
+   
+    padding: 1rem;
+
+    color:$white;
+    background-color: $primary-blue;
+
+    font: bold 1rem sans-serif;
+    font-weight: 300;
+
+    a:hover {
+        opacity: .7;
+    }
+
+
+    @media(min-width:790px){
+        
+        flex-direction: row;
+        justify-content: space-between; 
+
+        padding: .5rem 1rem;
+        
+        border: $white 8px solid;
+    }
+}
+
+.LeftContainer {
+      @include flex-center-column;
+		gap:.5rem;
+		padding: 5px;
+
+
+        img{
+            width: 220px;
+        }
+}
+
+.CenterContainer{
+    @include flex-center-column;;
+
+    gap:.5rem;
+    padding: 5px;
+
+
+    a {
+        color:white;
+        font-size: 1.3rem;
+    }
+
+    h4 {
+        margin: 0px;
+    }
+}
+
+.RightContainer{
+    @include flex-center-column;
+;
+        gap: 1rem;
+
+        section {
+            width: 100%;
+           @include flex-around-row;
+
+            a {
+                
+                color: $white;
+                font-size: 1rem;
+            }
+
+            a::before {
+                content: "|";
+                font-weight:300;
+                font-size: 20px;
+                left: 0;
+
+                padding-right: 5px;
+                padding-left: 5px;
+            }
+
+            & :first-child::before{
+                content: " ";
+            }
+
+            
+        }
+        p {
+            text-align:center;
+        }
+}
+

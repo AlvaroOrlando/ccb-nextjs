@@ -1,9 +1,7 @@
 import { Breadcrumb } from "react-bootstrap"
 import { siteMap } from "@/utilities/siteMap"
 import Link from "next/link"
-import { CrumbContainer } from "./styles"
-
-import Linha from "../Global/Linha/Linha"
+import styles from '../Crumb/crumb.module.scss'
 
 import { usePathname } from 'next/navigation';
 
@@ -13,8 +11,6 @@ import { oswald } from "../../assets/fonts/locales"
 export default function Crumb(){
 
     const currentPage = usePathname();
-    
-    console.log(currentPage);
 
      const currentSite = siteMap.find(item => {
        return item.href ===  currentPage
@@ -23,8 +19,8 @@ export default function Crumb(){
     return (
          currentSite != undefined &&
         <>
-            <CrumbContainer style={oswald.style}>
-                <Breadcrumb >
+            <section className={styles.crumbContainer} style={oswald.style}>
+                <Breadcrumb>
                     { currentSite.currentPage === undefined ?
                     <Breadcrumb.Item active>
                       {currentSite.rootPage}
@@ -41,8 +37,8 @@ export default function Crumb(){
                     </>
                     }
                 </Breadcrumb>
-            <Linha />
-            </CrumbContainer>
+            <hr />
+            </section>
         </>
         )
 }

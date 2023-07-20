@@ -1,13 +1,12 @@
 import Crumb from "@/components/Crumb";
-import { MainContainer } from "@/styles/styles";
 
 export default function Beneficios(){
     return (
         <>
             <Crumb />
-            <MainContainer>
+            <section className="MainContainer">
                 <h1>Benefícios</h1>
-            </MainContainer>
+            </section>
         </>
     )
 }

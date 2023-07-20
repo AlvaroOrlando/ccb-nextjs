@@ -1,4 +1,3 @@
-import { MainContainer } from '@/styles/styles' 
 import styles from '../ajudaGeral/ajudaGeral.module.scss'
 import Crumb from '@/components/Crumb'
 import { useRouter } from 'next/router'
@@ -9,7 +8,7 @@ export default function AjudaGeral(){
       <>
         <Crumb />
 
-        <MainContainer>
+        <section className='MainContainer'>
 
             <div className={`${styles.accordion} accordion`} id="accordionExample">
               {/* Geral */}
@@ -1156,7 +1155,7 @@ export default function AjudaGeral(){
                 </div>
               </div>
             </div>
-        </MainContainer>
+        </section>
       </>
     )
 }

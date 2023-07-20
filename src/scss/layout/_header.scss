@@ -51,6 +51,16 @@
         display: none;
     }
 
+    & [data-title='profile']{
+        width: 46px;
+        height: 46px;
+        margin-left: 0.6rem;
+
+        img{
+            border-radius: 50%;
+        }
+    }
+
 }
 
 
@@ -160,6 +170,7 @@
                     font-size: 1rem;
                     color:$dark-gray;
                     }
+
                 }
             }
         }

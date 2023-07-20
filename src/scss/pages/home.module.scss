@@ -1,0 +1,420 @@
+@use '../abstracts' as *;
+
+.bottomCol img, 
+.topCol img, 
+.carContainer, 
+.topBanners, 
+.topCol, 
+.bottomCol, 
+.row,.cards, 
+.cardBody {
+    margin:0;
+    padding:0;
+}
+
+
+.ItemContainer{
+    width: 100%;
+    height: 100%;
+
+    a {
+        height: 100%;
+    }
+}
+
+.hr{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.hr-10Mais{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.bottomContainer{
+    margin-top: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* Carousel */
+.carContainer{
+    border: 8px solid $white;
+
+    img {
+      width: 100%;
+    }
+
+    .carItem {
+        margin: auto;
+        padding: 5px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+
+        a {
+        text-decoration: none;
+        }
+
+        p {
+        color: $white;
+        font-size: .7rem;
+        margin: 0px;
+        }
+    }
+}
+
+
+
+.carousel, 
+.carousel-inner, 
+.carouselItem, 
+.carBox, 
+.carBox img,
+
+#carousel-example-fade, 
+#carousel_col, 
+#carousel {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* BANNERS */
+.topCol{
+    margin-bottom:10px;
+    margin-top:10px;
+} 
+
+.banner-img-container img{
+    max-width: 150px;
+}
+
+
+/* CARDS */
+.imgBox{
+    height: 140px;
+    background-size: cover;
+    background-position:center;
+    /* box-shadow: inset 0 0 0 200px #00000020;
+    transition: box-shadow 400ms; */
+    border-radius: 0px;
+    margin:0px;
+}
+
+.imgBox:hover{
+    filter: brightness(1.1);
+}
+
+.card{
+    border-radius:0px;
+    border:none;
+
+    & [id='recompensa_title'] {
+        font-size: 1.3rem;
+    }
+}
+
+.cardBody{
+    height: 100%;
+    padding:0 ;
+}
+
+.cardText, .cardTitle{
+    padding: 5px;
+}
+
+.cardTitle{
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    margin:0;
+}
+
+.cardBody p{
+    font-size: 1.1rem;
+    margin:0px;
+}
+
+
+/* MEDIA QUERIES */
+
+@media(max-width:299px){
+    .carItem p{
+        font-size:.5rem;
+       }
+}
+
+@media(min-width:496px){
+    .cardBody {
+        margin-bottom: 0px;
+    }
+}
+
+@media(min-width:576px){
+    .dez_mais2{
+        background-color: $primary-gray;
+        margin-bottom:0px;
+    }
+
+    .carousel{
+        border: solid $white 4px;
+    }
+
+    .card {
+        border-radius:0px;
+        background-color: $secondary-gray;
+        margin-bottom:10px;
+        height:300px;
+
+        p{
+            text-align: justify;
+            font-size: 1rem;
+        }
+    }
+
+    .cards {
+        section {
+          border:$white solid 8px;
+        }
+    }
+    
+    .hr{
+        display:none;
+    }
+
+    .cardBody{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cardTitle{
+      margin: 0px;
+    }
+    
+    .recompensa p {
+      font-size:1rem;
+    }
+   
+    .topCol{
+        border:$white 8px solid;
+        margin-top:10px;
+    }
+
+    .bottomCol{  
+        border:$white 8px solid;
+    }
+
+    .bottomSide{
+        flex-direction: row;
+        gap:8px;
+    }
+
+    .order1{
+        order: 1;
+        border:8px solid $white;
+
+    }
+    .order2{
+        order:3;
+        border:8px solid $white;
+
+    }
+    
+    .order3{
+        order:2;
+        border:8px solid $white;
+    }
+
+    .order4{
+        order:4;
+    }
+
+    .radioBottomContainer, .artistasContainer2, .dez_mais2 {
+        width:49.3%;
+    } 
+    
+    .radioBottomContainer{
+        margin-bottom: 0px;
+
+        img {
+            width: 100%;
+        }
+    }
+    
+}
+
+@media(min-width:300px) and (max-width:767px){
+    .carItem p{
+     font-size:clamp(.7rem, 3.7vw, 1.8rem)
+    }
+ }
+
+@media(min-width:768px){
+    
+    .bottomSide{
+        display:none;
+    }
+
+    .topCol{
+        margin-top:0px;
+    }
+
+    .topBanners{
+        padding-left:10px;
+     }
+
+     .aside{
+        padding: 0px;
+        height:1070px;
+        display:initial;
+    }
+
+    .cardBody{
+        margin:0px;
+    }
+
+    .card{
+        height:260px;
+
+        & [id='recompensa_title'] {
+            font-size: 0.7rem;
+        }
+
+        p{
+            font-size: .6rem;
+            text-align: initial;
+        }
+        
+    }
+
+    .cardTitle{
+        font-size: .8rem;
+    }
+
+    .estudio p{
+        font-size: .6rem;
+        word-spacing: 5px;
+
+        a {
+            font-size: .8rem;
+        }
+    }
+
+    .coletanea p, .acesso p{
+        word-spacing: 5px;
+    }
+
+    .cards {
+        padding-right:8px;
+    }
+
+    .carItem p{
+        font-size:clamp(.85rem, 1.8vw, 1.4rem)
+        
+    }
+}
+
+@media(min-width:820px){
+    .duvidas p{
+        word-spacing: 5px;
+    }
+}
+
+@media(min-width:912px){
+   
+    .card {
+        p{
+            font-size: .7rem;  
+        }
+
+        & [id='recompensa_title'] {
+            font-size: .8rem;
+        }
+    }
+}
+
+@media(min-width:1200px){
+    
+    .cardTitle{
+        font-size: 1.2rem;
+    }
+
+    .card {
+        p {
+            font-size: .8rem;
+        }
+
+        & [id='recompensa_title'] {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.marquee{
+    width:100%;
+    max-width: 1200px;
+    text-align: center;
+    border:1px solid $dark-gray;
+    border-radius: 5px;
+    background-color: $dark-gray;
+    
+    margin: 0 auto;
+    
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    height: 30px;
+    $white-space: nowrap;
+    overflow: hidden;
+
+
+    span{
+        color:yellow;
+    }
+
+    a {
+        color:$terciary-blue;
+    }
+}
+
+.marquee__content {
+    width: 300%;
+    display: flex;
+    line-height: 30px;
+    animation: marquee 20s linear infinite forwards;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+.listInline {
+
+    width: 100%;
+
+    /* reset list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        color: $white;
+    }
+}
+
+@keyframes marquee {
+0% {
+    transform: translateX(0);
+}
+100% {
+    transform: translateX(-66.6%);
+}
+}

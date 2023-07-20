@@ -1,0 +1,45 @@
+@use "../abstracts/" as *;
+
+.MainContainer {
+    width:100%;
+    max-width: 1200px;
+
+    padding: 15px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+
+    background-color: $secondary-gray;
+    border: 8px solid $white;
+    border-top:none;
+}
+
+.PainelSectionContainer {
+    width: 100%;
+    max-width:800px;
+    margin: 0 auto;
+    background-color: $white;
+}
+
+.PainelSection {
+    width: 100%;
+    padding:1rem;
+    background-color: $white;
+}
+
+.VideoContainer{
+    width: 100%;
+    margin: 0 auto;
+    max-width:800px;
+
+    section {
+        width: 100%;
+        position: relative;
+        padding-bottom: 56.25%;
+
+       iframe {
+            position:absolute;
+            height: 100%;
+            width:100%;
+        }
+    }
+}

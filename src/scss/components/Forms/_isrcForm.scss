@@ -1,0 +1,54 @@
+@use '../../abstracts/' as *;
+
+
+.IsrcButtonContainer {
+    @include flex-around-row;
+    width:100%;
+    gap: 10px;
+
+    button {
+        width: 50%;
+    }
+}
+
+.IsrcFormContainer {
+    @include flex-center-column;
+    width: 100%;
+    padding-bottom:1rem;
+
+    section {
+        @include flex-center-column;
+
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+.Taxas {
+    @include flex-around-row;
+
+    width:100%;
+    font-size: clamp(.8rem, 3.5vw, 1.4rem);
+    
+    section {
+        margin-left: 0px;
+
+        & :first-child::after {
+            content: "|";
+            margin-left: 10px;
+            margin-right: 10px;
+            color: $dark-gray;
+        }
+
+        a {
+            text-decoration: none;
+            color: $secondary-blue;
+
+            &:hover {
+            color: $hover-blue;
+            cursor: pointer;
+            }
+
+        }
+    }
+}

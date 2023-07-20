@@ -1,11 +1,11 @@
-import { PainelContainer } from './styles'
-import { PainelVariant } from './styles'
 
 import { Bebas_Neue } from 'next/font/google'
 
+import styles from "./painel.module.scss"
+
 interface PainelProps  {
     content:string
-    variant:PainelVariant
+    variant?:string
 }
 
 
@@ -14,11 +14,17 @@ const bebas = Bebas_Neue({
     weight:'400' 
   })
 
-export default function Painel({content, variant}:PainelProps){
+export default function Painel({ content, variant }:PainelProps){
     return (
-            <PainelContainer variant={variant} className={`${bebas.className} painelContainer`}>
+            <section 
+              className={
+                `${bebas.className} 
+                 ${styles.PainelContainer} 
+                 ${variant === 'blue' ? styles.blue : styles.yellow}`
+              }
+            >
                 <h1 className="text-center">{content}</h1>
-            </PainelContainer>
+            </section>
     )
 }
 

@@ -1,12 +1,11 @@
 import Crumb from "@/components/Crumb";
-import { MainContainer } from "@/styles/styles";
 import Link from "next/link";
 
 export default function Servicos(){
     return (
         <>
             <Crumb />
-            <MainContainer>
+            <section className="MainContainer">
                 <div className="px-4 mt-1 mb-1 text-center">
                     <h1 className="display-5 fw-bold subtitulos_global">Central de serviços</h1>
                     <div className="col-lg-12 mx-auto">
@@ -20,7 +19,7 @@ export default function Servicos(){
                         </div>
                     </div>
                 </div>
-            </MainContainer>
+            </section>
         </>
     )
 }
