@@ -1,25 +1,19 @@
+// import Card from "@/components/Cards";
 import Crumb from "@/components/Crumb";
-import Link from "next/link";
-
+import Card from "@/components/HomeCards";
+import MainContainer from "@/components/MainContainer";
+ 
 export default function Servicos(){
     return (
         <>
-            <Crumb />
-            <section className="MainContainer">
-                <div className="px-4 mt-1 mb-1 text-center">
-                    <h1 className="display-5 fw-bold subtitulos_global">Central de serviços</h1>
-                    <div className="col-lg-12 mx-auto">
-                        <p className="mb-4">Escolha o serviço desejado</p>
-                        <div className="d-flex flex-column">
-                            <Link href="/servicos/isrc" type="button" className="btn btn-primary btn-lg mb-4">ISRC/ECAD</Link>
-                            <Link href="/servicos/registrar" type="button" className="btn btn-primary btn-lg mb-4">Registros</Link>
-                            <Link href="/servicos/gravar" type="button" className="btn btn-primary btn-lg mb-4">Gravar Estúdio CCB</Link>
-                            <Link href="servicos/melodia" type="button" className="btn btn-primary btn-lg mb-4">Confecção de Melodia</Link>
-                            <Link href="servicos/pagamentos" type="button" className="btn btn-primary btn-lg mb-4">Pagamentos</Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+         <Crumb />
+         <MainContainer>
+            <div style={{padding:'1rem', paddingBottom:'0px'}} className="col-12 col-sm-12 col-md-12">
+            <div className="row">
+                <Card page='servicos'/>
+            </div>
+            </div>
+         </MainContainer>
         </>
     )
 }

@@ -51,6 +51,10 @@
         display: none;
     }
 
+    & [data-title='logo']{
+        cursor: pointer;
+    }
+    
     & [data-title='profile']{
         width: 46px;
         height: 46px;

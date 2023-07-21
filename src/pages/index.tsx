@@ -3,10 +3,11 @@ import styles from '../scss/pages/home.module.scss'
 import associeBanner from '../assets/images/ban_res_associe-se1.png'
 import registroBanner from '../assets/images/ban_res_registro1.png'
 import Link from 'next/link'
-import Card from '@/components/Cards'
+import Card from '@/components/HomeCards'
 import Aside from '@/components/Aside'
 import Carousel from '@/components/carousel'
 import CarouselHome from '@/components/carousel'
+import HomeCard from '@/components/HomeCards'
 
 export default function Home() {
   
@@ -56,7 +57,7 @@ export default function Home() {
          {/* CARDS  */}
          <div className="col-12 col-sm-12 col-md-8">
           <div className="row">
-            <Card />
+            <HomeCard page='home' />
           </div>
          </div>
 

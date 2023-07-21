@@ -1,13 +1,11 @@
 import styles from '../ajudaGeral/ajudaGeral.module.scss'
 import Crumb from '@/components/Crumb'
-import { useRouter } from 'next/router'
 
 
 export default function AjudaGeral(){
     return (
       <>
         <Crumb />
-
         <section className='MainContainer'>
 
             <div className={`${styles.accordion} accordion`} id="accordionExample">

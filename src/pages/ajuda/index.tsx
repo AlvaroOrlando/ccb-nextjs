@@ -1,17 +1,19 @@
 import Crumb from "@/components/Crumb";
+import Card from "@/components/HomeCards";
+import MainContainer from "@/components/MainContainer";
 
 
 export default function Ajuda(){
     return (
         <>
           <Crumb />
-          <section className="MainContainer">
-             <p>Ajuda Geral</p>
-             <p>Compor uma música</p>
-             <p>Direitos autorais</p>
-             <p>Gravadoras</p>
-             <p>tocar na rádio</p>
-          </section>
+          <MainContainer>
+            <div style={{padding:'1rem', paddingBottom:'0px'}} className="col-12 col-sm-12 col-md-12">
+            <div className="row">
+              <Card page='ajuda'/>
+            </div>
+            </div>
+         </MainContainer>
         </>
     )
 }

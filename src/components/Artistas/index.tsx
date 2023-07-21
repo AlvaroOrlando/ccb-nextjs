@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Artistas(){
 
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState<number>(0);
     
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -21,7 +21,6 @@ export default function Artistas(){
             <div id="artistas-container" className={` ${styles.order4}`}>       
             <Link href="salaArtistas">
               <img src={sliderData[index]} alt="" className={styles.artistas2} />
-             
             </Link>
             <Link href="/salaArtistas" className="text-primary">
                 <h1>Sala dos Artistas</h1>

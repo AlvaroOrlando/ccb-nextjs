@@ -9,7 +9,6 @@ import BuscaArtista from '../BuscaArtista'
 import LoginModal from '../LoginModal'
 
 import Link from 'next/link' 
-import { useRouter } from 'next/router'
 
 import { Dropdown, Nav, NavItem } from 'react-bootstrap'
 import { useGlobalContext } from '@/Context/GlobalContextProvider'
@@ -34,7 +33,7 @@ export default function Header(){
             <Nav as='nav' className={styles.topNav}>
 
               {/* Logo */}
-              <Nav.Item as='section'>
+              <Nav.Item as='section' data-title='logo'>
                 <Link href="/">
                   <img src={logo.src} alt="logo" />
                 </Link>
