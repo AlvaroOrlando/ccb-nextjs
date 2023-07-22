@@ -5,12 +5,12 @@ import Link from "next/link";
 import EstudioForm from "@/components/Forms/Estudio";
 import Painel from "@/components/Painel";
 
-import capaEstudio from '../../../assets/images/capa_estudio.jpg';
+import capaEstudio from '../../../../assets/images/capa_estudio.jpg';
 import { Table } from "react-bootstrap";
 import ReactAudioPlayer from 'react-audio-player';
-import Crumb from "@/components/Crumb";
 
-import styles from "./gravar.module.scss"
+import styles from "../estudio.module.scss"
+import Crumb from "@/components/Crumb";
 
 export default function EstudioGravar(){
 

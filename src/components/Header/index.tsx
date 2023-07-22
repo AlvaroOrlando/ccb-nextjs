@@ -9,15 +9,16 @@ import BuscaArtista from '../BuscaArtista'
 import LoginModal from '../LoginModal'
 
 import Link from 'next/link' 
+import { usePathname } from 'next/navigation';
 
 import { Dropdown, Nav, NavItem } from 'react-bootstrap'
 import { useGlobalContext } from '@/Context/GlobalContextProvider'
 
-import { usePathname } from 'next/navigation';
-
+import { getURL } from '@/utilities/siteMap'
 
 
 export default function Header(){
+
   const usuario = `Alvaro Orlando`
 
   const path = usePathname()
@@ -50,7 +51,7 @@ export default function Header(){
               <Nav.Item data-title='whatsappContainer' as='section'>
                 {
                   log === false ?
-                  <Link data-title='whatsapp' href="https://contate.me/clubedoscompositores">
+                  <Link data-title='whatsapp' href={`${getURL('whatsapp')}`}>
                     <section>
                       <p><span>(013) 99748-7065</span></p>
                       <p>WhatsApp do CCB</p>
@@ -100,9 +101,9 @@ export default function Header(){
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className={styles.dropdownMenu}>
-                      <Dropdown.Item as={Link} href="/associar/compositores">Compositores</Dropdown.Item>
-                      <Dropdown.Item as={Link} href="/associar/bandas">Bandas</Dropdown.Item>
-                      <Dropdown.Item as={Link} href="/associar/cantores">Cantores e Duplas</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('compositores')}`}>Compositores</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('bandas')}`}>Bandas</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('cantores')}`}>Cantores e Duplas</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav.Item>
@@ -117,7 +118,7 @@ export default function Header(){
               :
               // Sala Vip
               <Nav.Item as='section'>
-                <Link className={styles.gifSalaVip} href="/salaVip">
+                <Link className={styles.gifSalaVip} href={`${getURL('salaVip')}`}>
                   <img src={salaVipBarra.src} alt="sala vip" />
                 </Link>
               </Nav.Item>
@@ -133,11 +134,11 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Música</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Poesia</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Livro</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Roteiro</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/registrar">Registrar Trabalho</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Música</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Poesia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Livro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Roteiro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Trabalho</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>   
@@ -145,7 +146,7 @@ export default function Header(){
                 {/* ISRC/ECAD  */}
               <Nav.Item as='section' id={styles.ecad}>
                 <Link 
-                  href="/servicos/isrc" 
+                  href={`${getURL('isrc')}`}
                   title="Clique aqui para Gerar o Código ISRC junto ao ECAD. O ECAD irá controlar a execução e o pagamento dos Direitos Autorais de suas músicas"
                   >ISRC/ECAD
                 </Link>
@@ -162,8 +163,8 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href="/servicos/gravar">Gravar no Estúdio CCB</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/melodia">Confecção de Melodia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('estudio')}`}>Gravar no Estúdio CCB</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('melodia')}`}>Confecção de Melodia</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -182,19 +183,19 @@ export default function Header(){
 
                     {
                       log &&
-                      <Dropdown.Item as={Link} href="/salaVip">Acessar Área VIP</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('salaVip')}`}>Acessar Área VIP</Dropdown.Item>
                     }
 
-                    <Dropdown.Item as={Link} href="/servicos/isrc">ISRC/ECAD</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/gravar">Gravar Estúdio CCB</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/melodia">Confecção de Melodia</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/servicos/pagamentos">Pagamentos</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('isrc')}`}>ISRC/ECAD</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('estudio')}`}>Gravar Estúdio CCB</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('melodia')}`}>Confecção de Melodia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('pagamentos')}`}>Pagamentos</Dropdown.Item>
 
                     {
                       log ?
-                      <Dropdown.Item as={Link}  href="/salaVip/fotoPerfil">Enviar Foto Perfil</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('fotoPerfil')}`}>Enviar Foto Perfil</Dropdown.Item>
                       :
-                      <Dropdown.Item as={Link}  href="/servicos/reativar">Reativar Conta</Dropdown.Item>
+                      <Dropdown.Item as={Link}  href={`${getURL('reativar')}`}>Reativar Conta</Dropdown.Item>
                     }
 
                   </Dropdown.Menu>
@@ -211,13 +212,12 @@ export default function Header(){
                     Benefícios
                   </Dropdown.Toggle>
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href="/beneficios/quemSomos">Quem Somos</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/beneficios/carteiraCompositor">Carteira de Compositor</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/beneficios/divulgacao">Divulgação</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/beneficios/ccbMusicPlataforma">CCB Music Plataforma</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/radio/radioOnline">Rádio Online</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/radio/radioGospel">Rádio Gospel</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/beneficios/programaRecompensas">Programa de Recompensas</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('quemSomos')}`}>Quem Somos</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('carteiraCompositor')}`}>Carteira de Compositor</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('divulgacao')}`}>Divulgação</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('radioOnline')}`}>Rádio Online</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('radioGospel')}`}>Rádio Gospel</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('programaRecompensas')}`}>Programa de Recompensas</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -230,14 +230,14 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href="/coletanea">Como Participar</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('coletanea')}`}>Como Participar</Dropdown.Item>
                   </Dropdown.Menu> 
                 </Dropdown>
               </Nav.Item>
             
                 {/* PAGAMENTOS  */}
               <Nav.Item as='section' id={styles.pay}>
-                <Link href="/servicos/pagamentos">
+                <Link href={`${getURL('pagamentos')}`}>
                   Pagamentos
                 </Link>
               </Nav.Item>
@@ -254,9 +254,9 @@ export default function Header(){
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
                     <Dropdown.Item as={Link} href=''>Inscrições encerradas!</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/festival/resultadoMusica">Resultado Música 2023</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/festival/resultadoPoesia">Resultado Poesia 2023</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/festival/resultadosAnteriores">Resultados Anteriores</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('resultadoMusica')}`}>Resultado Música 2023</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('resultadoPoesia')}`}>Resultado Poesia 2023</Dropdown.Item>
+                    <Dropdown.Item as={Link}href={`${getURL('resultadosAnteriores')}`}>Resultados Anteriores</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -264,7 +264,7 @@ export default function Header(){
                 {/* ATENDIMENTO  */}
               <Nav.Item as='section' id={styles.whatsapp}>
                 <Link 
-                  href="https://contate.me/clubedoscompositores" 
+                  href={`${getURL('whatsapp')}`} 
                   title="Contate-nos pelo WhatsApp!"
                 >
                   Atendimento
@@ -282,11 +282,11 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href="/ajuda/ajudaGeral">Ajuda Geral</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/ajuda/tocarNaRadio">Tocar na Rádio</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/ajuda/comporUmaMusica">Compor Uma Música</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/ajuda/gravadoras">Gravadoras</Dropdown.Item>
-                    <Dropdown.Item as={Link} href="/ajuda/direitosAutorais">Direitos Autorais</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('ajudaGeral')}`}>Ajuda Geral</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('tocarNaRadio')}`}>Tocar na Rádio</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('comporUmaMusica')}`}>Compor Uma Música</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('gravadoras')}`}>Gravadoras</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('direitosAutorais')}`}>Direitos Autorais</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>  

@@ -52,7 +52,9 @@
     }
 
     & [data-title='logo']{
-        cursor: pointer;
+        a{
+            cursor: pointer;
+        }
     }
     
     & [data-title='profile']{

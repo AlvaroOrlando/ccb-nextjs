@@ -1,6 +1,9 @@
+import { v4 as uuidv4} from 'uuid'
+
 export const siteMap = [
     // SERVIÇOS
     {
+        id: 'servicos',
         rootRef:"/servicos",
         href: "/servicos",
         rootPage: "Serviços",
@@ -8,6 +11,7 @@ export const siteMap = [
     },
     // Isrc
     {
+        id: 'isrc',
         rootRef:"/servicos",
         href: "/servicos/isrc",
         rootPage: "Serviços",
@@ -15,27 +19,31 @@ export const siteMap = [
     },
     // Estudio
     {
+       id: 'estudio',
        rootRef:"/servicos",
-       href: "/servicos/gravar",
+       href: "/servicos/estudio/gravar",
        rootPage: "Serviços",
        currentPage: "Gravar no Estúdio CCB",
     },
     // Melodia
     {
+       id: 'melodia',
        rootRef:"/servicos",
-       href: "/servicos/melodia",
+       href: "/servicos/estudio/melodia",
        rootPage: "Serviços",
        currentPage: "Confecção de Melodia",
     },
     // Pagamentos
     {
+       id:'pagamentos',
        rootRef:"/servicos",
        href: "/servicos/pagamentos",
        rootPage: "Serviços",
        currentPage: "Pagamentos",
     },
-    //Registros
+    //Reativar
     {
+       id: 'reativar',
        rootRef:"/servicos",
        href: "/servicos/reativar",
        rootPage: "Serviços",
@@ -43,6 +51,7 @@ export const siteMap = [
     },
     //Registros
     {
+       id: 'registros',
        rootRef:"/servicos",
        href: "/servicos/registrar",
        rootPage: "Serviços",
@@ -52,6 +61,7 @@ export const siteMap = [
 
     // AJUDA
     {
+        id: 'ajuda',
         rootRef:"/ajuda",
         href: "/ajuda",
         rootPage: "Ajuda",
@@ -59,6 +69,7 @@ export const siteMap = [
     },
     // Ajuda Geral
     {
+        id: 'ajudaGeral',
         rootRef:"/ajuda",
         href: "/ajuda/ajudaGeral",
         rootPage: "Ajuda",
@@ -66,6 +77,7 @@ export const siteMap = [
     },
     //Tocar na Rádio
     {
+        id: 'tocarNaRadio',
         rootRef:"/ajuda",
         href: "/ajuda/tocarNaRadio",
         rootPage: "Ajuda",
@@ -73,6 +85,7 @@ export const siteMap = [
     },
     // Compor uma música
     {
+        id: 'comporUmaMusica',
         rootRef:"/ajuda",
         href: "/ajuda/comporUmaMusica",
         rootPage: "Ajuda",
@@ -80,6 +93,7 @@ export const siteMap = [
     },
     // Direitos Autorais
     {
+        id:'direitosAutorais',
         rootRef:"/ajuda",
         href: "/ajuda/direitosAutorais",
         rootPage: "Ajuda",
@@ -87,6 +101,7 @@ export const siteMap = [
     },
     // Gravadoras
     {
+        id:'gravadoras',
         rootRef:"/ajuda",
         href: "/ajuda/gravadoras",
         rootPage: "Ajuda",
@@ -96,6 +111,7 @@ export const siteMap = [
     // ASSOCIAR
     // Compositores
     {
+        id:'compositores',
         rootRef:"/associar/compositores",
         href: "/associar/compositores",
         rootPage: "Associar",
@@ -103,6 +119,7 @@ export const siteMap = [
     },
     // Bandas
     {
+        id:'bandas',
         rootRef:"/associar/compositores",
         href: "/associar/bandas",
         rootPage: "Associar",
@@ -110,6 +127,7 @@ export const siteMap = [
     },
     // Cantores e Duplas
     {
+        id:'cantores',
         rootRef:"/associar/compositores",
         href: "/associar/cantores",
         rootPage: "Associar",
@@ -119,6 +137,7 @@ export const siteMap = [
 
     // BENEFÍCIOS
     {
+        id:'beneficios',
         rootRef:"/beneficios",
         href: "/beneficios",
         rootPage: "Beneficios",
@@ -126,20 +145,16 @@ export const siteMap = [
     },
     // Carteira de Compositor
     {
+        id:'carteiraCompositor',
         rootRef:"/beneficios",
         href: "/beneficios/carteiraCompositor",
         rootPage: "Beneficios",
         currentPage: "Carteira de Compositor",
     },
-    // CCB Music
-    {
-        rootRef:"/beneficios",
-        href: "/beneficios/ccbMusicPlataforma",
-        rootPage: "Beneficios",
-        currentPage: "CCB Music",
-    },
+   
     // Divulgação
     {
+        id:'divulgacao',
         rootRef:"/beneficios",
         href: "/beneficios/divulgacao",
         rootPage: "Beneficios",
@@ -147,6 +162,7 @@ export const siteMap = [
     },
     // Programa Recompensas
     {
+        id:'programaRecompensas',
         rootRef:"/beneficios",
         href: "/beneficios/programaRecompensas",
         rootPage: "Beneficios",
@@ -154,6 +170,7 @@ export const siteMap = [
     },
     // Quem Somos
     {
+        id:'quemSomos',
         rootRef:"/beneficios",
         href: "/beneficios/quemSomos",
         rootPage: "Beneficios",
@@ -163,6 +180,7 @@ export const siteMap = [
 
     // SALA VIP
     {
+        id:'salaVip',
         rootRef:"/salaVip",
         href: "/salaVip",
         rootPage: "Sala VIP",
@@ -170,6 +188,7 @@ export const siteMap = [
     },
     // Alteração de Cadastro
     {
+        id:'alteracaoCadastro',
         rootRef:"/salaVip",
         href: "/salaVip/alteracaoCadastro",
         rootPage: "Sala VIP",
@@ -177,6 +196,7 @@ export const siteMap = [
     },
     // Alteração de Senha
     {
+        id:'alteracaoSenha',
         rootRef:"/salaVip",
         href: "/salaVip/alteracaoSenha",
         rootPage: "Sala VIP",
@@ -184,6 +204,7 @@ export const siteMap = [
     },
     // Recuperação de Senha
     {
+        id:'recuperacaoSenha',
         rootRef:"/salaVip",
         href: "/salaVip/recuperacaoSenha",
         rootPage: "Sala VIP",
@@ -191,6 +212,7 @@ export const siteMap = [
     },
     // Enviar Letras
     {
+        id:'enviarLetras',
         rootRef:"/salaVip",
         href: "/salaVip/enviarLetras",
         rootPage: "Sala VIP",
@@ -198,6 +220,7 @@ export const siteMap = [
     },
     // Enviar Músicas
     {
+        id:'enviarMsucias',
         rootRef:"/salaVip",
         href: "/salaVip/enviarMsucias",
         rootPage: "Sala VIP",
@@ -205,6 +228,7 @@ export const siteMap = [
     },
     // Solicitar Carteira
     {
+        id:'solicitarCarteira',
         rootRef:"/salaVip",
         href: "/salaVip/solicitarCarteira",
         rootPage: "Sala VIP",
@@ -212,6 +236,7 @@ export const siteMap = [
     },
     // Foto Perfil
     {
+        id:'fotoPerfil',
         rootRef:"/salaVip",
         href: "/salaVip/fotoPerfil",
         rootPage: "Sala VIP",
@@ -221,6 +246,7 @@ export const siteMap = [
 
     // COLETÂNEA
     {
+        id:'coletanea',
         rootRef:"/coletanea",
         href: "/coletanea",
         rootPage: "Coletânea",
@@ -230,6 +256,7 @@ export const siteMap = [
 
     // FESTIVAL
     {
+        id:'festival',
         rootRef:"/festival",
         href: "/festival",
         rootPage: "Festival",
@@ -237,6 +264,7 @@ export const siteMap = [
     },
      // Resultado Música
      {
+        id:'resultadoMusica',
         rootRef:"/festival",
         href: "/festival/resultadoMusica",
         rootPage: "Festival",
@@ -244,6 +272,7 @@ export const siteMap = [
      },
      // Resultado Poesia
      {
+        id:'resultadoPoesia',
         rootRef:"/festival",
         href: "/festival/resultadoPoesia",
         rootPage: "Festival",
@@ -251,6 +280,7 @@ export const siteMap = [
      },
      // Resultados Anteriores
      {
+        id:'resultadosAnteriores',
         rootRef:"/festival",
         href: "/festival/resultadosAnteriores",
         rootPage: "Festival",
@@ -260,6 +290,7 @@ export const siteMap = [
 
      //RADIO
      {
+        id:'radioOnline',
         rootRef:"/radio/radioGospel",
         href: "/radio/radioOnline",
         rootPage: "Mudar para Radio Gospel",
@@ -267,33 +298,64 @@ export const siteMap = [
      },
      //RADIO GOSPEL
      {
+        id:'radioGospel',
         rootRef:"/radio/radioOnline",
         href: "/radio/radioGospel",
         rootPage: "Mudar para Radio Online",
         currentPage: "Rádio Gospel",
      },
+
+     //Whatsapp
+     {
+        id:'whatsapp',
+        href: "https://contate.me/clubedoscompositores" ,
+     },
      
+]
+
+export function getURL(id:string){
+    const item = siteMap.find(el =>{
+      return el.id === id
+     })
+    return item?.href
+  }
 
 
 
+export const teste =[
+  
+{
+    id:uuidv4(),
 
+    href:`${getURL('isrc')}`,
+    rootRef:"/servicos",
+    rootPage: "Serviços",
+    currentPage: "Gerar ISRC - ECAD",
+    category:'servicos',
 
+    card: {
+        name: 'isrc',
+        idCard:"isrc_card",
+        title:"Gerar ISRC/ECAD",
+        content:"Gere o Código ISRC junto ao ECAD que irá controlar os Direitos Autorais de suas músicas.",
+        imgUrl:'../images/cards/ISRC.jpg',
+    }
+},
 
+{
+    id:uuidv4(),
+    href:`${getURL('pagamentos')}`,
+    rootRef:"/servicos",
+    rootPage: "Serviços",
+    currentPage: "Pagamentos",
+    category:'servicos',
 
+    card: {
+        name:'pagamentos',
+        title:"Pagamentos",
+        content:"Acesse aqui para Reativar sua conta, fazer pagamentos ou pedir segunda via de boletos.",
+        imgUrl:'../images/cards/melody.jpg',
+    }
+ },
 
-
-   
-
-
-
-
-    
-
-    
-
-
-
-
-
-    
 ]
