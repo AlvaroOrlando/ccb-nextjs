@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 
 import loginImg from '../../assets/images/login.png'
 import profileImg from '../../assets/images/profile.jpg'
+import { getURL } from "@/utilities/servicesInfo";
 
 interface LoginModalProps {
   handleLogin: () => void
@@ -107,7 +108,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
               {/* Forgot Password */}
               <div className="row mb-4">
                 <div className="col d-flex justify-content-center">
-                  <Link onClick={handleClose} href="/salaVip/recuperacaoSenha">Esqueci a senha.</Link>
+                  <Link onClick={handleClose} href={`${getURL('recuperacaoSenha')}`}>Esqueci a senha.</Link>
                 </div>
               </div>
         
@@ -124,7 +125,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
               <div>
                 <p>
                   Ainda não é sócio?
-                  <Link onClick={handleClose} href="/associar/compositores">
+                  <Link onClick={handleClose} href={`${getURL('compositores')}`}>
                     &nbsp;Associe-se já!
                   </Link>
                 </p>

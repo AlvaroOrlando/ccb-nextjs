@@ -1,5 +1,5 @@
 import { Breadcrumb } from "react-bootstrap"
-import { siteMap } from "@/utilities/siteMap"
+import { info } from "@/utilities/servicesInfo"
 import Link from "next/link"
 import styles from '../Crumb/crumb.module.scss'
 
@@ -12,7 +12,7 @@ export default function Crumb(){
 
     const currentPage = usePathname();
 
-     const currentSite = siteMap.find(item => {
+     const currentSite = info.find(item => {
        return item.href ===  currentPage
      })
 

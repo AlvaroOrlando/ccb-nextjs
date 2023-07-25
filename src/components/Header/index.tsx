@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation';
 import { Dropdown, Nav, NavItem } from 'react-bootstrap'
 import { useGlobalContext } from '@/Context/GlobalContextProvider'
 
-import { getURL } from '@/utilities/siteMap'
+import { getURL, info } from '@/utilities/servicesInfo'
 
 
 export default function Header(){
@@ -101,9 +101,13 @@ export default function Header(){
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu className={styles.dropdownMenu}>
-                      <Dropdown.Item as={Link} href={`${getURL('compositores')}`}>Compositores</Dropdown.Item>
-                      <Dropdown.Item as={Link} href={`${getURL('bandas')}`}>Bandas</Dropdown.Item>
-                      <Dropdown.Item as={Link} href={`${getURL('cantores')}`}>Cantores e Duplas</Dropdown.Item>
+                     {info.map(el =>{
+                      if(el.category === 'associar'){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
                     </Dropdown.Menu>
                   </Dropdown>
                 </Nav.Item>
@@ -134,11 +138,11 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Música</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Poesia</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Livro</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Roteiro</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('registros')}`}>Registrar Trabalho</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registrar')}`}>Registrar Música</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registrar')}`}>Registrar Poesia</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registrar')}`}>Registrar Livro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registrar')}`}>Registrar Roteiro</Dropdown.Item>
+                    <Dropdown.Item as={Link} href={`${getURL('registrar')}`}>Registrar Trabalho</Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>   
@@ -163,8 +167,13 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href={`${getURL('estudio')}`}>Gravar no Estúdio CCB</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('melodia')}`}>Confecção de Melodia</Dropdown.Item>
+                     {info.map(el =>{
+                      if(el.subategory === 'estudio' ){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -186,16 +195,19 @@ export default function Header(){
                       <Dropdown.Item as={Link} href={`${getURL('salaVip')}`}>Acessar Área VIP</Dropdown.Item>
                     }
 
-                    <Dropdown.Item as={Link} href={`${getURL('isrc')}`}>ISRC/ECAD</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('estudio')}`}>Gravar Estúdio CCB</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('melodia')}`}>Confecção de Melodia</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('pagamentos')}`}>Pagamentos</Dropdown.Item>
+                      {info.map(el =>{
+                      if(el.category === 'servicos' && el.name !== 'reativar'){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
 
                     {
                       log ?
-                      <Dropdown.Item as={Link} href={`${getURL('fotoPerfil')}`}>Enviar Foto Perfil</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('fotoPerfil')}`} >Enviar Foto de Perfil</Dropdown.Item>
                       :
-                      <Dropdown.Item as={Link}  href={`${getURL('reativar')}`}>Reativar Conta</Dropdown.Item>
+                      <Dropdown.Item as={Link} href={`${getURL('reativar')}`}>Reativar Conta</Dropdown.Item>
                     }
 
                   </Dropdown.Menu>
@@ -212,12 +224,13 @@ export default function Header(){
                     Benefícios
                   </Dropdown.Toggle>
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href={`${getURL('quemSomos')}`}>Quem Somos</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('carteiraCompositor')}`}>Carteira de Compositor</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('divulgacao')}`}>Divulgação</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('radioOnline')}`}>Rádio Online</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('radioGospel')}`}>Rádio Gospel</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('programaRecompensas')}`}>Programa de Recompensas</Dropdown.Item>
+                     {info.map(el =>{
+                      if(el.category === 'beneficios' ){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -253,10 +266,13 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href=''>Inscrições encerradas!</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('resultadoMusica')}`}>Resultado Música 2023</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('resultadoPoesia')}`}>Resultado Poesia 2023</Dropdown.Item>
-                    <Dropdown.Item as={Link}href={`${getURL('resultadosAnteriores')}`}>Resultados Anteriores</Dropdown.Item>
+                     {info.map(el =>{
+                      if(el.category === 'festival' ){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>
@@ -282,11 +298,13 @@ export default function Header(){
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
-                    <Dropdown.Item as={Link} href={`${getURL('ajudaGeral')}`}>Ajuda Geral</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('tocarNaRadio')}`}>Tocar na Rádio</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('comporUmaMusica')}`}>Compor Uma Música</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('gravadoras')}`}>Gravadoras</Dropdown.Item>
-                    <Dropdown.Item as={Link} href={`${getURL('direitosAutorais')}`}>Direitos Autorais</Dropdown.Item>
+                     {info.map(el =>{
+                      if(el.category === 'ajuda' && el.name !== 'ajuda' ){ 
+                        return (
+                          <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
+                        )
+                      }
+                     })}
                   </Dropdown.Menu>
                 </Dropdown>
               </Nav.Item>  

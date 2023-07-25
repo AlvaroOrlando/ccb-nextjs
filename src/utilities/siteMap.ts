@@ -1,361 +1,221 @@
-import { v4 as uuidv4} from 'uuid'
+
+export const servicos = '/servicos'
+export const ajuda = '/ajuda'
+export const beneficios = '/beneficios'
+export const associar = '/associar'
+export const salaVip = '/salaVip'
+export const coletanea = '/coletanea'
+export const festival = '/festival'
+export const radio = '/radio'
+export const whatsapp = 'https://contate.me/clubedoscompositores'
 
 export const siteMap = [
     // SERVIÇOS
     {
         id: 'servicos',
-        rootRef:"/servicos",
-        href: "/servicos",
-        rootPage: "Serviços",
-        currentPage: undefined,
+        href:`${servicos}`,
     },
     // Isrc
     {
         id: 'isrc',
-        rootRef:"/servicos",
-        href: "/servicos/isrc",
-        rootPage: "Serviços",
-        currentPage: "Gerar ISRC - ECAD",
+        href: `${servicos}/isrc`,
+    },
+    // Isrc2
+    {
+        id: 'isrc2',
+        href: `${servicos}/isrc/isrc2`,
     },
     // Estudio
     {
        id: 'estudio',
-       rootRef:"/servicos",
-       href: "/servicos/estudio/gravar",
-       rootPage: "Serviços",
-       currentPage: "Gravar no Estúdio CCB",
+       href: `${servicos}/estudio/gravar`,
     },
     // Melodia
     {
        id: 'melodia',
-       rootRef:"/servicos",
-       href: "/servicos/estudio/melodia",
-       rootPage: "Serviços",
-       currentPage: "Confecção de Melodia",
+       href: `${servicos}/estudio/melodia`,
     },
     // Pagamentos
     {
        id:'pagamentos',
-       rootRef:"/servicos",
-       href: "/servicos/pagamentos",
-       rootPage: "Serviços",
-       currentPage: "Pagamentos",
+       href: `${servicos}/pagamentos`,
     },
     //Reativar
     {
        id: 'reativar',
-       rootRef:"/servicos",
-       href: "/servicos/reativar",
-       rootPage: "Serviços",
-       currentPage: "Reativar Conta",
+       href: `${servicos}/reativar`,
     },
     //Registros
     {
-       id: 'registros',
-       rootRef:"/servicos",
-       href: "/servicos/registrar",
-       rootPage: "Serviços",
-       currentPage: "Registros",
+       id: 'registrar',
+       href: `${servicos}/registrar`,
     },
 
 
     // AJUDA
     {
         id: 'ajuda',
-        rootRef:"/ajuda",
-        href: "/ajuda",
-        rootPage: "Ajuda",
-        currentPage: undefined,
+        href: `${ajuda}`,
     },
     // Ajuda Geral
     {
         id: 'ajudaGeral',
-        rootRef:"/ajuda",
-        href: "/ajuda/ajudaGeral",
-        rootPage: "Ajuda",
-        currentPage: "Ajuda Geral",
+        href: `${ajuda}/ajudaGeral`,
     },
     //Tocar na Rádio
     {
         id: 'tocarNaRadio',
-        rootRef:"/ajuda",
-        href: "/ajuda/tocarNaRadio",
-        rootPage: "Ajuda",
-        currentPage: "Tocar na Rádio",
+        href: `${ajuda}/tocarNaRadio`,
     },
     // Compor uma música
     {
         id: 'comporUmaMusica',
-        rootRef:"/ajuda",
-        href: "/ajuda/comporUmaMusica",
-        rootPage: "Ajuda",
-        currentPage: "Compor Uma Música",
+        href: `${ajuda}/comporUmaMusica`,
     },
     // Direitos Autorais
     {
         id:'direitosAutorais',
-        rootRef:"/ajuda",
-        href: "/ajuda/direitosAutorais",
-        rootPage: "Ajuda",
-        currentPage: "Direitos Autorais",
+        href: `${ajuda}/direitosAutorais`,
     },
     // Gravadoras
     {
         id:'gravadoras',
-        rootRef:"/ajuda",
-        href: "/ajuda/gravadoras",
-        rootPage: "Ajuda",
-        currentPage: "Gravadoras",
+        href: `${ajuda}/gravadoras`,
     },
 
     // ASSOCIAR
     // Compositores
     {
         id:'compositores',
-        rootRef:"/associar/compositores",
-        href: "/associar/compositores",
-        rootPage: "Associar",
-        currentPage: "Compositores",
+        href: `${associar}/compositores`,
     },
     // Bandas
     {
         id:'bandas',
-        rootRef:"/associar/compositores",
-        href: "/associar/bandas",
-        rootPage: "Associar",
-        currentPage: "Bandas",
+        href: `${associar}/bandas`,
     },
     // Cantores e Duplas
     {
         id:'cantores',
-        rootRef:"/associar/compositores",
-        href: "/associar/cantores",
-        rootPage: "Associar",
-        currentPage: "Catores e Duplas",
+        href: `${associar}/cantores`,
     },
 
 
     // BENEFÍCIOS
     {
         id:'beneficios',
-        rootRef:"/beneficios",
         href: "/beneficios",
-        rootPage: "Beneficios",
-        currentPage: undefined,
     },
     // Carteira de Compositor
     {
         id:'carteiraCompositor',
-        rootRef:"/beneficios",
-        href: "/beneficios/carteiraCompositor",
-        rootPage: "Beneficios",
-        currentPage: "Carteira de Compositor",
+        href: `${beneficios}/carteiraCompositor`,
     },
    
     // Divulgação
     {
         id:'divulgacao',
-        rootRef:"/beneficios",
-        href: "/beneficios/divulgacao",
-        rootPage: "Beneficios",
-        currentPage: "Divulgação",
+        href: `${beneficios}/divulgacao`,
     },
     // Programa Recompensas
     {
         id:'programaRecompensas',
-        rootRef:"/beneficios",
-        href: "/beneficios/programaRecompensas",
-        rootPage: "Beneficios",
-        currentPage: "Programa de Recompensas",
+        href: `${beneficios}/programaRecompensas`,
     },
     // Quem Somos
     {
         id:'quemSomos',
-        rootRef:"/beneficios",
-        href: "/beneficios/quemSomos",
-        rootPage: "Beneficios",
-        currentPage: "Quem Somos?",
+        href: `${beneficios}/quemSomos`,
     },
 
 
     // SALA VIP
     {
         id:'salaVip',
-        rootRef:"/salaVip",
-        href: "/salaVip",
-        rootPage: "Sala VIP",
-        currentPage: undefined,
+        href: `${salaVip}`,
     },
     // Alteração de Cadastro
     {
         id:'alteracaoCadastro',
-        rootRef:"/salaVip",
-        href: "/salaVip/alteracaoCadastro",
-        rootPage: "Sala VIP",
-        currentPage: "Alteração de Cadastro",
+        href: `${salaVip}/alteracaoCadastro`,
     },
     // Alteração de Senha
     {
         id:'alteracaoSenha',
-        rootRef:"/salaVip",
-        href: "/salaVip/alteracaoSenha",
-        rootPage: "Sala VIP",
-        currentPage: "Alteração de Senha",
-    },
-    // Recuperação de Senha
-    {
-        id:'recuperacaoSenha',
-        rootRef:"/salaVip",
-        href: "/salaVip/recuperacaoSenha",
-        rootPage: "Sala VIP",
-        currentPage: "Recuperação de Senha",
+        href: `${salaVip}/alteracaoSenha`,
     },
     // Enviar Letras
     {
         id:'enviarLetras',
-        rootRef:"/salaVip",
-        href: "/salaVip/enviarLetras",
-        rootPage: "Sala VIP",
-        currentPage: "Enviar Letras",
+        href: `${salaVip}/enviarLetras`,
     },
     // Enviar Músicas
     {
-        id:'enviarMsucias',
-        rootRef:"/salaVip",
-        href: "/salaVip/enviarMsucias",
-        rootPage: "Sala VIP",
-        currentPage: "Enviar Músicas",
+        id:'enviarMusicas',
+        href: `${salaVip}/enviarMusicas`,
     },
     // Solicitar Carteira
     {
         id:'solicitarCarteira',
-        rootRef:"/salaVip",
-        href: "/salaVip/solicitarCarteira",
-        rootPage: "Sala VIP",
-        currentPage: "Carteira de Compositor",
+        href: `${salaVip}/solicitarCarteira`,
     },
     // Foto Perfil
     {
         id:'fotoPerfil',
-        rootRef:"/salaVip",
-        href: "/salaVip/fotoPerfil",
-        rootPage: "Sala VIP",
-        currentPage: "Enviar Foto de Perfil",
+        href: `${salaVip}/fotoPerfil`,
     },
 
 
     // COLETÂNEA
     {
         id:'coletanea',
-        rootRef:"/coletanea",
-        href: "/coletanea",
-        rootPage: "Coletânea",
-        currentPage: undefined,
+        href: `${coletanea}`,
     },
 
 
     // FESTIVAL
     {
-        id:'festival',
-        rootRef:"/festival",
-        href: "/festival",
-        rootPage: "Festival",
-        currentPage: undefined,
+        id:'inscricoes',
+        href: `${festival}/inscricoes`,
     },
      // Resultado Música
      {
         id:'resultadoMusica',
-        rootRef:"/festival",
-        href: "/festival/resultadoMusica",
-        rootPage: "Festival",
-        currentPage: "Resultado Música",
+        href: `${festival}/resultadoMusica`,
      },
      // Resultado Poesia
      {
         id:'resultadoPoesia',
-        rootRef:"/festival",
-        href: "/festival/resultadoPoesia",
-        rootPage: "Festival",
-        currentPage: "Resultado Poesia",
+        href: `${festival}/resultadoPoesia`,
      },
      // Resultados Anteriores
      {
         id:'resultadosAnteriores',
-        rootRef:"/festival",
-        href: "/festival/resultadosAnteriores",
-        rootPage: "Festival",
-        currentPage: "Resultados Anteriores",
+        href: `${festival}/resultadosAnteriores`,
      },
 
 
      //RADIO
      {
         id:'radioOnline',
-        rootRef:"/radio/radioGospel",
-        href: "/radio/radioOnline",
-        rootPage: "Mudar para Radio Gospel",
-        currentPage: "Rádio Online",
+        href: `${radio}/radioOnline`,
      },
      //RADIO GOSPEL
      {
         id:'radioGospel',
-        rootRef:"/radio/radioOnline",
-        href: "/radio/radioGospel",
-        rootPage: "Mudar para Radio Online",
-        currentPage: "Rádio Gospel",
+        href: `${radio}/radioGospel`,
      },
 
      //Whatsapp
      {
         id:'whatsapp',
-        href: "https://contate.me/clubedoscompositores" ,
+        href: `${whatsapp}`,
      },
+
+     // Recuperação de Senha
+    {
+        id:'recuperacaoSenha',
+        href: `${servicos}/recuperacaoSenha`,
+    },
      
-]
-
-export function getURL(id:string){
-    const item = siteMap.find(el =>{
-      return el.id === id
-     })
-    return item?.href
-  }
-
-
-
-export const teste =[
-  
-{
-    id:uuidv4(),
-
-    href:`${getURL('isrc')}`,
-    rootRef:"/servicos",
-    rootPage: "Serviços",
-    currentPage: "Gerar ISRC - ECAD",
-    category:'servicos',
-
-    card: {
-        name: 'isrc',
-        idCard:"isrc_card",
-        title:"Gerar ISRC/ECAD",
-        content:"Gere o Código ISRC junto ao ECAD que irá controlar os Direitos Autorais de suas músicas.",
-        imgUrl:'../images/cards/ISRC.jpg',
-    }
-},
-
-{
-    id:uuidv4(),
-    href:`${getURL('pagamentos')}`,
-    rootRef:"/servicos",
-    rootPage: "Serviços",
-    currentPage: "Pagamentos",
-    category:'servicos',
-
-    card: {
-        name:'pagamentos',
-        title:"Pagamentos",
-        content:"Acesse aqui para Reativar sua conta, fazer pagamentos ou pedir segunda via de boletos.",
-        imgUrl:'../images/cards/melody.jpg',
-    }
- },
-
 ]

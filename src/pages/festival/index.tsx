@@ -1,12 +1,18 @@
 import Crumb from "@/components/Crumb";
+import Card from "@/components/Cards";
+import MainContainer from "@/components/MainContainer";
 
 export default function Festival(){
     return (
         <>
           <Crumb />
-            <section className="MainContainer">
-              <h1>Inscrições Encerradas</h1>
-            </section>
+          <MainContainer>
+            <div style={{padding:'1rem', paddingBottom:'0px'}} className="col-12 col-sm-12 col-md-12">
+            <div className="row">
+              <Card page='festival'/>
+            </div>
+            </div>
+          </MainContainer>
         </>
     )
 }

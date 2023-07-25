@@ -7,7 +7,7 @@ import styles from '../Header/header.module.scss'
 import BuscaArtista from '../BuscaArtista';
 import Link from 'next/link';
 
-import { useGlobalContext } from '@/Context/GlobalContextProvider'
+import { getURL, info } from '@/utilities/servicesInfo';
 
 interface SidebarProps {
   log:boolean
@@ -58,37 +58,21 @@ export default function Sidebar({log}:SidebarProps){
 
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/festival">
-                          <div>
-                            Inscrições encerradas
-                          </div>
-                        </Link>
-                      </li>
-                      
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/festival/resultadoMusica">
-                          <div>
-                              Resultado Música 2023
-                          </div>
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/festival/resultadoPoesia">
-                          <div>
-                              Resultado Poesia 2023
-                          </div>
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/festival/resultadosAnteriores">
-                          <div>
-                              Resultados Anteriores
-                          </div>
-                        </Link>
-                      </li>
+                      {
+                        info.map(el => {
+                          if(el.category === 'festival'){
+                            return (
+                              <li key={el.id}>
+                                <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
+                                  <div>
+                                    {el.card.title}
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          }
+                        })
+                      }
                     </ul>
                  </Accordion.Body>
                 </Accordion.Item>
@@ -103,31 +87,23 @@ export default function Sidebar({log}:SidebarProps){
 
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/associar/compositores">
-                          <div>
-                            Compositores
-                          </div>
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/associar/bandas">
-                          <div>
-                              Banda
-                          </div>
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/associar/cantores">
-                          <div>
-                              Cantores e Duplas
-                          </div>
-                        </Link>
-                      </li>
+                      {
+                        info.map(el => {
+                          if(el.category === 'associar'){
+                            return (
+                              <li key={el.id}>
+                                <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
+                                  <div>
+                                    {el.card.title}
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          }
+                        })
+                      }
                     </ul>
-                  </Accordion.Body>
+                 </Accordion.Body>
                 </Accordion.Item>
 
                 {/* Registro */}
@@ -185,7 +161,7 @@ export default function Sidebar({log}:SidebarProps){
 
                 {/* ISRC */}
                 <Accordion.Item eventKey='4' className="mt-3">
-                  <Link onClick={handleClose} href="/servicos/isrc">
+                  <Link onClick={handleClose} href={`${getURL('isrc')}`}>
                     <Accordion.Header>
                       <div className='text-primary'>ISRC</div>
                     </Accordion.Header>
@@ -202,21 +178,21 @@ export default function Sidebar({log}:SidebarProps){
 
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
-                      <li>
-                        <Link onClick={handleClose}className={styles.dropItem} href="/servicos/gravar">
-                          <div>
-                            Gravar no CCB
-                          </div>
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/melodia">
-                          <div>
-                            Confecção de melodia
-                          </div>
-                        </Link>
-                      </li>
+                      {
+                        info.map(el => {
+                          if(el.subategory === 'estudio'){
+                            return (
+                              <li key={el.id}>
+                                <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
+                                  <div>
+                                    {el.card.title}
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          }
+                        })
+                      }
                     </ul>
                   </Accordion.Body>
                 </Accordion.Item>
@@ -231,96 +207,58 @@ export default function Sidebar({log}:SidebarProps){
 
                   <Accordion.Body>
                     <ul className={styles.sidebarItem}>
-                      {/* Sala Vip */}
-                      {
-                        log &&
-                        <li>
-                          <Link onClick={handleClose} className={styles.dropItem} href="/salaVip">
-                            <i className="fa-regular fa-address-card"></i>
-                            <div>
-                              Área VIP
-                            </div>
-                          </Link>
-                        </li>
-                      } 
-
-                      {/* Pagamentos  */}
+                    {
+                      log &&
                       <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/pagamentos">
-                          <i className="fa-brands fa-amazon-pay"></i>
-                          <div>
-                            Pagamentos
-                          </div>
-                        </Link>
-                      </li>
-
-                      {/* ISRC  */}
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/isrc">
-                            <i className="fa-regular fa-copyright"></i>
+                        <Link onClick={handleClose} className={styles.dropItem} href={`${getURL('salaVip')}`}>
                             <div>
-                              Obter ISRC/ECAD
+                              Acessar Sala VIP
                             </div>
                         </Link>
                       </li>
-
-                      {/* Registro Obras  */}
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/registrar">
-                          <i className="fa-solid fa-compact-disc"></i>
-                          <div>
-                              Registro de obras
-                          </div>
-                        </Link>
-                      </li>
-
-                      {/* Estúdio  */}
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/gravar">
-                          <i className="fa-solid fa-microphone-lines"></i>
-                          <div className='text-primary'>
-                            Gravar no Estúdio CCB
-                          </div>
-                        </Link>
-                      </li>
-
-                      {/* Melodia  */}
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/servicos/melodia">
-                          <i className="fa-solid fa-music"></i>
-                          <div className='text-primary'>
-                            Confecção de melodia
-                          </div>
-                        </Link>
-                      </li>
-                      
-                      {/* Foto Perfil  */}
+                    } 
                       {
-                        log &&
-                      <li>
-                        <Link onClick={handleClose} className={styles.dropItem} href="/salaVip/fotoPerfil">
-                          <i className="fa-regular fa-images"></i>
-                          <div>
-                            Enviar Foto Perfil
-                          </div>
-                        </Link>
-                      </li>
+                        info.map(el => {
+                          if(el.category === 'servicos' && el.name !== 'reativar'){
+                            return (
+                              <li key={el.id}>
+                                <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
+                                  <div>
+                                    {el.card.title}
+                                  </div>
+                                </Link>
+                              </li>
+                            )
+                          }
+                        })
                       }
-                      
-                      {/* Reativar Conta  */}
                       {
-                        log === false &&
-                        <li>
-                          <Link onClick={handleClose} className={styles.dropItem} href="/servicos/reativar">
-                            <i className="fa-solid fa-toggle-on"></i>
+                      info.map(el =>{
+                        if(el.name === 'reativar' && log === false){ 
+                          return (
+                            <li key={el.id}>
+                              <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
+                                  <div>
+                                    {el.card?.title}
+                                  </div>
+                              </Link>
+                            </li>
+                          )
+                        }
+                      })
+                    }
+                    {
+                      log &&
+                      <li>
+                        <Link onClick={handleClose} className={styles.dropItem} href={`${getURL('fotoPerfil')}`}>
                             <div>
-                              Reativar Conta
+                              Enviar Foto de Perfil
                             </div>
-                          </Link>
-                        </li>
-                      }
+                        </Link>
+                      </li>
+                    } 
                     </ul>
-                  </Accordion.Body>
+                 </Accordion.Body>
                 </Accordion.Item>
 
                 {/* Benefícios  */}

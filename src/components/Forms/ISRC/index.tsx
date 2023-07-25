@@ -1,5 +1,4 @@
 
-import { IsrcButtonContainer, IsrcFormContainer, Taxas } from "./styles";
 
 import Button from "../../../components/Global/Button"
 import Input from "@/components/Global/Input";

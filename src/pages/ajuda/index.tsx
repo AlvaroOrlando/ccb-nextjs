@@ -1,5 +1,5 @@
 import Crumb from "@/components/Crumb";
-import Card from "@/components/HomeCards";
+import Card from "@/components/Cards";
 import MainContainer from "@/components/MainContainer";
 
 

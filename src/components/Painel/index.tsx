@@ -16,15 +16,17 @@ const bebas = Bebas_Neue({
 
 export default function Painel({ content, variant }:PainelProps){
     return (
-            <section 
+            <div 
               className={
                 `${bebas.className} 
                  ${styles.PainelContainer} 
-                 ${variant === 'blue' ? styles.blue : styles.yellow}`
+                 ${variant === 'blue' ? styles.blue : styles.yellow}
+                 mt-3
+                 `
               }
             >
                 <h1 className="text-center">{content}</h1>
-            </section>
+            </div>
     )
 }
 
