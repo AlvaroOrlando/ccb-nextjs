@@ -1,0 +1,26 @@
+{
+    "clubecad": [
+        {
+            "nome": "Álvaro Conde Orlando",
+            "nart": "Alvinho",
+            "cpf": "05559092630",
+            "email": "alvarocondeorlando@gmail.com",
+            "endereco":"Rua Caetanno Moratori 279",
+            "cep":"11750000",
+            "cidade":"Peruíbe",
+            "estado":"SP",
+            "telefone":"13974116662"
+        },
+        {
+            "nome": "Bruno Conde Orlando",
+            "nart": "Bruno",
+            "cpf": "05459096731",
+            "email": "bruno@gmail.com",
+            "endereco":"Rua do Bruno 64",
+            "cep":"11750000",
+            "cidade":"Ponte Nova",
+            "estado":"MG",
+            "telefone":"35994113764"
+        }
+    ]
+}

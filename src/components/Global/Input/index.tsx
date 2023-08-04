@@ -6,9 +6,10 @@ interface InputProps extends FormControlProps {
     maxLength?:string
 }
 
-export default function Input({rows, cols, maxLength, ...props}:InputProps){
+export default function Input({rows, cols, maxLength,onChange, ...props}:InputProps){
     return (
         <Form.Control 
+           onChange={onChange}
            {...props} 
            rows={rows} 
            cols={cols} 

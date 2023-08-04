@@ -1,4 +1,3 @@
-import { ReactNode } from "react"
 import styles from "./baseContainer.module.scss"
 import { PropsWithChildren } from "react";
 

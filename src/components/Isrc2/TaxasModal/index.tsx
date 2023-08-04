@@ -1,5 +1,5 @@
-import BaseModal from "@/components/BaseModal"
-import styles from "../isrc.module.scss"
+import BaseModal from "../../BaseModal"
+import styles from "../../../pages/servicos/isrc/isrc.module.scss"
 export default function TaxasModal(){
 
     const valoresISRC = {
