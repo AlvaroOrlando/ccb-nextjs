@@ -40,6 +40,11 @@ export const siteMap = [
        id:'pagamentos',
        href: `${servicos}/pagamentos`,
     },
+    // Confirmação
+    {
+       id:'confirmacao',
+       href: `${servicos}/pagamentos/confirmacao`,
+    },
     //Reativar
     {
        id: 'reativar',

@@ -1,7 +1,6 @@
 'use client';
 
 import { useContext, useState, createContext } from 'react'
-import { redirect } from 'next/navigation'
 
 import { usePathname } from 'next/navigation';
 

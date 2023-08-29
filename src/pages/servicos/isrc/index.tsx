@@ -12,15 +12,15 @@ export default function Isrc(){
             <Crumb />
 
             <section className='MainContainer'>
+                {/* Formulário */}
                 <div className='PainelSectionContainer'>
                   <Painel content="PAINEL DO ISRC" />
                   <div className='PainelSection'>
-
                     <IsrcForm />
-                    
                   </div>
                 </div> 
 
+                {/* Vídeo */}
                 <div className='VideoContainer'>
                   <section className="mt-3" >
                     <Video
@@ -30,6 +30,7 @@ export default function Isrc(){
                   </section>
                 </div>
 
+                {/* Texto */}
                 <section className={styles.TextoIsrc}>
                   <h2 className="mb-3 mt-3">O que é ISRC?</h2>
                   <p>

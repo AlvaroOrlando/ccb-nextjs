@@ -40,7 +40,7 @@ export default function BaseModal({handleLogin, handleLogoff, titulo, log,conten
     return ( 
       
       <div>
-        <Link onClick={handleShow} style={{textDecoration: 'underline'}} href="">
+        <Link className="subtitulosGlobal" onClick={handleShow} style={{textDecoration: 'underline'}} href="">
           {content}
         </Link>
         <Modal show={show} onHide={handleClose}>

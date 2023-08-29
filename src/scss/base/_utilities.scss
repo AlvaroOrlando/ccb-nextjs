@@ -18,3 +18,17 @@
 .minHeight {
   @include minHeight;
 }
+
+.formControlDanger{
+  
+  &:focus {
+    border-color: $primary-red !important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px$primary-red-shadow !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px $primary-red-shadow !important;
+  }
+}
+
+.forbidden {
+  pointer-events: all !important;
+  cursor: not-allowed !important;
+}

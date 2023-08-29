@@ -1,6 +1,9 @@
 import BaseModal from "../../BaseModal"
 import styles from "../../../pages/servicos/isrc/isrc.module.scss"
-export default function TaxasModal(){
+interface BaseModalType {
+    content: string
+}
+export default function TaxasModal({content}:BaseModalType){
 
     const valoresISRC = {
         associados: {
@@ -15,10 +18,10 @@ export default function TaxasModal(){
           terceiraMusica: '60',
           quartaMusica: '48'
         }
-      } 
+    } 
 
     return (
-        <BaseModal titulo="CERTIFICADO ISRC/ECAD - TAXAS" content="Clique para ver as Taxas">
+        <BaseModal titulo="CERTIFICADO ISRC/ECAD - TAXAS" content={content}>
             
             <h4 className="subtitulosGlobal">Serviços inclusos</h4>
             <ul className="mt-3">

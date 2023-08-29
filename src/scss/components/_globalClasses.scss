@@ -5,6 +5,7 @@
     max-width: 1200px;
 
     padding: 15px;
+    padding-top: 0px;
     margin: 0 auto;
     margin-bottom: 10px;
 
@@ -48,4 +49,8 @@
     color: $secondary-blue;
     text-align: center;
     font-weight: bold;
+}
+
+.globalHeading {
+    color: $primary-red;
 }

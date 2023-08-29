@@ -10,7 +10,7 @@ interface GlobalButtonProps extends ButtonProps {
 export default function Btn({variant, value, type}:GlobalButtonProps  ){
     return (
         <div className="mt-3" style={{width:"100%", maxWidth: "400px", margin: "0 auto"}}>
-          <Button className="w-100" type={type} variant={variant}>{value}</Button>
+          <Button className="w-100 text-white" type={type} variant={variant}>{value}</Button>
         </div>
     )
 }

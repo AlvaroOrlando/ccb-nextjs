@@ -1,19 +1,15 @@
-import { query } from "../../../lib/db";
+import { getUserByCpf } from "../../../services/clubecadService/getUserByCpf";
 
-export default async function getUserByCpf(req, res) {
+export default async function getUserByCpfHandler(req, res) {
   try {
     const { cpf } = req.query;
 
-    if (!cpf) {
-      return res.status(400).json({ error: "Missing 'cpf' parameter." });
-    }
+    const userData = await getUserByCpf(cpf);
 
-    const querySql = `SELECT * FROM clubecad WHERE cpf = ?`;
-
-    const data = await query({ query: querySql, values: [cpf] });
-
-    res.status(200).json({ users: data });
+    res.status(200).json({ users: userData });
+    
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 }
+

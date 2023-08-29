@@ -1,12 +1,27 @@
 import Crumb from "@/components/Crumb";
+import MainContainer from "@/components/MainContainer";
+import AssociarText from "../AssociarText"
+import { AssociarCarousel } from "@/components/AssociarCarousel";
+import AssociarForm from "../AssociarForm";
 
 export default function AssociarCompositores(){
+    
+     function handleSubmit(){
+        console.log("Hello");
+     }
+
     return (
         <>
             <Crumb />
-            <section className="MainContainer">
-                <h1>Associar Compositores</h1>
-            </section>
+            <MainContainer>
+
+               <AssociarCarousel />
+                
+               <AssociarForm />
+
+               <AssociarText />
+
+            </MainContainer>
         </>
     )
 }

@@ -21,7 +21,6 @@ export default function Painel({ content, variant }:PainelProps){
                 `${bebas.className} 
                  ${styles.PainelContainer} 
                  ${variant === 'blue' ? styles.blue : styles.yellow}
-                 mt-3
                  `
               }
             >

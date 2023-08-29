@@ -1,0 +1,85 @@
+@use '../abstracts' as *;
+
+.sucesso {
+    @include flex-center-column;
+    gap: 5px;
+}
+
+.topTextContainer {
+    text-align: center;
+}
+
+.shadowBox {
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.compInputs {
+    width: 100%;
+    padding: 20px;
+    max-width: 420px;
+
+    @include flex-center-column;
+    margin: 0 auto;
+
+div {
+    width: 100%;
+    max-width: 400px;
+
+    @include flex-center-column;
+
+    label {
+    align-self: flex-start;
+    }
+
+    input {
+    width: 100%;
+    max-width: 400px;
+    }
+}
+}
+
+.servicosLista li {
+    list-style-type: circle;
+    padding: 10px;
+    text-align: justify;
+}
+
+// .servText {
+// text-align: center;
+
+// p {
+//     margin: 2px;
+// }
+// }
+
+.painel h1 {
+margin-bottom: 0px;
+margin-top: 5px;
+}
+
+.comoAtuamos p {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.comoAtuamosContainer, .small {
+    @include flex-center-row;
+}
+
+.customButton{
+    color: $secondary-blue;
+    border: none;
+    outline:0;
+    text-decoration: underline;
+    background-color:transparent;
+    font-weight: bold;
+}
+
+.attentionText{
+    font-style: italic; 
+    color:$primary-red; 
+    text-align: justify;
+}

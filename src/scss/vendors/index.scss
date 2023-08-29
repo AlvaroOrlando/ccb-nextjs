@@ -1,0 +1,11 @@
+@use "../abstracts/" as *;
+
+$primary: $primary-blue;
+$danger: $primary-red;
+$warning: $primary-yellow;
+
+$link-decoration: none;
+
+
+@import '../node_modules/bootstrap/scss/bootstrap'
+

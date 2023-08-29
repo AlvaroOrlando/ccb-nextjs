@@ -126,6 +126,14 @@ export const info = [
             id:uuidv4(),
         }
     },
+    {
+        id:uuidv4(),
+        name:'pagamentos',
+        href:`${getURL('confirmacao')}`,
+        rootRef:`${servicos}`,
+        rootPage: "Serviços",
+        currentPage: "Pagamentos - Confirmação",
+    },
     //Reativar
     {
         id:uuidv4(),
@@ -537,8 +545,8 @@ export const info = [
         name:'associar',
         rootRef:`${associar}/compositores`,
         href: `${getURL('compositores')}`,
-        rootPage: "Associar",
-        currentPage: "Associar",
+        rootPage: "Associar ao CCB",
+        currentPage: "Compositores",
         category:'associar',
         home:true,
     
@@ -557,7 +565,7 @@ export const info = [
         name:'associarBandas',
         rootRef:`${associar}/compositores`,
         href: `${getURL('bandas')}`,
-        rootPage: "Associar",
+        rootPage: "Associar ao CCB",
         currentPage: "Bandas",
         category:'associar',
     
@@ -576,7 +584,7 @@ export const info = [
         name:'associarCantores',
         rootRef:`${associar}/compositores`,
         href: `${getURL('cantores')}`,
-        rootPage: "Associar",
+        rootPage: "Associar ao CCB",
         currentPage: "Cantores e Duplas",
         category:'associar',
     

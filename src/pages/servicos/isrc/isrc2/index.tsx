@@ -1,12 +1,7 @@
-
-
 import Crumb from "@/components/Crumb";
 import MainContainer from "@/components/MainContainer";
 import DadosPessois from "../../../../components/Isrc2/Forms/DadosPessoais";
 import BaseContainer from "@/components/BaseContainer";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { ParsedUrlQuery } from "querystring";
 
 export default function ISRC2(){
 
@@ -38,4 +33,4 @@ export default function ISRC2(){
 //     PRIMARY KEY (cpf)
 // );
 
-// INSERT INTO clubecad(nome, nart, cpf,email,telefone,endereco,cidade,estado,cep) VALUES ("Álvaro Conde Orlando", "Alvinho", "05559092630","alvarocondeorlando@gmail.com", "013974116662", "Rua Caetano Moratori, 279", "Peruíbe", "SP","11750000");
+//    INSERT INTO clubecad(nome, nart, cpf,email,telefone,endereco,cidade,estado,cep) VALUES ("Alvaro Conde Orlando", "Alvinho", "05559092630","alvarocondeorlando@gmail.com", "013974116662", "Rua Caetano Moratori, 279", "Peruíbe", "SP","11750000");

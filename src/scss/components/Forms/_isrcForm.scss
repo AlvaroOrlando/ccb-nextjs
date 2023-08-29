@@ -31,23 +31,35 @@
     
     section {
         margin-left: 0px;
-
-        & :first-child::after {
-            content: "|";
-            margin-left: 10px;
-            margin-right: 10px;
-            color: $dark-gray;
-        }
+        @include flex-around-row;
 
         a {
-            text-decoration: none;
+            text-decoration: none !important;
+            outline:none;  
+            border: none;
+            background-color: transparent;
             color: $secondary-blue;
+
+            &:after {
+                content: "|";
+                margin-left: 10px;
+                margin-right: 10px;
+                color: $dark-gray;
+            }   
+        }
+
+        button {
+            text-decoration: none;
+            outline:none;  
+            border: none;
+            background-color: transparent;
+            color: $secondary-blue;
+            padding-left: 0px;
 
             &:hover {
             color: $hover-blue;
             cursor: pointer;
             }
-
         }
     }
 }
@@ -61,3 +73,4 @@
         color: $secondary-blue;
     }
 }
+

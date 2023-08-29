@@ -1,12 +1,14 @@
 import Crumb from "@/components/Crumb";
+import MainContainer from "@/components/MainContainer";
+import PagamentosForm from "./pagamentosForm";
 
 export default function TrocarSenha(){
     return (
         <>
             <Crumb />
-            <section className="MainContainer">
-                <h1>Pagamentos</h1>
-            </section>
+            <MainContainer>
+                <PagamentosForm />
+            </MainContainer>
         </>
     )
 }
