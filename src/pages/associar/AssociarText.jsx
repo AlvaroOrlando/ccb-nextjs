@@ -1,5 +1,5 @@
-import styles from "./associar.module.scss"
-import Painel from "@/components/Painel";
+import styles from "@/styles/associar.module.scss"
+import Painel from "@/components/Containers/Painel";
 
 export default function AssociarText(){
 

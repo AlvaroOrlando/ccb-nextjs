@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import Crumb from '@/components/Crumb'
 import logoColet from '../../assets/images/logo_ccbmusic800px.png'
-import styles from './coletanea.module.scss'
+import styles from '@/styles/coletanea.module.scss'
 
 export default function Coletanea(){
     return (

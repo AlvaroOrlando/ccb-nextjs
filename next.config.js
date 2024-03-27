@@ -3,15 +3,11 @@ const path = require('path')
 
 const nextConfig = {
   reactStrictMode: true,
+  pageExtensions: ['page.tsx', 'api.ts', 'api.tsx', 'tsx', 'ts',],
   
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
-
-  compiler: {
-    // Enables the styled-components SWC transform
-    styledComponents: true
-  }
 }
 
 module.exports = nextConfig

@@ -1,9 +1,13 @@
-@import "subContainer";
 @import "subtitulo";
 @import "crumb";
 @import "globalClasses";
+
 @import "./Forms/isrcForm";
 @import "./Forms/estudioForm";
+
+@import "./Containers/painelContainer";
+@import "./Containers/textContainer";
+@import "./Containers/subContainer";
+
 @import "./painel";
-@import "./baseContainer";
 @import "../vendors"

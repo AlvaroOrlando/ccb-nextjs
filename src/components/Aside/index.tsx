@@ -1,10 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../Aside/aside.module.scss"
-import radioGospelImg from "../../../public/images/radionline_res_gospel.png"
-import radioImg from "../../../public/images/radionline_res.png"
 import Link from "next/link"
-import Artistas from "../Artistas"
 
+import radioGospelImg from "/public/images/radionline_res_gospel.png"
+import radioImg from "/public/images/radionline_res.png"
+
+import Artistas from "@/components/pages/Artistas"
+
+import styles from "./aside.module.scss"
 
 
 export default function Aside(){

@@ -1,7 +1,7 @@
 import { v4 as uuidv4} from 'uuid'
 import { siteMap } from './siteMap'
 
-import { ajuda, associar, beneficios, coletanea, festival, radio, salaVip, servicos, whatsapp } from "./siteMap"
+import { ajuda, associar, beneficios, coletanea, festival, radio, salaVip, servicos, searchArtist } from "./siteMap"
 
 
 export const info = [
@@ -12,8 +12,9 @@ export const info = [
         href:`${getURL('servicos')}`,
         rootRef:`${servicos}`,
         rootPage: "Serviços",
-        currentPage: undefined,
-        
+        currentPage: 'home',
+        category:'',
+        subcategory:'',
         card:undefined,
     },
     // Isrc
@@ -25,22 +26,26 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Gerar ISRC - ECAD",
         category:'servicos',
-        home:true,
+        subcategory:'',
     
         card:{
-            id:uuidv4(),
             idCard:"isrc_card",
             title:"Gerar ISRC/ECAD",
             content:"Gere o Código ISRC junto ao ECAD que irá controlar os Direitos Autorais de suas músicas.",
             imgUrl:'../images/cards/ISRC.jpg',
+            idImg:'isrc'
         }
     },
     //Isrc2
     {
+        id:uuidv4(),
+        name:'isrc2',
         href:`${getURL('isrc2')}`,
         rootRef:`${servicos}/isrc`,
         rootPage: "ISRC",
         currentPage: "Preencha seus dados",
+        category:'',
+        subcategory:'',
     },
     // Estudio
     {
@@ -51,12 +56,9 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Gravar no Estúdio CCB",
         category:'servicos',
-        subategory:'estudio',
-        home:true,
-    
+        subcategory:'estudio',
     
         card: {
-            id:uuidv4(),
             idCard:"estudio_card",
             idImg:"estudio",
             title:"Estúdio CCB",
@@ -64,8 +66,8 @@ export const info = [
             imgUrl:'../images/cards/studio.jpg',
         }
     },
-    // Melodia
-    {
+     // Melodia
+     {
         id: uuidv4(),
         name: 'melodia',
         rootRef:`${servicos}`,
@@ -73,12 +75,9 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Confecção de Melodia",
         category:'servicos',
-        subategory:'estudio',
-        home:true,
-    
+        subcategory:'estudio',
     
         card: {
-            id:uuidv4(),
             idCard:"melodia_card",
             idImg:"melodia",
             title:"Confecção de Melodia",
@@ -88,18 +87,16 @@ export const info = [
     },
     //Registros
     {
-        id: uuidv4(),
+        id:uuidv4(),
         name: 'registrar',
         rootRef:`${servicos}`,
         href:`${getURL('registrar')}`,
         rootPage: "Serviços",
         currentPage: "Registros",
         category:'servicos',
-        home:true,
-    
+        subcategory:'',
     
         card: {
-            id: uuidv4(),
             idCard:"registro_card",
             idImg:"registro",
             title:"Registrar Obras",
@@ -107,7 +104,7 @@ export const info = [
             imgUrl:'../images/cards/studio.jpg',
         }
     },
-    // Pagamentos
+        // Pagamentos
     {
     
         id:uuidv4(),
@@ -117,25 +114,18 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Pagamentos",
         category:'servicos',
+        subcategory:'',
         
         card: {
             idCard:"pagamentos_card",
+            idImg:"pagamentos",
             title:"Pagamentos",
             content:"Acesse aqui para Reativar sua conta, fazer pagamentos ou pedir segunda via de boletos.",
             imgUrl:'../images/cards/melody.jpg',
-            id:uuidv4(),
         }
     },
-    {
-        id:uuidv4(),
-        name:'pagamentos',
-        href:`${getURL('confirmacao')}`,
-        rootRef:`${servicos}`,
-        rootPage: "Serviços",
-        currentPage: "Pagamentos - Confirmação",
-    },
-    //Reativar
-    {
+     //Reativar
+     {
         id:uuidv4(),
         name: 'reativar',
         rootRef:`${servicos}`,
@@ -143,19 +133,18 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Reativar Conta",
         category:'servicos',
+        subcategory:'',
         
         card:{
-            id:uuidv4(),
             idCard:"reativar_card",
             idImg:"reativar",
             title:"Reativar Conta",
             content:"Clique aqui para reativar sua conta!",
             imgUrl:'../images/cards/melody.jpg',
         }
-        
     },
-    // Recuperação Senha
-    {
+      // Recuperação Senha
+      {
         id:uuidv4(),
         name:'recuperacaoSenha',
         rootRef:`${servicos}`,
@@ -163,9 +152,9 @@ export const info = [
         rootPage: "Serviços",
         currentPage: "Trocar Senha",
         category:'servicos',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"recuperacaoSenha_card",
             idImg:"recuperacaoSenha",
             title:"Recuperar sua SENHA",
@@ -173,18 +162,18 @@ export const info = [
             imgUrl:'',
         }
     },
-    
-    
-    //  BENEFÍCIOS
-    {
-        id:uuidv4(),
-        name: 'beneficios',
-        href:`${getURL('beneficios')}`,
-        rootRef:`${beneficios}`,
-        rootPage: "Benefícios",
-        currentPage: undefined,
-        card:undefined,
-    },
+     //  BENEFÍCIOS
+    //  {
+    //     id:uuidv4(),
+    //     name: 'beneficios',
+    //     href:`${getURL('beneficios')}`,
+    //     rootRef:`${beneficios}`,
+    //     rootPage: "Benefícios",
+    //     currentPage: undefined,
+    //     category:undefined,
+    //     subcategory:'',
+    //     card:undefined,
+    // },
     // Quem Somos
     {
         id:uuidv4(),
@@ -194,9 +183,9 @@ export const info = [
         rootPage: "Benefícios",
         currentPage: "Quem Somos?",
         category:'beneficios',
+        subcategory:'',
     
         card: {
-            id: uuidv4(),
             idCard:"quemSomos_card",
             idImg:"quemSomos",
             title:"Quem somos?",
@@ -213,9 +202,9 @@ export const info = [
         rootPage: "Benefícios",
         currentPage: "Carteira de Compositor",
         category:'beneficios',
+        subcategory:'',
     
         card:{
-            id: uuidv4(),
             idCard:"carteira_card",
             idImg:"carteira",
             title:"Carteira de Compositor",
@@ -223,8 +212,8 @@ export const info = [
             imgUrl:'../images/cards/trofeo.jpg',
         }
     },
-    // Divulgação
-    {
+     // Divulgação
+     {
         id:uuidv4(),
         name:'divulgacao',
         href:`${getURL('divulgacao')}`,
@@ -232,9 +221,9 @@ export const info = [
         rootPage: "Benefícios",
         currentPage: "Divulgação",
         category:'beneficios',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"divulgacao_card",
             idImg:"divulgacao",
             title:"Divulgação",
@@ -251,10 +240,9 @@ export const info = [
         rootPage: "Mudar para Radio Gospel",
         currentPage: "Rádio Online",
         category:'beneficios',
-        home:true,
+        subcategory:'',
         
         card: {
-            id:uuidv4(),
             idCard:"radioOnline_card",
             idImg:"radioOnline",
             title:"Radio Online",
@@ -271,9 +259,9 @@ export const info = [
         rootPage: "Mudar para Radio Online",
         currentPage: "Rádio Gospel",
         category:'beneficios',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"radioGospel_card",
             idImg:"radioGospel",
             title:"Rádio Gospel",
@@ -290,10 +278,9 @@ export const info = [
         rootPage: "Benefícios",
         currentPage: "Programa de Fidelidade",
         category:'beneficios',
-        home:true,
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"recompensa_card",
             idImg:"reward",
             title:"Programa de Fidelidade!",
@@ -301,7 +288,6 @@ export const info = [
             imgUrl:'../images/cards/trofeo.jpg',
         }
     },
-    
     // AJUDA
     {
         id:uuidv4(),
@@ -309,12 +295,11 @@ export const info = [
         rootRef:`${ajuda}`,
         href: `${getURL('ajuda')}`,
         rootPage: "Ajuda",
-        currentPage: undefined,
+        currentPage: 'ajuda',
         category:'ajuda',
-        home:true,
+        subcategory:'',
     
         card : {
-            id:uuidv4(),
             title:"Dúvidas?",
             idCard:"rajuda_card",
             idImg:"ajuda",
@@ -322,8 +307,8 @@ export const info = [
             imgUrl:'../images/cards/duvidas.jpg',
         }
     },
-    // Ajuda Geral
-    {
+      // Ajuda Geral
+      {
         id:uuidv4(),
         name:'ajudaGeral',
         rootRef:`${ajuda}`,
@@ -331,9 +316,9 @@ export const info = [
         rootPage: "Ajuda",
         currentPage: "Ajuda Geral",
         category:'ajuda',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"ajudaGeral_card",
             idImg:"ajudaGeral",
             title:"Ajuda Geral",
@@ -350,9 +335,9 @@ export const info = [
         rootPage: "Ajuda",
         currentPage: "Tocar na Rádio",
         category:'ajuda',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"tocarNaRadio_card",
             idImg:"tocarNaRadio",
             title:"Tocar Na Rádio?",
@@ -360,8 +345,8 @@ export const info = [
             imgUrl:'../images/cards/duvidas.jpg',
         }
     },
-    // Compor uma música
-    {
+      // Compor uma música
+      {
         id:uuidv4(),
         name:'comporUmaMusica',
         rootRef:`${ajuda}`,
@@ -369,9 +354,9 @@ export const info = [
         rootPage: "Ajuda",
         currentPage: "Compor Uma Música",
         category:'ajuda',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"comporUmaMusica_card",
             idImg:"comporUmaMusica",
             title:"Compor uma música?",
@@ -379,8 +364,8 @@ export const info = [
             imgUrl:'../images/cards/duvidas.jpg',
         }
     },
-    // Direitos Autorais
-    {
+     // Direitos Autorais
+     {
         id:uuidv4(),
         name:'direitosAutorais',
         rootRef:`${ajuda}`,
@@ -388,10 +373,9 @@ export const info = [
         rootPage: "Ajuda",
         currentPage: "Direitos Autorais",
         category:'ajuda',
-        home:true,
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"direitosAutorais_card",
             idImg:"direitosAutorais",
             title:"Direitos Autorais",
@@ -408,20 +392,18 @@ export const info = [
         rootPage: "Ajuda",
         currentPage: "Gravadoras",
         category:'ajuda',
+        subcategory:'',
         
         card: {
-            id:uuidv4(),
             idCard:"gravadoras_card",
             idImg:"gravadoras",
             title:"Gravadoras",
             content:"Você é um autor e está procurando por uma gravadora?",
             imgUrl:'../images/cards/duvidas.jpg',
         }
-    
     },
-    
-    //  FESTIVAIS
-    {
+       //  FESTIVAIS
+       {
         id:uuidv4(),
         name: 'festival',
         rootRef:`${festival}`,
@@ -429,18 +411,16 @@ export const info = [
         rootPage: "Festival",
         currentPage: 'Festival 2023',
         category: 'festival',
-        home:true,
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"festival_card",
             idImg:"festival",
             title:"Festival",
             content:"Inscrições Encerradas",
             imgUrl:'',
         }
-    },
-    // Resultado Música
+    }, // Resultado Música
     {
         id:uuidv4(),
         name:'resultadoMusica',
@@ -449,9 +429,9 @@ export const info = [
         rootPage: "Festival",
         currentPage: "Resultado Música",
         category:'festival',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"resultadoMusica_card",
             idImg:"resultadoMusica",
             title:"Resultado Musica",
@@ -459,8 +439,8 @@ export const info = [
             imgUrl:'',
         }
     },
-    // Resultado Poesia
-    {
+     // Resultado Poesia
+     {
         id:uuidv4(),
         name:'resultadoPoesia',
         rootRef:`${festival}`,
@@ -468,9 +448,9 @@ export const info = [
         rootPage: "Festival",
         currentPage: "Resultado Poesia",
         category:'festival',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"resultadoPoesia_card",
             idImg:"resultadoPoesia",
             title:"Resultado Poesia",
@@ -478,8 +458,8 @@ export const info = [
             imgUrl:'',
         }
     },
-    // Resultados Anteriores
-    {
+      // Resultados Anteriores
+      {
         id:uuidv4(),
         name:'resultadosAnteriores',
         rootRef:`${festival}`,
@@ -487,9 +467,9 @@ export const info = [
         rootPage: "Festival",
         currentPage: "Resultados Anteriores",
         category:'festival',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"resultadosAnteriores_card",
             idImg:"resultadosAnteriores",
             title:"Resultados Anteriores",
@@ -497,18 +477,18 @@ export const info = [
             imgUrl:'',
         }
     },
-    
-    
-    // CONTATO
-    {
+     // CONTATO
+     {
         id:uuidv4(),
         name:'contato',
         href:`${getURL('whatsapp')}`,
-        category:'ajuda',
-        home:true,
+        rootRef:` `,
+        rootPage: "contato",
+        currentPage: "contato",
+        category:'contato',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"contato_card",
             idImg:"contato",
             title:"Atendimento",
@@ -526,10 +506,9 @@ export const info = [
         rootPage: "Coletânea",
         currentPage: "Coletânea",
         category:'coletanea',
-        home:true,
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"coletanea_card",
             idImg:"coletanea",
             title:"Coletânea",
@@ -537,8 +516,7 @@ export const info = [
             imgUrl:'',
         }
     },
-
-    // ASSOCIAR
+     // ASSOCIAR
     // Associar Compositores
     {
         id:uuidv4(),
@@ -548,10 +526,9 @@ export const info = [
         rootPage: "Associar ao CCB",
         currentPage: "Compositores",
         category:'associar',
-        home:true,
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"associar_card",
             idImg:"associar_card",
             title:"Associar",
@@ -568,9 +545,9 @@ export const info = [
         rootPage: "Associar ao CCB",
         currentPage: "Bandas",
         category:'associar',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"associarBandas_card",
             idImg:"associarBandas_card",
             title:"Associar Bandas",
@@ -587,9 +564,9 @@ export const info = [
         rootPage: "Associar ao CCB",
         currentPage: "Cantores e Duplas",
         category:'associar',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"associarCantores_card",
             idImg:"associarCabtores_card",
             title:"Associar Cantores e Duplas",
@@ -597,8 +574,19 @@ export const info = [
             imgUrl:'',
         }
     },
-
-    // SALA VIP
+        // SALA VIP
+        {
+            id:uuidv4(),
+            name:'salaVip',
+            rootRef:`/`,
+            href: `${getURL('salaVip')}`,
+            rootPage: "Home",
+            currentPage: "Sala VIP",
+            category:'',
+            subcategory:'',
+        
+            card: undefined
+        },
     // Carteira Compositor
     {
         id:uuidv4(),
@@ -608,9 +596,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Carteira de Compositor",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"carteiraCompositor_card",
             idImg:"carteiraCompositor",
             title:"Carteira de Compositor",
@@ -627,9 +615,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Enviar e Trocar Fotos",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"fotos_card",
             idImg:"fotos",
             title:"Enviar e Trocar Fotos",
@@ -646,9 +634,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Enviar Músicas",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"musicas_card",
             idImg:"musicas",
             title:"Enviar Músicas",
@@ -665,9 +653,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Enviar Letras de Músicas",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"letras_card",
             idImg:"letras",
             title:"Enviar Letras de Músicas",
@@ -684,9 +672,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Alterar Perfil",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"letras_card",
             idImg:"letras",
             title:"Alterar o seu PERFIL",
@@ -703,9 +691,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Trocar Senha",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"alteracaoSenha_card",
             idImg:"alteracaoSenha",
             title:"Trocar a sua SENHA",
@@ -722,9 +710,9 @@ export const info = [
         rootPage: "Sala VIP",
         currentPage: "Alterar Cadastro",
         category:'salaVip',
+        subcategory:'',
     
         card: {
-            id:uuidv4(),
             idCard:"cadastro_card",
             idImg:"cadastro",
             title:"TAlterar CADASTRO",
@@ -732,11 +720,24 @@ export const info = [
             imgUrl:'',
         }
     },
+    {
+        id:uuidv4(),
+        name:'searchArtist',
+        rootRef:`/`,
+        href: `${getURL('searchArtist')}`,
+        rootPage: "Home",
+        currentPage:'Procurar Artistas',
+        category:'',
+        subcategory:'',
+        card:undefined,
+    },
+    
+
 ] 
     
 export function getURL(id:string){
     const item = siteMap.find(el =>{
         return el.id === id
-        })
+    })
     return item?.href
-    }
+}

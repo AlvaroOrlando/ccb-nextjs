@@ -2,13 +2,13 @@
 
 
 //Abstracts
-@use "../scss/abstracts/" as *;
+@use "@/scss/abstracts/" as *;
 
 //Base Styles
-@use "../scss/base/" as *;
+@use "@/scss/base/" as *;
 
-@use "../scss/components/" as *; 
+@use "@/scss/components/" as *; 
 
 //Pages
-@use "../scss/pages/" as *;
+@use "@/scss/pages/" as *;
 

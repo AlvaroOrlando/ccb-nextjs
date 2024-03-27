@@ -5,7 +5,7 @@ export default function RecuperacaoSenha(){
         <>
             <Crumb />
             <section className="MainContainer">
-                <h1>Enviar Musicas</h1>
+                <h1>Recuperar senha</h1>
             </section>
         </>
     )

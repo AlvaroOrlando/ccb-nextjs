@@ -1,5 +1,5 @@
 import Crumb from "@/components/Crumb";
-import MainContainer from "@/components/MainContainer";
+import MainContainer from "@/components/Containers/MainContainer";
 
 export default function Inscricoes(){
     return (

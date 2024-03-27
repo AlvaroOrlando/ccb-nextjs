@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import styles from "../../scss/pages/home.module.scss"
+import styles from "@/scss/pages/home.module.scss"
 import Link from "next/link"
 import { Carousel } from "react-bootstrap"
 import { SetStateAction, useState } from "react"
-import { carouselHome } from "../../utilities/carousel"
+import { carouselHome } from "@/utilities/carousel"
 
 
 export default function CarouselHome(){

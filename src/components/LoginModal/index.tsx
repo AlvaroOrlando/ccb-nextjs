@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
-import { Button, Form, Modal } from "react-bootstrap";
+import { Button as BootstrapButton, Form, Modal } from "react-bootstrap";
 import React, { useEffect, useState } from "react";
 import styles from '../Header/header.module.scss'
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import loginImg from '../../assets/images/login.png'
-import profileImg from '../../assets/images/profile.jpg'
+import loginImg from '@/assets/images/login.png'
+import profileImg from '@/assets/images/profile.jpg'
 import { getURL } from "@/utilities/servicesInfo";
+import Button from "../Global/Button";
+import Image from "next/image";
 
 interface LoginModalProps {
   handleLogin: () => void
@@ -16,16 +17,23 @@ interface LoginModalProps {
 }
 
 export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalProps){
+
+  const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true)
+
+    const { push } = useRouter();
+
   useEffect(() => {
     (function() {
       'use strict';
   
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
         let forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
+
         let validation = Array.prototype.filter.call(forms, function(form) {
           form.addEventListener('submit', function(event:React.FormEvent<HTMLInputElement>):void {
-            if (form.checkValidity() === false) {
+            if (form.checkValidity() === false){
               event.preventDefault();
               event.stopPropagation();
             }
@@ -34,13 +42,6 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
         });
     })();
   })
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true)
-
-    const { push } = useRouter();
 
 
     function handleSubmit(e:React.FormEvent<HTMLFormElement>){
@@ -61,7 +62,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
           onClick={handleShow}
          >
           <span>LOGIN</span>
-          <img src={loginImg.src} alt="" />
+          <Image width='46' height='46' src={loginImg} alt="" />
         </button>
         :
         <button 
@@ -71,7 +72,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
          >
           <span>SAIR</span>
           <span data-title='profile'>
-            <img src={profileImg.src} alt="" />
+            <Image width='46' height='46' src={profileImg} alt="" />
           </span>
         </button>
         }
@@ -106,22 +107,25 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
               </div>
         
               {/* Forgot Password */}
-              <div className="row mb-4">
+              <div className="row mb-3">
                 <div className="col d-flex justify-content-center">
                   <Link onClick={handleClose} href={`${getURL('recuperacaoSenha')}`}>Esqueci a senha.</Link>
                 </div>
               </div>
         
               {/* Submit button  */}
-              <div className="col d-flex justify-content-center">
-                <Button id="sub-btn" type="submit" variant="primary" className="btn-block mb-4 btn-md w-50 text-white">
-                  Login
-                </Button>
+              <div className="d-flex align-items-center justify-content-center">
+                <Button 
+                  value="Login" 
+                  type="submit" 
+                  // customClasses="btn-block mb-4 btn-md w-50 text-white"
+                  // className="btn-block mb-4 btn-md w-50 text-white"
+                />
               </div>
             </Form>
     
             {/* Register buttons  */}
-            <div className={`text-center ${styles.registerModal}`}>
+            <div className={`text-center mt-3 ${styles.registerModal}`}>
               <div>
                 <p>
                   Ainda não é sócio?
@@ -137,7 +141,7 @@ export default function LoginModal({handleLogin , handleLogoff, log}:LoginModalP
           </Modal.Body>
 
           <Modal.Footer>
-            <Button type="button" variant="danger" onClick={handleClose}>Fechar</Button>
+            <BootstrapButton type="button" variant="danger" onClick={handleClose}>Fechar</BootstrapButton>
           </Modal.Footer>
         </Modal>
       </div>

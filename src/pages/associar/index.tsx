@@ -1,5 +1,5 @@
 import Crumb from "@/components/Crumb";
-import MainContainer from "@/components/MainContainer";
+import MainContainer from "@/components/Containers/MainContainer";
 import { AssociarCarousel } from "@/components/AssociarCarousel";
 import AssociarForm from "./AssociarForm";
 import AssociarText from "./AssociarText";

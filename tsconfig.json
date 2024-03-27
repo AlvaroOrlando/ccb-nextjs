@@ -15,9 +15,15 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/styles/*": ["./src/styles/*"],
+      "@/public/*": ["./src/public/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/scss/*": ["./src/scss/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/utilities/*": ["./src/utilities/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/coletanea/styles.css.module", "src/pages/teste", "src/lib/db.ts", "src/pages/api/clubecad/getUserByCpf.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",  "src/lib/db.ts", "src/pages/api/clubecad/getUserByCpf.js"],
   "exclude": ["node_modules"]
 }

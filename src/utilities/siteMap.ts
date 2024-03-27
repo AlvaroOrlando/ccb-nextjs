@@ -8,12 +8,17 @@ export const coletanea = '/coletanea'
 export const festival = '/festival'
 export const radio = '/radio'
 export const whatsapp = 'https://contate.me/clubedoscompositores'
+export const searchArtist = '/searchArtist'
 
 export const siteMap = [
     // SERVIÇOS
     {
         id: 'servicos',
         href:`${servicos}`,
+    },
+    {
+        id: 'searchArtist',
+        href:`${searchArtist}`,
     },
     // Isrc
     {
@@ -28,12 +33,12 @@ export const siteMap = [
     // Estudio
     {
        id: 'estudio',
-       href: `${servicos}/estudio/gravar`,
+       href: `${servicos}/estudio?servico=gravacao`,
     },
     // Melodia
     {
        id: 'melodia',
-       href: `${servicos}/estudio/melodia`,
+       href: `${servicos}/estudio?servico=melodia`,
     },
     // Pagamentos
     {

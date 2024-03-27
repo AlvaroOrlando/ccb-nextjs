@@ -1,13 +1,13 @@
 import { useValidateCpf } from "@/hooks/useValidateCpf";
 import { useValidateBandName } from "@/hooks/useValidateBandName";
-import styles from "./associar.module.scss"
+import styles from "@/styles/associar.module.scss"
 import { useValidateNome } from "@/hooks/useValidateNome";
 import { useValidateCep } from "@/hooks/useValidateCep";
-import Painel from "@/components/Painel";
-import Input from "@/components/Global/Input";
+import Painel from "@/components/Containers/Painel";
+import Input from "@/components/Global/Input/input";
 import { useValidateBandOwner } from "@/hooks/useValidateBandOwner";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import Button from "@/components/Global/Button";
 
 
 export default function AssociarForm(){
@@ -48,9 +48,7 @@ export default function AssociarForm(){
                     // Nome
                     <div className={`form-group`}>
                         <Input
-                            className={`form-control`}
-                            type="text"
-                            maxLength="40"
+                            maxLength={40}
                             placeholder="Nome completo"
                             required
                             onChange={handleNameChange}
@@ -67,9 +65,7 @@ export default function AssociarForm(){
                       {/* Nome da banda */}
                       <div className={`form-group mt-3`}>
                         <Input
-                            className={`form-control`}
-                            type="text"
-                            maxLength="40"
+                            maxLength={40}
                             placeholder="Nome da Banda"
                             required
                             onChange={handleBandNameChange}
@@ -85,9 +81,7 @@ export default function AssociarForm(){
                       {/* Responsável */}
                       <div className={`form-group mt-3`}>
                         <Input
-                            className={`form-control`}
-                            type="text"
-                            maxLength="40"
+                            maxLength={40}
                             placeholder="Responsável"
                             required
                             onChange={handleBandOwnerChange}
@@ -105,9 +99,7 @@ export default function AssociarForm(){
                     {/* CPF */}
                     <div className={`form-group mt-3`}>
                         <Input
-                            className={validationMessage && `border-danger formControlDanger`}
-                            type="text"
-                            maxLength="11"
+                            maxLength={11}
                             placeholder="CPF (11 números)"
                             onChange={handleChange}
                             value={cpf}
@@ -123,9 +115,7 @@ export default function AssociarForm(){
                     {/* CEP */}
                     <div className={`form-group mt-3`}>
                         <Input
-                            className={cepValidationMessage && `border-danger formControlDanger`}
-                            type="text"
-                            maxLength="8"
+                            maxLength={8}
                             placeholder="CEP (8 números)"
                             onChange={handleCepChange}
                             value={cep}
@@ -142,7 +132,8 @@ export default function AssociarForm(){
                         (se mora no exterior, <a href="#exterior">clique aqui</a>)
                     </small>
 
-                    <button
+                    <Button
+                        value="PREENCHER PROPOSTA"
                         onClick={handleProposta}
                         disabled=
                         {
@@ -162,8 +153,8 @@ export default function AssociarForm(){
                             : `btn btn-primary text-white mt-3`}
                         type="button"
                     >
-                        PREENCHER PROPOSTA
-                    </button>
+                        
+                    </Button>
 
                 </div>
             </div>

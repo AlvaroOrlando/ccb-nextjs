@@ -1,12 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 import styles from '../Header/header.module.scss'
 
-import logo from '../../assets/images/logo_res_mod.png'
-import salaVipBarra from '../../assets/images/salavipnabarra.png'
+import logo from '@/assets/images/logo_res_mod.png'
+import salaVipBarra from '@/assets/images/salavipnabarra.png'
 
-import Sidebar from '../Sidebar'
-import BuscaArtista from '../BuscaArtista'
-import LoginModal from '../LoginModal'
+import Sidebar from '@/components/Sidebar'
+import BuscaArtista from '@/components/BuscaArtista'
+import LoginModal from '@/components/LoginModal'
 
 import Link from 'next/link' 
 import { usePathname } from 'next/navigation';
@@ -15,6 +14,7 @@ import { Dropdown, Nav, NavItem } from 'react-bootstrap'
 import { useGlobalContext } from '@/Context/GlobalContextProvider'
 
 import { getURL, info } from '@/utilities/servicesInfo'
+import Image from 'next/image'
 
 
 export default function Header(){
@@ -36,7 +36,7 @@ export default function Header(){
               {/* Logo */}
               <Nav.Item as='section' data-title='logo'>
                 <Link href="/">
-                  <img src={logo.src} alt="logo" />
+                  <Image width='174'height='40' src={logo.src} alt="logo" />
                 </Link>
               </Nav.Item>
               
@@ -123,7 +123,7 @@ export default function Header(){
               // Sala Vip
               <Nav.Item as='section'>
                 <Link className={styles.gifSalaVip} href={`${getURL('salaVip')}`}>
-                  <img src={salaVipBarra.src} alt="sala vip" />
+                  <Image width='50' height='30' src={salaVipBarra.src} alt="sala vip" />
                 </Link>
               </Nav.Item>
               }
@@ -168,7 +168,7 @@ export default function Header(){
 
                   <Dropdown.Menu className={styles.dropdownMenu}>
                      {info.map(el =>{
-                      if(el.subategory === 'estudio' ){ 
+                      if(el.subcategory === 'estudio' ){ 
                         return (
                           <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
                         )
@@ -195,13 +195,13 @@ export default function Header(){
                       <Dropdown.Item as={Link} href={`${getURL('salaVip')}`}>Acessar Área VIP</Dropdown.Item>
                     }
 
-                      {info.map(el =>{
+                    {info.map(el =>{
                       if(el.category === 'servicos' && el.name !== 'reativar'){ 
                         return (
                           <Dropdown.Item  key={el.id} as={Link} href={el.href}>{el.card?.title}</Dropdown.Item>
                         )
                       }
-                     })}
+                    })}
 
                     {
                       log ?

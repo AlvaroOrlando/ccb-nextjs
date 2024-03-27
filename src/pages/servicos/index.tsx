@@ -1,7 +1,7 @@
 // import Card from "@/components/Cards";
 import Crumb from "@/components/Crumb";
 import Card from "@/components/Cards";
-import MainContainer from "@/components/MainContainer";
+import MainContainer from "@/components/Containers/MainContainer";
  
 export default function Servicos(){
     return (

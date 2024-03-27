@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Associou from "../../public/images/carouselAssociar/slider_beneficios_1134x197_associou.png"
-import Bene from "../../public/images/carouselAssociar/slider_beneficios_1134x197_bene.png"
-import Cart from "../../public/images/carouselAssociar/slider_beneficios_1134x197_cart.png"
+import Associou from "/public/images/carouselAssociar/slider_beneficios_1134x197_associou.png"
+import Bene from "/public/images/carouselAssociar/slider_beneficios_1134x197_bene.png"
+import Cart from "/public/images/carouselAssociar/slider_beneficios_1134x197_cart.png"
 
-import AssociouMobile from "../../public/images/carouselAssociar/slider_beneficios_500x264_associou.png"
-import BeneMobile from "../../public/images/carouselAssociar/slider_beneficios_500x264_bene.png"
-import CartMobile from "../../public/images/carouselAssociar/slider_beneficios_500x264_cart.png"
+import AssociouMobile from "/public/images/carouselAssociar/slider_beneficios_500x264_associou.png"
+import BeneMobile from "/public/images/carouselAssociar/slider_beneficios_500x264_bene.png"
+import CartMobile from "/public/images/carouselAssociar/slider_beneficios_500x264_cart.png"
 
 import { useMobileDetector } from "@/hooks/useMobileDetector";
 

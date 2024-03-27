@@ -6,8 +6,6 @@ export function useValidateBandOwner() {
   const [isBandOwnerValidated, setIsBandOwnerValidated] = useState(false);
   const [bandOwner, setBandOwner] = useState("")
   const [bandOwnerValidationMessage, setBandOwnerValidationMessage] = useState("")
-
-
         
   useEffect(() => {
     const validatebandOwner = (bandOwner:string) => {

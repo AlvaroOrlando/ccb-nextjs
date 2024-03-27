@@ -65,7 +65,7 @@ export default function Sidebar({log}:SidebarProps){
                               <li key={el.id}>
                                 <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
                                   <div>
-                                    {el.card.title}
+                                    {el.card?.title}
                                   </div>
                                 </Link>
                               </li>
@@ -94,7 +94,7 @@ export default function Sidebar({log}:SidebarProps){
                               <li key={el.id}>
                                 <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
                                   <div>
-                                    {el.card.title}
+                                    {el.card?.title}
                                   </div>
                                 </Link>
                               </li>
@@ -180,12 +180,12 @@ export default function Sidebar({log}:SidebarProps){
                     <ul className={styles.sidebarItem}>
                       {
                         info.map(el => {
-                          if(el.subategory === 'estudio'){
+                          if(el.subcategory === 'estudio'){
                             return (
                               <li key={el.id}>
                                 <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
                                   <div>
-                                    {el.card.title}
+                                    {el.card?.title}
                                   </div>
                                 </Link>
                               </li>
@@ -224,7 +224,7 @@ export default function Sidebar({log}:SidebarProps){
                               <li key={el.id}>
                                 <Link onClick={handleClose} className={styles.dropItem} href={el.href}>
                                   <div>
-                                    {el.card.title}
+                                    {el.card?.title}
                                   </div>
                                 </Link>
                               </li>

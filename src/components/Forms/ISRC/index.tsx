@@ -1,82 +1,104 @@
 import Router from "next/router";
+import Input from "@/components/Global/Input/input";
+import TaxasModal from "@/components/pages/Isrc/TaxasModal";
+import Button from "@/components/Global/Button";
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { cpfValidationSchema } from "@/utilities/formSchemas/formValidation";
+import { IsrcButtonContainer, IsrcFormContainer, TaxasContainer } from "./styles";
+import ValidationMessage from "@/components/Global/ValidationMessage";
 
-import { useValidateCpf } from "../../../hooks/useValidateCpf";
-
-import Input from "@/components/Global/Input";
-import styles from "./isrcForm.module.scss";
-import TaxasModal from "@/components/Isrc2/TaxasModal";
-
+const formSchema = z.object({
+  cpf: cpfValidationSchema,
+});
 
 export default function IsrcForm() {
   
-  const { isValidated, validationMessage, handleChange, cpf} = useValidateCpf();
-  
-  function handleGerarIsrc() {
-      if (isValidated) {
-        Router.push({
-          pathname: "isrc/isrc2",
-          query: { cpf: cpf },
-        });
+  type FormData = z.infer<typeof formSchema>
+
+  const { register, 
+    handleSubmit, 
+    formState: { errors, isValid },
+    setValue,
+    watch
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema)
+  })
+
+  const isFormInvalid = Object.keys(errors).length > 0;
+
+  const handleRedirect = (pathname: string, data: FormData) => {
+    if (isValid) {
+      Router.push({
+        pathname: pathname,
+        query: { cpf: data.cpf},
+      });
     }
+  };
+
+  const handleCertificado = () => {
+    handleSubmit((data: FormData) => {
+      setValue("cpf", data.cpf);
+      handleRedirect("certificado", data);
+    })();
+  };
+
+  const handleForm = (data: FormData) => {
+    handleRedirect("isrc/dados", data);
   }
-  
-  function handleCertificado() {
-  if (isValidated) {
+
+  function handleOpenCertificate(){
     Router.push({
-      pathname: "certificado",
-      query: { cpf: cpf },
+      pathname: "isrc/modeloCertificado",
     });
   }
-}
-  
+
   return (
     <>
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className={`${styles.IsrcFormContainer} mt-4`}
-      >
-        <Input
-          onChange={handleChange}
-          placeholder="Digite seu CPF"
-          value={cpf}
-          maxLength="11"
-          required
-          className={validationMessage && `border-danger formControlDanger`}
-        />
-        {validationMessage &&
-          <small className="text-left w-100 text-danger">
-            {validationMessage}
-          </small>
-        }
-        
-        {/* Botões */}
-        <div className={`mt-3 ${styles.IsrcButtonContainer}`}>
-          <button
-            type="button"
-            onClick={handleGerarIsrc}
-            disabled={!isValidated}
-            className={!isValidated ? `forbidden btn btn-primary text-white` : `btn btn-primary text-white`}
-          >GERAR ISRC</button>
+     <IsrcFormContainer>
+        <form onSubmit={handleSubmit(handleForm)}>
+          <Input
+            className={errors.cpf ? `is-invalid` : isValid ? `is-valid` : ""}
+            placeholder="Digite seu CPF"
+            {...register('cpf')}
+            maxLength={11}
+          />
 
-          <button
-            type="button"
-            onClick={handleCertificado}
-            disabled={!isValidated}
-            className={!isValidated ? `forbidden btn btn-primary text-white` : `btn btn-primary text-white`}
-          >Certificado</button>
-        </div>
-      </form>
+            {errors.cpf ? (
+            <ValidationMessage value={errors.cpf.message} isValid={false} />
+              ) : isValid && watch('cpf') ? (
+                <ValidationMessage value="Parece Ok!" isValid />
+              ) : null
+            }
+          
+          <IsrcButtonContainer>
+            <Button
+              value="GERAR ISRC"
+              type="submit"
+              disabled={isFormInvalid} 
+            />
+
+            <Button
+              value="Certificado"
+              type="button"
+              disabled={isFormInvalid}
+              onClick={handleCertificado}
+            />
+          </IsrcButtonContainer>
+        </form>
+      </IsrcFormContainer>
       <hr />
 
       {/* Taxas */}
-      <div className={styles.Taxas}>
+      <TaxasContainer>
         <section>
-        <TaxasModal content="Taxa de emissao"/>
-          <button type="button" className="text-center">
+          <TaxasModal content="Taxa de emissao"/>
+          <button type="button" onClick={handleOpenCertificate}>
             Mod Certificado
-          </button>
+          </button> 
         </section>
-      </div>
+      </TaxasContainer>
     </>
   );
 }

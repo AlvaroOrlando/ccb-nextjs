@@ -1,0 +1,17 @@
+@use "../../abstracts/" as *;
+
+.textContainer {
+    padding: 15px;
+    width: 100%;
+
+    & p {
+        width: 100%;
+        text-align:justify;
+    }
+
+    & h2 {
+         color: $secondary-blue;
+         margin-top: 1rem;
+         margin-bottom: 1rem;
+    }
+}
