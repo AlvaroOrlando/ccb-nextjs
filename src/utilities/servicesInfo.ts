@@ -521,7 +521,7 @@ export const info = [
     {
         id:uuidv4(),
         name:'associar',
-        rootRef:`${associar}/compositores`,
+        rootRef:`${associar}?category=compositores`,
         href: `${getURL('compositores')}`,
         rootPage: "Associar ao CCB",
         currentPage: "Compositores",
@@ -531,7 +531,7 @@ export const info = [
         card: {
             idCard:"associar_card",
             idImg:"associar_card",
-            title:"Associar",
+            title:"Compositores",
             content:"Associar",
             imgUrl:'../images/cards/duvidas.jpg',
         }
@@ -540,7 +540,7 @@ export const info = [
     {
         id:uuidv4(),
         name:'associarBandas',
-        rootRef:`${associar}/compositores`,
+        rootRef:`${associar}?category=bandas`,
         href: `${getURL('bandas')}`,
         rootPage: "Associar ao CCB",
         currentPage: "Bandas",
@@ -550,7 +550,7 @@ export const info = [
         card: {
             idCard:"associarBandas_card",
             idImg:"associarBandas_card",
-            title:"Associar Bandas",
+            title:"Bandas",
             content:"Associar Bandas",
             imgUrl:'',
         }
@@ -559,7 +559,7 @@ export const info = [
     {
         id:uuidv4(),
         name:'associarCantores',
-        rootRef:`${associar}/compositores`,
+        rootRef:`${associar}?compositores`,
         href: `${getURL('cantores')}`,
         rootPage: "Associar ao CCB",
         currentPage: "Cantores e Duplas",
@@ -569,8 +569,27 @@ export const info = [
         card: {
             idCard:"associarCantores_card",
             idImg:"associarCabtores_card",
-            title:"Associar Cantores e Duplas",
+            title:"Cantores e Duplas",
             content:"Associar Cantores e Duplas",
+            imgUrl:'',
+        }
+    },
+    // Associar Proposta
+    {
+        id:uuidv4(),
+        name:'proposta',
+        rootRef:`${associar}/proposta`,
+        href: `${getURL('proposta')}`,
+        rootPage: "Associar ao CCB",
+        currentPage: "Proposta",
+        category:'associar',
+        subcategory:'',
+    
+        card: {
+            idCard:"associarCantores_card",
+            idImg:"associarCantores_card",
+            title:"Proposta",
+            content:"Proposta",
             imgUrl:'',
         }
     },

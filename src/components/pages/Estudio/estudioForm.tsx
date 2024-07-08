@@ -12,7 +12,7 @@ import styles from "@/styles/estudioForm.module.scss"
 import { useRouter } from "next/router";
 
 import { EstudioProps } from "../Estudio"
-import { cpfValidationSchema } from "@/utilities/formSchemas/formValidation";
+import { cpfValidationSchema } from "@/utilities/form/formValidation";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

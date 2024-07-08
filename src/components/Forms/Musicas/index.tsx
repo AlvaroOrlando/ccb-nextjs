@@ -1,6 +1,6 @@
 
 // React/Next
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 // Libs
 import { ClipLoader } from "react-spinners";
@@ -8,8 +8,6 @@ import { Plus, Trash } from 'phosphor-react'
 import { FormSelect } from "react-bootstrap";
 import { v4 as uuidv4 } from 'uuid';
 import { useFieldArray, useForm } from "react-hook-form";
-import { isDirty, z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 // Components
 import Container from "@/components/Containers/Container";
@@ -24,139 +22,96 @@ import ValidationMessage from "@/components/Global/ValidationMessage";
 
 //Utilities
 import MusicOptions from "@/utilities/musicOptions";
-import { calculaPrecoIsrc } from '@/utilities/pricing/pricing'
+import { calcularPrecoTotalIsrc } from '@/utilities/pricing/pricing'
 import { processIsrcMusicData } from '@/utilities/musicMap'
-import { estudioFormSchema, isrcFormSchema } from "@/utilities/formSchemas/schemas";
+import { isrcFormSchema } from "@/utilities/form/schemas";
 
-interface MusicProps {
-  cpf: string
-  em_dia: string
-}
-
-interface IsrcMusicaProps {
-  nomeMusica: string;
-  estiloMusica: string;
-  tipoServico: string;
-  autores: Autor[];
-  interpretes: Interprete[];
-}
-
-interface Autor {
-  nome: string;
-  cpf: string;
-}
-
-interface Interprete {
-  nome: string;
-  cpf: string;
-}
-
-type FormTypeCreateIsrcPedido = z.infer<typeof isrcFormSchema>;
-
-type FormTypeCreateEstudioPedido = z.infer<typeof estudioFormSchema>;
+//Interfaces
+import { FormTypeIsrcData, FormTypeCreatePedidoIsrc, IsrcMusicProps } from "@/utilities/interfaces"
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const pedidoId = uuidv4();
 
-export default function Music({ cpf, em_dia }:MusicProps) {
+export default function IsrcMusic({ cpf, em_dia }:IsrcMusicProps) {
 
-  const [isSaving, setIsSaving] = useState(false);
+  const isrcMusicaDefaultValues = {
+    nomeMusica: "",
+    estiloMusica: "1",
+    autores: [{ nome: "", cpf: "" }],
+    interpretes: [{ nome: "", cpf: "" }],
+  }
 
-  const [isrcFormData, setIsrcFormData] = useState<FormTypeCreateIsrcPedido>({
+  const isrcDefaultValues = {
     musicas: [
-      {
-        nomeMusica: "",
-        estiloMusica: "1",
-        tipoServico: "",
-        autores: [{ nome: "", cpf: "" }],
-        interpretes: [{ nome: "", cpf: "" }],
-      },
+      isrcMusicaDefaultValues
     ],
     termos: false,
     pago: "n",
     finalizado: "n",
-    cpf:cpf,
+    cpf,
     id:"",
     valor: 0,
     data: new Date(),
-    em_dia: ""
-  });
+    em_dia: "",
+    tipoServico: ""
+  }
 
-  const [isrcOutput, setIsrcOutput] = useState<FormTypeCreateIsrcPedido>(
-    {
+  const isrcPedidoDefaultValues = {
+    pedido: {
       musicas: [
-        {
-          nomeMusica: "",
-          estiloMusica: "1",
-          tipoServico: "",
-          autores: [{ nome: "", cpf: "" }],
-          interpretes: [{ nome: "", cpf: "" }],
-        },
+        isrcMusicaDefaultValues
       ],
       termos: false,
       pago: "n",
       finalizado: "n",
-      cpf:cpf,
+      cpf,
       id:"",
       valor: 0,
       data: new Date(),
-      em_dia: ""
+      em_dia: "",
+      tipoServico: ""
     }
-  );
+  }
   
+
+  const [isSaving, setIsSaving] = useState(false);
+
+  const [pedido, setPedido] = useState<FormTypeCreatePedidoIsrc>(isrcPedidoDefaultValues);
+
+  useEffect(()=>{
+    console.log(pedido);
+  })
+
   const handleTermsAgreementChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue('termos', e.target.checked);
     trigger('termos')
   };
   
-  const handleForm = (isrcFormData:FormTypeCreateIsrcPedido) => {
+  const handleForm = (data:FormTypeIsrcData) => {
     
-    const quantidadeMusicasIsrc = isrcFormData.musicas.length;
+    calcularPrecoTotalIsrc(data, em_dia);
+
+    const isrcMusicData = {
+      data,
+      cpf,
+      em_dia,
+      pedidoId,
+    };
     
-      try {
-        const precoTotal = calculaPrecoIsrc(quantidadeMusicasIsrc, em_dia);
-        isrcFormData.valor = precoTotal
-      } catch (error) {
-        console.error('Erro ao calcular o preço:', error);
-      }
+    processIsrcMusicData(isrcMusicData);
 
-      isrcFormData.musicas.forEach((musica: IsrcMusicaProps) => {
-        musica.tipoServico = "3";
-      });
+    const novoPedido: FormTypeCreatePedidoIsrc = {
+      pedido: { ...data }
+    };
 
-    processIsrcMusicData(isrcFormData.musicas);
+    setPedido(novoPedido);
 
-    isrcFormData.cpf = cpf
-    isrcFormData.em_dia = em_dia
-    isrcFormData.id = pedidoId
-
-    // setIsrcOutput(isrcFormData)
-
-    console.log('Dados do formulário isrc:', isrcFormData);
+    console.log('Dados do formulário isrc:', data);
   
   };
 
-  const isrcFormValues = {
-    musicas: [
-      {
-        nomeMusica: "",
-        estiloMusica: "1",
-        tipoServico: "",
-        autores: [{ nome: "", cpf: "" }],
-        interpretes: [{ nome: "", cpf: "" }],
-      },
-    ],
-    termos: false,
-    id: "",
-    data: new Date(),
-    valor: 0,
-    pago: "n",
-    finalizado: "n",
-    cpf:"",
-    em_dia: ""
-  };
-
-  const { handleSubmit, setValue, trigger, register, control, formState:{ isSubmitted, errors } } = useForm<FormTypeCreateIsrcPedido>({
-    defaultValues:isrcFormValues,
+  const { handleSubmit, setValue, trigger, register, control, formState:{ isSubmitted, errors } } = useForm<FormTypeIsrcData>({
+    defaultValues: isrcDefaultValues,
     resolver: zodResolver(isrcFormSchema)
   });
   
@@ -328,7 +283,7 @@ export default function Music({ cpf, em_dia }:MusicProps) {
       )}
     </div>
   );
-};
+  };
 
   const { append, fields, remove } = useFieldArray({
     name: 'musicas', 
@@ -336,19 +291,7 @@ export default function Music({ cpf, em_dia }:MusicProps) {
   });
 
   const handleAddMusic = () => {
-    append({
-      nomeMusica: "",
-      estiloMusica: "",
-      tipoServico: "",
-      autores: [{
-        nome: "",
-        cpf:""
-      }],
-      interpretes: [{
-        nome: "",
-        cpf:""
-      }]
-    });
+    append(isrcMusicaDefaultValues);
   };
 
   const handleRemoveMusic = (index: number) => {

@@ -36,7 +36,7 @@ export default function Musicas() {
   const em_dia: "s" | "n" = "n";
   // const medalha: Medalha | "" = "";
   const medalha = "2"
-
+ 
   // Functions
   // function handleRedirect(data: MusicDataTypes) {
     
@@ -48,9 +48,10 @@ export default function Musicas() {
   //   });
   // }
 
+ 
   return (
     <MainContainer>
-      <EstudioMusic medalha={medalha} servico={servicoString} cpf={cpfString} em_dia={em_dia} />
+      <EstudioMusic page = "estudio" medalha={medalha} servico={servicoString} cpf={cpfString} em_dia={em_dia} />
     </MainContainer>
   );
 }

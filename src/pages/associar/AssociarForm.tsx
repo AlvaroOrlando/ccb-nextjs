@@ -23,8 +23,8 @@ export default function AssociarForm(){
   const { bandName, bandNameValidationMessage, handleBandNameChange, isBandNameValidated } = useValidateBandName()
   const { bandOwner, bandOwnerValidationMessage, handleBandOwnerChange, isBandOwnerValidated } = useValidateBandOwner()
 
-  function handleProposta(){
-    
+  function handleProposta() {
+    router.push('/associar/proposta');
   }
 
     return (

@@ -21,7 +21,7 @@ import {
   numberValidationSchema,
   cepValidationSchema
   
-} from "@/utilities/formSchemas/formValidation";
+} from "@/utilities/form/formValidation";
 import Link from "next/link";
 import ButtonContainer from "@/components/Containers/ButtonContainer";
 

@@ -1,5 +1,5 @@
 // isrcStore.tsx
-import { cpfValidationSchema, musicNameValidationSchema, nameValidationSchema, termsValidationSchema } from "@/utilities/formSchemas/formValidation";
+import { cpfValidationSchema, musicNameValidationSchema, nameValidationSchema, termsValidationSchema } from "@/utilities/form/formValidation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ReactNode } from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";

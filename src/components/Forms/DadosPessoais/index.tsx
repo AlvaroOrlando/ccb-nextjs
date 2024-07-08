@@ -24,7 +24,7 @@ import {
   emailValidationSchema, 
   phoneValidationSchema, 
   birthdayValidationSchema 
-} from '@/utilities/formSchemas/formValidation'
+} from '@/utilities/form/formValidation'
 
 const formSchema = z.object({
   nome: nameValidationSchema,

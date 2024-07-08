@@ -1,7 +1,7 @@
 // React/Next
 import { useRouter } from "next/router";
 import MainContainer from "@/components/Containers/MainContainer";
-import Music from "@/components/Forms/Musicas/musicasIsrc";
+import Music from "@/components/Forms/Musicas";
 import { FormProviderCreateIsrcPedido } from "@/stores/isrcStore";
 
 // Interfaces/Types

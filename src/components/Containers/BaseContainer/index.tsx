@@ -8,7 +8,7 @@ interface BaseContainerProps extends PropsWithChildren {
 
 export default function BaseContainer({ children, className }:BaseContainerProps){
     return (
-        <BaseContainerStyles>
+        <BaseContainerStyles className={className}>
             {children}
         </BaseContainerStyles>
     )

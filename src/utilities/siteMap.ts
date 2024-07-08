@@ -97,17 +97,22 @@ export const siteMap = [
     // Compositores
     {
         id:'compositores',
-        href: `${associar}/compositores`,
+        href: `${associar}?category=compositores`,
     },
     // Bandas
     {
         id:'bandas',
-        href: `${associar}/bandas`,
+        href: `${associar}?category=bandas`,
     },
     // Cantores e Duplas
     {
         id:'cantores',
-        href: `${associar}/cantores`,
+        href: `${associar}?category=cantores`,
+    },
+    // Proposta
+    {
+        id:'proposta',
+        href: `${associar}/proposta`,
     },
 
 

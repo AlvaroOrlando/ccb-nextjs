@@ -1,4 +1,3 @@
-
 // React/Next
 import { useState } from "react";
 
@@ -8,8 +7,6 @@ import { Plus, Trash } from 'phosphor-react'
 import { FormSelect } from "react-bootstrap";
 import { v4 as uuidv4 } from 'uuid';
 import { useFieldArray, useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 
 // Components
 import Container from "@/components/Containers/Container";
@@ -21,100 +18,29 @@ import ValidationMessage from "@/components/Global/ValidationMessage";
 //Utilities
 import MusicOptions from "@/utilities/musicOptions";
 import { processEstudioMusicData } from '@/utilities/musicMap'
-import { estudioFormSchema } from "@/utilities/formSchemas/schemas";
-import { calculaPrecoEstudio } from "@/utilities/pricing/pricing";
-
-type Medalha = "2" | "3" | "4" | "5" | "6";
-
-interface MusicProps {
-  cpf: string
-  em_dia: string
-  servico: string
-  medalha: Medalha
-}
-
-interface EstudioMusicaProps {
-  nomeMusica: string;
-  estiloMusica: string;
-  tipoServico: string;
-}
-
-type FormTypeCreateEstudioPedido = z.infer<typeof estudioFormSchema>;
+import { estudioFormSchema } from "@/utilities/form/schemas";
+import { calcularPrecoEstudioPorMusica, calcularPrecoTotalEstudioMusicas } from "@/utilities/pricing/pricing";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormTypeEstudioData, EstudioMusicProps } from '@/utilities/interfaces'
 
 const pedidoId = uuidv4();
 
-export default function EstudioMusic({ cpf, em_dia, servico, medalha }:MusicProps) {
+export default function EstudioMusic({ cpf, em_dia, servico, medalha }:EstudioMusicProps) {
+
+  const estudioMusicaValues = {
+    nomeMusica: "",
+    estiloMusica: "",
+    tipoServico: "",
+    medalha,
+    valor: 0,
+    servico,
+  }
 
   const [isSaving, setIsSaving] = useState(false);
-
-  const [estudioFormData, setEstudioFormData] = useState<FormTypeCreateEstudioPedido>({
+  
+  const estudioPedidoDefaultValues = {
     musicas: [
-      {
-        nomeMusica: "",
-        estiloMusica: "1",
-        tipoServico: "",
-      },
-    ],
-    pago: "n",
-    finalizado: "n",
-    cpf:cpf,
-    id:"",
-    valor: 0,
-    data: new Date(),
-    em_dia: ""
-  });
-  
-  const [estudioOutput, setEstudioOutput] = useState<FormTypeCreateEstudioPedido>(
-    {
-      musicas: [
-        {
-          nomeMusica: "",
-          estiloMusica: "",
-          tipoServico: "",
-        },
-      ],
-      pago: "n",
-      finalizado: "n",
-      cpf:"",
-      id:"",
-      valor: 0,
-      data: new Date(),
-      em_dia: ""
-    }
-  );
-  
-  const handleForm = (estudioFormData:FormTypeCreateEstudioPedido) => {
-    
-    const quantidadeMusicasEstudio = estudioFormData.musicas.length;
-  
-      try {
-        const precoTotal = calculaPrecoEstudio(estudioFormData, servico, em_dia, medalha);
-      } catch (error) {
-        console.error('Erro ao calcular o preço:', error);
-      }
-
-    //   isrcFormData.musicas.forEach((musica: EstudioMusicaProps) => {
-    //     musica.tipoServico = "3";
-    //   });
-
-    processEstudioMusicData(estudioFormData.musicas);
-
-    estudioFormData.cpf = cpf
-    estudioFormData.em_dia = em_dia
-    estudioFormData.id = pedidoId
-    
-    // setEstudioOutput(estudioFormData)
-  
-    console.log('Dados do formulário estúdio:', estudioFormData);
-  };
-
-  const estudioFormValues = {
-    musicas: [
-      {
-        nomeMusica: "",
-        estiloMusica: "1",
-        tipoServico: "",
-      },
+      estudioMusicaValues
     ],
     id: "",
     data: new Date(),
@@ -122,11 +48,35 @@ export default function EstudioMusic({ cpf, em_dia, servico, medalha }:MusicProp
     pago: "n",
     finalizado: "n",
     cpf:"",
-    em_dia: ""
+    em_dia: "",
+    page:""
+  }
+
+  const [estudioFormData, setEstudioFormData] = useState<FormTypeEstudioData>(estudioPedidoDefaultValues);
+
+  const handleForm = (data:FormTypeEstudioData) => {
+    
+    calcularPrecoEstudioPorMusica(data, em_dia, servico, medalha);
+
+    const valorTotal = calcularPrecoTotalEstudioMusicas(data, servico, em_dia, medalha);
+
+    processEstudioMusicData(data.musicas);
+
+    data.cpf = cpf
+    data.em_dia = em_dia
+    data.id = pedidoId
+    data.valor = valorTotal
+    data.musicas.forEach(musica =>{
+    musica.servico = servico
+    })
+
+    setEstudioFormData(data)
+    
+    console.log('Dados do formulário estúdio:', data);
   };
 
-  const { handleSubmit, register, control, formState:{ isSubmitted, errors } } = useForm<FormTypeCreateEstudioPedido>({
-    defaultValues:estudioFormValues,
+  const { handleSubmit, register, control, formState:{ errors } } = useForm<FormTypeEstudioData>({
+    defaultValues: estudioPedidoDefaultValues,
     resolver: zodResolver(estudioFormSchema)
   });
   
@@ -136,11 +86,7 @@ export default function EstudioMusic({ cpf, em_dia, servico, medalha }:MusicProp
   });
 
   const handleAddMusic = () => {
-    append({
-      nomeMusica: "",
-      estiloMusica: "",
-      tipoServico: "",
-    });
+    append(estudioMusicaValues);
   };
 
   const handleRemoveMusic = (index: number) => {
@@ -233,7 +179,7 @@ export default function EstudioMusic({ cpf, em_dia, servico, medalha }:MusicProp
             <ClipLoader color="#fff" loading={isSaving} size={20} /> 
             : "Enviar"}
         </Button>
-      </form>
+     </form>
     </Container>
   );
 }

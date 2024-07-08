@@ -10,11 +10,19 @@ export default function Text({ children, as = "p", ...props }: TextProps) {
 
   const TextComponent = as;
 
-  const { variantClass, sizeClass, italicClass, lineHeightClass } = generateBootstrapClasses(props);
+  const {
+    variantClass,
+    sizeClass,
+    italicClass,
+    lineHeightClass,
+    marginClass,
+    marginTopClass,
+    marginBottomClass,
+  } = generateBootstrapClasses(props);
 
   return (
     <TextComponent
-      className={`${variantClass} ${props.fw ? `fw-${props.fw}` : ""} ${sizeClass} ${italicClass} ${lineHeightClass}`}
+      className={`${variantClass} ${props.fw ? `fw-${props.fw}` : ""} ${sizeClass} ${italicClass} ${lineHeightClass} ${marginClass} ${marginTopClass} ${marginBottomClass}`}
       style={customStyle}
     >
       {children}

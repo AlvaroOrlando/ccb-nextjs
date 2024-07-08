@@ -88,11 +88,12 @@ interface GlobalButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   align?: "left" | "center" | "right"
   size?: "sm" | "md" 
   children?: ReactNode
+  classname?: string
 }
 
 const Button = forwardRef(
   (
-    { variant, size, value, disabled, isValidated, children, ...props }: GlobalButtonProps,
+    { variant, size, value, disabled, isValidated, children, className, ...props }: GlobalButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ) => {
     return (
@@ -102,6 +103,7 @@ const Button = forwardRef(
         variant={variant}
         disabled={disabled}
         size={size}
+        className={className}
       >
         {value} {children}
       </ButtonElement>

@@ -5,9 +5,10 @@ import Button from "@/components/Global/Button";
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { cpfValidationSchema } from "@/utilities/formSchemas/formValidation";
+import { cpfValidationSchema } from "@/utilities/form/formValidation";
 import { IsrcButtonContainer, IsrcFormContainer, TaxasContainer } from "./styles";
 import ValidationMessage from "@/components/Global/ValidationMessage";
+
 
 const formSchema = z.object({
   cpf: cpfValidationSchema,
@@ -87,7 +88,7 @@ export default function IsrcForm() {
             />
           </IsrcButtonContainer>
         </form>
-      </IsrcFormContainer>
+     </IsrcFormContainer>
       <hr />
 
       {/* Taxas */}

@@ -18,7 +18,7 @@ import ValidationMessage from "@/components/Global/ValidationMessage";
 import BaseContainer from "@/components/Containers/BaseContainer";
 
 // Validation
-import { nameValidationSchema, cpfValidationSchema } from '@/utilities/formSchemas/formValidation'
+import { nameValidationSchema, cpfValidationSchema } from '@/utilities/form/formValidation'
 
 type MusicDataTypes = {
   musicas: {

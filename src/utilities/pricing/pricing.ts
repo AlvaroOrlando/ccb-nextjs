@@ -27,26 +27,18 @@ import {
     preco_socio_violao
     
 } from "@/utilities/prices";
-
-// Interfaces/Types
-type Medalha = "2" | "3" | "4" | "5" | "6";
+import { FormTypeCreateEstudioPedido, FormTypeCreateIsrcPedido, Medalha } from "../interfaces";
 
 type EstudioMusicDataTypes = {
-  musicas: {
     nomeMusica: string;
     estiloMusica: string;
     tipoServico: string;
-    medalha?: Medalha | "";
-    price?: number;
-  }[];
+    medalha: Medalha | "";
+    valor: number;
+    servico: string;
 };
 
-// Virá do Banco de Dados
-export const em_dia: "s" | "n" = "n";
-export const medalha: Medalha | "" = "";
-
 // Functions
-
 export const calculaPrecoIsrc = (quantidadeMusicas: number, emDia: string) => {
 
   // Define os preços com base na quantidade de músicas e no status de 'em_dia'
@@ -70,47 +62,77 @@ export const calculaPrecoIsrc = (quantidadeMusicas: number, emDia: string) => {
   return precoTotal;
 };
 
-
 export function calculaPrecoEstudio(data: EstudioMusicDataTypes, servico: string, em_dia: string, medalha: Medalha | "") {
 
     console.log("Dados recebidos:", data);
   
-    const dadosComPreco = data.musicas.map((musica) => {
       let precoBase;
   
-      if (servico === "gravacao") {
-        precoBase = musica.tipoServico === "1" ?
+      if (data.servico === "gravacao") {
+        precoBase = data.tipoServico === "1" ?
           (em_dia === "n" ? preco_cliente_violao : preco_socio_violao) :
-          (em_dia === "n" && !["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+          (em_dia === "n" && !["4", "8", "22", "24"].includes(data.estiloMusica) ?
             preco_cliente_arranjo :
-            em_dia === "n" && ["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+            em_dia === "n" && ["4", "8", "22", "24"].includes(data.estiloMusica) ?
               preco_cliente_arranjo_samba :
-              em_dia === "s" && !["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+              em_dia === "s" && !["4", "8", "22", "24"].includes(data.estiloMusica) ?
                 preco_socio_arranjo_samba :
-                em_dia === "s" && ["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+                em_dia === "s" && ["4", "8", "22", "24"].includes(data.estiloMusica) ?
                   preco_socio_arranjo : 0);
       } else {
-        precoBase = musica.tipoServico === "1" ?
+        precoBase = data.tipoServico === "1" ?
           (em_dia === "n" ? preco_melodia_cliente_violao : preco_melodia_socio_violao) :
-          (em_dia === "n" && !["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+          (em_dia === "n" && !["4", "8", "22", "24"].includes(data.estiloMusica) ?
             preco_melodia_cliente_arranjo :
-            em_dia === "n" && ["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+            em_dia === "n" && ["4", "8", "22", "24"].includes(data.estiloMusica) ?
               preco_melodia_cliente_arranjo_samba :
-              em_dia === "s" && !["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+              em_dia === "s" && !["4", "8", "22", "24"].includes(data.estiloMusica) ?
                 preco_melodia_socio_arranjo_samba :
-                em_dia === "s" && ["4", "8", "22", "24"].includes(musica.estiloMusica) ?
+                em_dia === "s" && ["4", "8", "22", "24"].includes(data.estiloMusica) ?
                   preco_melodia_socio_arranjo : 0);
       }
   
       const precoFinal = AplicarDescontoPorMedalha(medalha, precoBase) - descontoPromocaoEstudio;
   
-      // return {
-      //   ...musica,
-      //   price: precoFinal,
-      //   descontoPromocaoEstudio,
-      // };
       return precoFinal
-    });
   
-    return dadosComPreco;
 }
+
+export const calcularPrecoEstudioPorMusica = (data: FormTypeCreateEstudioPedido, servico:string, em_dia:string, medalha: Medalha) => {
+  try {
+      data.musicas.forEach(musica => {
+          const precoTotal = calculaPrecoEstudio(musica, servico, em_dia, medalha);
+          musica.valor = precoTotal;
+      });
+  } catch (error) {
+      console.error('Erro ao calcular o preço de cada música:', error);
+  }
+};
+
+export const calcularPrecoTotalEstudioMusicas = (data: FormTypeCreateEstudioPedido,  servico:string, em_dia:string, medalha: Medalha): number => {
+  try {
+      const totalPrecoMusicas = data.musicas.reduce((total, musica) => {
+          return total + musica.valor;
+      }, 0);
+
+      console.log('Total do preço das músicas:', totalPrecoMusicas);
+
+      return totalPrecoMusicas; 
+  } catch (error) {
+      console.error('Erro ao calcular o preço total das músicas:', error);
+      return 0; 
+  }
+};
+
+export function calcularPrecoTotalIsrc(data: FormTypeCreateIsrcPedido, em_dia: string): void {
+  
+  const quantidadeMusicasIsrc = data.musicas.length;
+  
+  try {
+    const precoTotal = calculaPrecoIsrc(quantidadeMusicasIsrc, em_dia);
+    data.valor = precoTotal;
+  } catch (error) {
+    console.error('Erro ao calcular o preço:', error);
+  }
+}
+

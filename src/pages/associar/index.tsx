@@ -14,13 +14,9 @@ export default function Associar(){
         <>
             <Crumb />
             <MainContainer>
-
                <AssociarCarousel />
-                
                <AssociarForm />
-
                <AssociarText />
-
             </MainContainer>
         </>
     )
