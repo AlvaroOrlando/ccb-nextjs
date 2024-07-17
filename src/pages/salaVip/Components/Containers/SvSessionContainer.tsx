@@ -4,7 +4,7 @@ interface SvSessionContainerProps {
     children: ReactNode
 }
 
-export function SvSessionContainer({ children }:SvSessionContainerProps){
+export default function SvSessionContainer({ children }:SvSessionContainerProps){
     return (
         <div 
           style={{

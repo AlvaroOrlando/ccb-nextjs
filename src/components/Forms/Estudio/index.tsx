@@ -19,7 +19,6 @@ import ValidationMessage from "@/components/Global/ValidationMessage";
 import MusicOptions from "@/utilities/musicOptions";
 import { processEstudioMusicData } from '@/utilities/musicMap'
 import { estudioFormSchema } from "@/utilities/form/schemas";
-import { calcularPrecoEstudioPorMusica, calcularPrecoTotalEstudioMusicas } from "@/utilities/pricing/pricing";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormTypeEstudioData, EstudioMusicProps } from '@/utilities/interfaces'
 
@@ -55,10 +54,8 @@ export default function EstudioMusic({ cpf, em_dia, servico, medalha }:EstudioMu
   const [estudioFormData, setEstudioFormData] = useState<FormTypeEstudioData>(estudioPedidoDefaultValues);
 
   const handleForm = (data:FormTypeEstudioData) => {
-    
-    calcularPrecoEstudioPorMusica(data, em_dia, servico, medalha);
 
-    const valorTotal = calcularPrecoTotalEstudioMusicas(data, servico, em_dia, medalha);
+    const valorTotal = 0
 
     processEstudioMusicData(data.musicas);
 

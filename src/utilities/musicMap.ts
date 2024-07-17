@@ -73,16 +73,16 @@ import { EstudioMusicaProps, FormTypeCreateIsrcPedido, IsrcMusicaProps} from "./
 
   export function processIsrcMusicData({ data, cpf, em_dia, pedidoId }: ProcessIsrcMusicData) {
     
-    data.musicas.forEach((musica: IsrcMusicaProps) => {
+    data.pedido.musicas.forEach((musica) => {
       const estilo = getEstiloMusica(musica.estiloMusica);
       console.log('Estilo de Música:', estilo); 
       musica.estiloMusica = estilo;
     });
 
-    data.cpf = cpf
-    data.em_dia = em_dia
-    data.id = pedidoId
-    data.tipoServico = getTipoServico("3")
+    data.pedido.cpf = cpf
+    data.pedido.em_dia = em_dia
+    data.pedido.id = pedidoId
+    data.pedido.tipoServico = getTipoServico("3")
   }
 
   export function processEstudioMusicData(musicas: EstudioMusicaProps[]) {

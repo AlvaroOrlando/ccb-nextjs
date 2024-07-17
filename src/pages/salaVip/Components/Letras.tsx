@@ -1,10 +1,10 @@
 
-import { SvContentContainer } from "./Containers/SvContentContainer";
-import { SvDescriptionContainer } from "./Containers/SvDescriptionContainer";
-import { SvRightContainer } from "./Containers/SvRightContainer";
-import { SvSessionContainer } from "./Containers/SvSessionContainer";
+import  SvContentContainer  from "./Containers/SvContentContainer";
+import  SvDescriptionContainer  from "./Containers/SvDescriptionContainer";
+import  SvRightContainer  from "./Containers/SvRightContainer";
+import  SvSessionContainer  from "./Containers/SvSessionContainer";
 
-export function Letras(){
+export default function Letras(){
     return (
         <SvSessionContainer>
           <SvContentContainer>

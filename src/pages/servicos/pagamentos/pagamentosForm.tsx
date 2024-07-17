@@ -140,11 +140,11 @@ export default function PagamentosForm(){
                 value="Acessar Serviço"
                 onClick={handlePagamentos}
                 disabled={!isValidated || !selectedOption}
-                customClasses={!isValidated || !selectedOption ? `forbidden btn btn-primary text-white buttonPagamentos mt-3` : `btn btn-primary text-white buttonPagamentos mt-3`}
-                title={!isValidated && !selectedOption ? 'Preencha um CPF válido e escolha uma opção' :
-                    !isValidated ? 'Preencha um CPF válido' :
-                    !selectedOption ? 'Escolha uma opção de serviço' :
-                    ''}
+                // customClasses={!isValidated || !selectedOption ? `forbidden btn btn-primary text-white buttonPagamentos mt-3` : `btn btn-primary text-white buttonPagamentos mt-3`}
+                // title={!isValidated && !selectedOption ? 'Preencha um CPF válido e escolha uma opção' :
+                //     !isValidated ? 'Preencha um CPF válido' :
+                //     !selectedOption ? 'Escolha uma opção de serviço' :
+                //     ''}
             >
             </Button>
         </form>   

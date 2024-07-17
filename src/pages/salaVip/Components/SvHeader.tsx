@@ -5,7 +5,7 @@ interface SvHeaderProps {
   activeMenu: string;
 }
 
-export function SvHeader({ onMenuClick, activeMenu }: SvHeaderProps) {
+export default function SvHeader({ onMenuClick, activeMenu }: SvHeaderProps) {
 
   return (
     <section className="w-100">

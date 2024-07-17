@@ -41,12 +41,6 @@ cpf: string;
 
 export interface FormTypeCreatePedidoIsrc {
     pedido: {
-        cpf: string;
-        id: string;
-        data: Date;
-        valor: number;
-        pago: string;
-        finalizado: string;
         musicas: {
             nomeMusica: string;
             estiloMusica: string;
@@ -59,6 +53,14 @@ export interface FormTypeCreatePedidoIsrc {
                 cpf: string;
             }[];
         }[];
+        termos: boolean;
+        pago: string;
+        finalizado: string;
+        cpf: string;
+        id: string;
+        valor: number;
+        date: Date;
+        tipoServico:string;
     };
 }
 
@@ -67,6 +69,24 @@ export interface FormTypeCreatePedidoEstudio {
         cpf: string;
         id: string;
         data: Date;
+        valor: number;
+        pago: string;
+        finalizado: string;
+        musicas: {
+            nomeMusica: string;
+            estiloMusica: string;
+        }[];
+        em_dia: string;
+        servico: string;
+        tipoServico: string;
+    };
+}
+
+export interface FormTypeCreateIsrcPedido {
+    pedido: {
+        cpf: string;
+        id: string;
+        date: Date;
         valor: number;
         pago: string;
         finalizado: string;

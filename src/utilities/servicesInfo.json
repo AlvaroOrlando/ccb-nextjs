@@ -10,6 +10,7 @@
         "subcategory": "",
         "card": null
       },
+      
       {
         "id": "isrc",
         "name": "isrc",
@@ -26,6 +27,7 @@
           "idImg": "isrc"
         }
       },
+
       {
         "id": "isrc2",
         "name": "isrc2",
@@ -35,6 +37,7 @@
         "category": "",
         "subcategory": ""
       },
+
       {
         "id": "estudio",
         "name": "estudio",
@@ -51,6 +54,7 @@
           "imgUrl": "../images/cards/studio.jpg"
         }
       },
+
       {
         "id": "melodia",  
         "name": "melodia",
@@ -86,6 +90,7 @@
           "imgUrl": "../images/cards/melody.jpg"
         }
       },
+
       {
         "id": "registrar",
         "name": "registrar",
@@ -103,6 +108,7 @@
           "imgUrl": "../images/cards/studio.jpg"
         }
       },
+
       {
         "id": "pagamentos",
         "name": "pagamentos",
@@ -120,6 +126,7 @@
           "imgUrl": "../images/cards/melody.jpg"
         }
       },
+
       {
         "id": "reativar",
         "name": "reativar",
@@ -137,6 +144,7 @@
           "imgUrl": "../images/cards/melody.jpg"
         }
       },
+
       {
         "id": "recuperacaoSenha",
         "name": "recuperacaoSenha",
@@ -154,6 +162,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "quemSomos",
         "name": "quemSomos",
@@ -171,6 +180,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "carteira",
         "name": "carteira",
@@ -188,6 +198,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "divulgacao",
         "name": "divulgacao",
@@ -205,6 +216,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "radioOnline",
         "name": "radioOnline",
@@ -222,6 +234,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "radioGospel",
         "name": "radioGospel",
@@ -239,6 +252,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "recompensa",
         "name": "recompensa",
@@ -256,6 +270,7 @@
           "imgUrl": "../images/cards/trofeo.jpg"
         }
       },
+
       {
         "id": "ajuda",
         "name": "ajuda",
@@ -273,6 +288,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "ajudaGeral",
         "name": "ajudaGeral",
@@ -290,6 +306,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "tocarNaRadio",
         "name": "tocarNaRadio",
@@ -307,6 +324,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "comporUmaMusica",
         "name": "comporUmaMusica",
@@ -324,6 +342,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "direitosAutorais",
         "name": "direitosAutorais",
@@ -341,6 +360,7 @@
           "imgUrl": "../images/cards/copyright.jpg"
         }
       },
+
       {
         "id": "gravadoras",
         "name": "gravadoras",
@@ -358,6 +378,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "festival",
         "name": "festival",
@@ -375,6 +396,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "resultadoMusica",
         "name": "resultadoMusica",
@@ -392,6 +414,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "resultadoPoesia",
         "name": "resultadoPoesia",
@@ -409,6 +432,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "resultadosAnteriores",
         "name": "resultadosAnteriores",
@@ -426,6 +450,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "contato",
         "name": "contato",
@@ -443,6 +468,7 @@
           "imgUrl": "../images/cards/contact.jpg"
         }
       },
+
       {
         "id": "coletanea",
         "name": "coletanea",
@@ -460,6 +486,7 @@
           "imgUrl": ""
         }
       },
+
       {
         "id": "associar",
         "name": "associar",
@@ -477,6 +504,7 @@
           "imgUrl": "../images/cards/duvidas.jpg"
         }
       },
+
       {
         "id": "associarBandas",
         "name": "associarBandas",
@@ -494,141 +522,149 @@
           "imgUrl": ""
         }
       },
-    {
-        "id": "associarCantores",
-        "name": "associarCantores",
-        "rootRef": "/associar/compositores",
-        "href": "/getURL('cantores')",
-        "rootPage": "Associar ao CCB",
-        "currentPage": "Cantores e Duplas",
-        "category": "associar",
-        "subcategory": "",
-        "card": {
-        "idCard": "associarCantores_card",
-        "idImg": "associarCabtores_card",
-        "title": "Associar Cantores e Duplas",
-        "content": "Associar Cantores e Duplas",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "carteiraCompositor",
-        "name": "carteiraCompositor",
-        "rootRef": "/salaVip/carteiraCompositor",
-        "href": "/getURL('carteiraCompositor')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Carteira de Compositor",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "carteiraCompositor_card",
-        "idImg": "carteiraCompositor",
-        "title": "Carteira de Compositor",
-        "content": "Clique aqui para pedir sua carteira de compositor, enviar foto para ela, etc.",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "fotos",
-        "name": "fotos",
-        "rootRef": "/salaVip/fotos",
-        "href": "/getURL('fotos')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Enviar e Trocar Fotos",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "fotos_card",
-        "idImg": "fotos",
-        "title": "Enviar e Trocar Fotos",
-        "content": "Envie quantas fotos desejar e guarde grátis no CCB. Troque aqui sua Foto do PERFIL.",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "musicas",
-        "name": "musicas",
-        "rootRef": "/salaVip/musicas",
-        "href": "/getURL('musicas')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Enviar Músicas",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "musicas_card",
-        "idImg": "musicas",
-        "title": "Enviar Músicas",
-        "content": "Envie músicas e vídeos para sua Página, Radionline e ouça no mesmo instante!",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "letras",
-        "name": "letras",
-        "rootRef": "/salaVip/letras",
-        "href": "/getURL('letras')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Enviar Letras de Músicas",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "letras_card",
-        "idImg": "letras",
-        "title": "Enviar Letras de Músicas",
-        "content": "Envie letras e poemas. Elas aparecerão quando suas músicas tocarem.",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "perfil",
-        "name": "perfil",
-        "rootRef": "/salaVip/perfil",
-        "href": "/getURL('perfil')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Alterar Perfil",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "letras_card",
-        "idImg": "letras",
-        "title": "Alterar o seu PERFIL",
-        "content": "Mantenha sua página atualizada com seu perfil, contato, agenda, carreira.",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "alteracaoSenha",
-        "name": "alteracaoSenha",
-        "rootRef": "/salaVip/alteracaoSenha",
-        "href": "/getURL('alteracaoSenha')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Trocar Senha",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "alteracaoSenha_card",
-        "idImg": "alteracaoSenha",
-        "title": "Trocar a sua SENHA",
-        "content": "Troque sua senha fornecida pelo CCB por uma nova, de sua escolha.",
-        "imgUrl": ""
-        }
-    },
-    {
-        "id": "cadastro",
-        "name": "cadastro",
-        "rootRef": "/salaVip/cadastro",
-        "href": "/getURL('cadastro')",
-        "rootPage": "Sala VIP",
-        "currentPage": "Alterar Cadastro",
-        "category": "salaVip",
-        "subcategory": "",
-        "card": {
-        "idCard": "cadastro_card",
-        "idImg": "cadastro",
-        "title": "Alterar Cadastro",
-        "content": "Forma e dia de pagamento, nome artístico, endereço ou telefone.",
-        "imgUrl": ""
-        }
-    }
+
+      {
+          "id": "associarCantores",
+          "name": "associarCantores",
+          "rootRef": "/associar/compositores",
+          "href": "/getURL('cantores')",
+          "rootPage": "Associar ao CCB",
+          "currentPage": "Cantores e Duplas",
+          "category": "associar",
+          "subcategory": "",
+          "card": {
+          "idCard": "associarCantores_card",
+          "idImg": "associarCabtores_card",
+          "title": "Associar Cantores e Duplas",
+          "content": "Associar Cantores e Duplas",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "carteiraCompositor",
+          "name": "carteiraCompositor",
+          "rootRef": "/salaVip/carteiraCompositor",
+          "href": "/getURL('carteiraCompositor')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Carteira de Compositor",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "carteiraCompositor_card",
+          "idImg": "carteiraCompositor",
+          "title": "Carteira de Compositor",
+          "content": "Clique aqui para pedir sua carteira de compositor, enviar foto para ela, etc.",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "fotos",
+          "name": "fotos",
+          "rootRef": "/salaVip/fotos",
+          "href": "/getURL('fotos')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Enviar e Trocar Fotos",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "fotos_card",
+          "idImg": "fotos",
+          "title": "Enviar e Trocar Fotos",
+          "content": "Envie quantas fotos desejar e guarde grátis no CCB. Troque aqui sua Foto do PERFIL.",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "musicas",
+          "name": "musicas",
+          "rootRef": "/salaVip/musicas",
+          "href": "/getURL('musicas')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Enviar Músicas",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "musicas_card",
+          "idImg": "musicas",
+          "title": "Enviar Músicas",
+          "content": "Envie músicas e vídeos para sua Página, Radionline e ouça no mesmo instante!",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "letras",
+          "name": "letras",
+          "rootRef": "/salaVip/letras",
+          "href": "/getURL('letras')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Enviar Letras de Músicas",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "letras_card",
+          "idImg": "letras",
+          "title": "Enviar Letras de Músicas",
+          "content": "Envie letras e poemas. Elas aparecerão quando suas músicas tocarem.",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "perfil",
+          "name": "perfil",
+          "rootRef": "/salaVip/perfil",
+          "href": "/getURL('perfil')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Alterar Perfil",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "letras_card",
+          "idImg": "letras",
+          "title": "Alterar o seu PERFIL",
+          "content": "Mantenha sua página atualizada com seu perfil, contato, agenda, carreira.",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "alteracaoSenha",
+          "name": "alteracaoSenha",
+          "rootRef": "/salaVip/alteracaoSenha",
+          "href": "/getURL('alteracaoSenha')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Trocar Senha",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "alteracaoSenha_card",
+          "idImg": "alteracaoSenha",
+          "title": "Trocar a sua SENHA",
+          "content": "Troque sua senha fornecida pelo CCB por uma nova, de sua escolha.",
+          "imgUrl": ""
+          }
+      },
+
+      {
+          "id": "cadastro",
+          "name": "cadastro",
+          "rootRef": "/salaVip/cadastro",
+          "href": "/getURL('cadastro')",
+          "rootPage": "Sala VIP",
+          "currentPage": "Alterar Cadastro",
+          "category": "salaVip",
+          "subcategory": "",
+          "card": {
+          "idCard": "cadastro_card",
+          "idImg": "cadastro",
+          "title": "Alterar Cadastro",
+          "content": "Forma e dia de pagamento, nome artístico, endereço ou telefone.",
+          "imgUrl": ""
+          }
+      }
     ]
-  }
+}

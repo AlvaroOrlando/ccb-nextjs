@@ -26,18 +26,18 @@ type MusicDataTypes = {
 export default function Musicas(){
 
     const router = useRouter()
-    const { cpf, servico } = router.query
+    // const { cpf, servico } = router.query
+    const cpf = "0"
+    const em_dia = "s"
 
     // Virá do Banco de Dados
-    const em_dia: "s" | "n" = "n";
-    const medalha: Medalha | "" = "";
+    // const em_dia: "s" | "n" = "n";
+    // const medalha: Medalha | "" = "";
+    const servico = "isrc"
 
      // Functions
-  
-  
-
     function handleRedirect(data: MusicDataTypes) {
-        const dadosComPreco = calculaPrecoIsrc(data, em_dia, medalha);
+        // const dadosComPreco = calculaPrecoIsrc(data, em_dia, medalha);
   
       router.push({
         pathname: "./autores",
@@ -47,7 +47,7 @@ export default function Musicas(){
 
   return (
     <MainContainer>
-      <Music page="isrc" onSubmit={handleRedirect} />
+      <Music cpf={cpf} em_dia={em_dia} />
     </MainContainer>
   )
 }

@@ -3,17 +3,17 @@
 /* eslint-disable @next/next/no-img-element */
 import Address from '@/components/Forms/Address'
 import Button from '../../../components/Global/Button'
-import { SvContentContainer } from './Containers/SvContentContainer'
-import { SvDescriptionContainer } from './Containers/SvDescriptionContainer'
-import { SvRightContainer } from './Containers/SvRightContainer'
-import { SvSessionContainer } from './Containers/SvSessionContainer'
+import SvContentContainer from './Containers/SvContentContainer'
+import SvDescriptionContainer  from './Containers/SvDescriptionContainer'
+import SvRightContainer  from './Containers/SvRightContainer'
+import SvSessionContainer  from './Containers/SvSessionContainer'
 import DadosPessoais from '@/components/Forms/DadosPessoais'
 
 function handleAddresSubmit(){
   console.log("hello");
 }
 
-export function Conta(){
+export default function Conta(){
 
   const forma_de_pgto = null
   const frequencia_pgto = null

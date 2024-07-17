@@ -1,4 +1,5 @@
-import { info } from "@/utilities/servicesInfo.json";
+import servicesInfo from "@/utilities/servicesInfo.json";
+const info = servicesInfo.info;
 
 interface Card {
   id: string;

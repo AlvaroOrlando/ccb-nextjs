@@ -22,12 +22,12 @@ import ValidationMessage from "@/components/Global/ValidationMessage";
 
 //Utilities
 import MusicOptions from "@/utilities/musicOptions";
-import { calcularPrecoTotalIsrc } from '@/utilities/pricing/pricing'
+// import { calcularPrecoTotalIsrc } from '@/utilities/pricing/pricing'
 import { processIsrcMusicData } from '@/utilities/musicMap'
 import { isrcFormSchema } from "@/utilities/form/schemas";
 
 //Interfaces
-import { FormTypeIsrcData, FormTypeCreatePedidoIsrc, IsrcMusicProps } from "@/utilities/interfaces"
+import { FormTypeIsrcData, FormTypeCreatePedidoIsrc, IsrcMusicProps,} from "@/utilities/interfaces"
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const pedidoId = uuidv4();
@@ -51,27 +51,24 @@ export default function IsrcMusic({ cpf, em_dia }:IsrcMusicProps) {
     cpf,
     id:"",
     valor: 0,
-    data: new Date(),
+    date: new Date(),
     em_dia: "",
     tipoServico: ""
   }
 
-  const isrcPedidoDefaultValues = {
+  const isrcPedidoDefaultValues: FormTypeCreatePedidoIsrc = {
     pedido: {
-      musicas: [
-        isrcMusicaDefaultValues
-      ],
-      termos: false,
-      pago: "n",
-      finalizado: "n",
-      cpf,
-      id:"",
-      valor: 0,
-      data: new Date(),
-      em_dia: "",
-      tipoServico: ""
+        musicas: [isrcMusicaDefaultValues],
+        termos: false,
+        pago: "n",
+        finalizado: "n",
+        cpf,
+        id: "",
+        valor: 0,
+        date: new Date(),
+        tipoServico: ""
     }
-  }
+};
   
 
   const [isSaving, setIsSaving] = useState(false);
@@ -89,7 +86,7 @@ export default function IsrcMusic({ cpf, em_dia }:IsrcMusicProps) {
   
   const handleForm = (data:FormTypeIsrcData) => {
     
-    calcularPrecoTotalIsrc(data, em_dia);
+    // calcularPrecoTotalIsrc(data, em_dia);
 
     const isrcMusicData = {
       data,
@@ -98,13 +95,13 @@ export default function IsrcMusic({ cpf, em_dia }:IsrcMusicProps) {
       pedidoId,
     };
     
-    processIsrcMusicData(isrcMusicData);
+    // processIsrcMusicData(isrcMusicData);
 
-    const novoPedido: FormTypeCreatePedidoIsrc = {
-      pedido: { ...data }
-    };
+    // const novoPedido: FormTypeCreatePedidoIsrc = {
+    //   pedido: { ...data }
+    // };
 
-    setPedido(novoPedido);
+    // setPedido(novoPedido);
 
     console.log('Dados do formulário isrc:', data);
   

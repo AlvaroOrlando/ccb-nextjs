@@ -4,7 +4,7 @@ interface SvLeftContainerProps {
     children: ReactNode
 }
 
-export function SvLeftContainer({ children }:SvLeftContainerProps){
+export default function SvLeftContainer({ children }:SvLeftContainerProps){
     return (
         <div 
         style={{

@@ -6,7 +6,7 @@ interface SvLeftContainerProps {
    children?: ReactNode
 }
 
-export function SvDescriptionContainer({ title,description, children }:SvLeftContainerProps){
+export default function SvDescriptionContainer({ title,description, children }:SvLeftContainerProps){
     return (
         <div 
           style={{

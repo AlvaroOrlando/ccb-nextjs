@@ -27,7 +27,7 @@ import {
     preco_socio_violao
     
 } from "@/utilities/prices";
-import { FormTypeCreateEstudioPedido, FormTypeCreateIsrcPedido, Medalha } from "../interfaces";
+import { FormTypeCreatePedidoEstudio, Medalha } from "../interfaces";
 
 type EstudioMusicDataTypes = {
     nomeMusica: string;
@@ -98,41 +98,15 @@ export function calculaPrecoEstudio(data: EstudioMusicDataTypes, servico: string
   
 }
 
-export const calcularPrecoEstudioPorMusica = (data: FormTypeCreateEstudioPedido, servico:string, em_dia:string, medalha: Medalha) => {
-  try {
-      data.musicas.forEach(musica => {
-          const precoTotal = calculaPrecoEstudio(musica, servico, em_dia, medalha);
-          musica.valor = precoTotal;
-      });
-  } catch (error) {
-      console.error('Erro ao calcular o preço de cada música:', error);
-  }
-};
-
-export const calcularPrecoTotalEstudioMusicas = (data: FormTypeCreateEstudioPedido,  servico:string, em_dia:string, medalha: Medalha): number => {
-  try {
-      const totalPrecoMusicas = data.musicas.reduce((total, musica) => {
-          return total + musica.valor;
-      }, 0);
-
-      console.log('Total do preço das músicas:', totalPrecoMusicas);
-
-      return totalPrecoMusicas; 
-  } catch (error) {
-      console.error('Erro ao calcular o preço total das músicas:', error);
-      return 0; 
-  }
-};
-
-export function calcularPrecoTotalIsrc(data: FormTypeCreateIsrcPedido, em_dia: string): void {
+// export function calcularPrecoTotalIsrc(data: FormTypeCreateIsrcPedido, em_dia: string): void {
   
-  const quantidadeMusicasIsrc = data.musicas.length;
+//   const quantidadeMusicasIsrc = data.musicas.length;
   
-  try {
-    const precoTotal = calculaPrecoIsrc(quantidadeMusicasIsrc, em_dia);
-    data.valor = precoTotal;
-  } catch (error) {
-    console.error('Erro ao calcular o preço:', error);
-  }
-}
+//   try {
+//     const precoTotal = calculaPrecoIsrc(quantidadeMusicasIsrc, em_dia);
+//     data.valor = precoTotal;
+//   } catch (error) {
+//     console.error('Erro ao calcular o preço:', error);
+//   }
+// }
 
