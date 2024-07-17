@@ -6,7 +6,7 @@ import { SetStateAction, useState } from "react"
 import { carouselHome } from "@/utilities/carousel"
 
 
-export default function CarouselHome(){
+export function CarouselHome(){
 
     
         const [index, setIndex] = useState(0);
