@@ -4,7 +4,7 @@ import associeBanner from '@/assets/images/ban_res_associe-se1.png'
 import registroBanner from '@/assets/images/ban_res_registro1.png'
 import Link from 'next/link'
 import Aside from '@/components/Aside'
-import {CarouselHome }from '@/components/Carousel'
+import { CarouselHome } from '@/components/Carousel'
 import Card from '@/components/Cards'
 
 export default function Home() {
